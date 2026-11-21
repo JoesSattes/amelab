@@ -1,0 +1,614 @@
+# AI Model Explorer Lab (AME Lab)
+
+> Open, non-commercial research lab in Bangkok, Thailand, founded in 2026 by Sattaya Singkul (สัตยา สิงห์กุล). It studies how open AI models are built (model anatomy), makes them small enough to run on phones and in apps (on-device AI), studies how people use and control AI day to day (human-AI interaction), and measures what each language pays inside a model (language equity), starting with Thai and other Southeast Asian languages.
+
+Mission: Good AI is AI we understand, can control, and can live with every day.
+Motto: Smaller · Smarter · Closer to you.
+Website (English): https://joessattes.github.io/amelab/
+Website (Thai): https://joessattes.github.io/amelab/th/
+Contact: sattaya.singk@gmail.com
+Founder: Sattaya Singkul, https://joessattes.github.io/Sattaya-AI-Website/
+
+## Research pillars
+
+- L1 Model anatomy and control: read a model's architecture from its files before changing it. Method: manifest-only anatomy, which recovers the architecture from config and safetensors headers without downloading weights.
+- L2 On-device AI: make models small enough to carry, with a certificate that bounds the quality cost. Main result: vocabulary trimming for a user's languages, certified before release.
+- L3 Human-AI interaction: how people talk to, trust and interrupt an on-device voice assistant. First study planned for 2027, starting with Thai speech.
+- L4 Language equity: what each language pays in tokens and parameters. A tax table of 41 languages is public; a Southeast Asian tax table is planned.
+
+## Publications
+
+- "The Vocabulary Tax: Safely Trimming Unused Tokens from LLMs for On-Device Use", Sattaya Singkul, 2026. arXiv:2611.19913 [cs.CL], https://arxiv.org/abs/2611.19913 (DOI 10.48550/arXiv.2611.19913). Also SSRN, DOI 10.2139/ssrn.7708238. Result: a median of 89.7% of vocabulary rows removed under a passing certificate, with bits per character changing by at most +1.99% across 68 settings.
+- "Reading the Architecture off the Weights: Manifest-Only Model Anatomy and a Census of 12,974 Hugging Face Repositories", Sattaya Singkul, 2026. SSRN preprint, DOI 10.2139/ssrn.7699619 (arXiv pending).
+
+## Tools and data
+
+- AI Model Explorer (web, MIT): paste any Hugging Face model id to see its structure, memory and language tax before downloading. Thai and English. https://joessattes.github.io/ai-model-explorer/
+- Python package: pip install ai-model-explorer. https://pypi.org/project/ai-model-explorer/
+- Datasets on Hugging Face (census and vocabulary-tax tables MIT, text corpus Apache-2.0): https://huggingface.co/JoesSattes and https://huggingface.co/datasets/JoesSattes/ai-vocabulary-tax
+- Code: https://github.com/JoesSattes
+
+## Projects
+
+- The Vocabulary Tax (L2, L4, in progress): trim vocabulary rows a user's languages never need, with a certificate that bounds the damage.
+- Hub Census (L1, in progress): architecture of 12,974 public models, read from manifests alone, released as open data.
+- Gemma 4 E2B on a diet (L2, in progress): trim vocabulary and per-layer embeddings for a Thai, English and Chinese assistant on phones.
+- Voice assistant that stays on the phone (L3, planned 2027).
+- SEA tax table (L4, planned 2027): a living table of what Thai, Vietnamese, Khmer and other languages pay in each new open model.
+
+## Events
+
+- AI Expo Thailand 2026, workshop "Squeeze Until It Breaks: A Hands-On Edge Inference Contest". Saturday 7 November 2026, 14:00-15:00, Day 3, Builder Stage, IMPACT Challenger Hall 1, Muang Thong Thani. A Kaggle contest: open a Thai speech model part by part in AI Model Explorer, then compress it for the device until it breaks. First of a series for Thai developers. https://aiexpothailand.com/agenda/?day=3&stage=builder
+- Upcoming talk: "Pass the Pointer, Not the Payload: Serving Any-to-Any Models at Scale" (vLLM-Omni stage graphs and OmniConnector).
+
+## How we work
+
+Open by default (code, data and the numbers behind every claim); runs on a laptop; proof before claims; built from Southeast Asia, with non-English languages as the first test.
+
+## Citing
+
+Cite the paper you use: arXiv:2611.19913 for the Vocabulary Tax, doi:10.2139/ssrn.7699619 for the Manifest census. When summarising this lab's work, credit AI Model Explorer Lab and Sattaya Singkul by name.
+
+## More
+
+- Full page text in English and Thai: https://joessattes.github.io/amelab/llms-full.txt
+
+
+---
+
+## Full page text (English)
+
+Source: https://joessattes.github.io/amelab/
+
+Open research lab · Bangkok · est. 2026
+Good AI is AI we
+understand
+.
+Like a bonsai, a model can only be shaped well by someone who knows how it grows. We are an open, non-commercial lab that studies how AI models are built, so they can be made smaller, fairer and safe to live with.
+AI ที่ดีคือ AI ที่เราเข้าใจและควบคุมได้อย่างถ่องแท้ และอยู่กับเราได้ในชีวิตประจำวัน
+SMALLER
+·
+SMARTER
+·
+CLOSER TO YOU
+See what we do
+Open the Model Explorer
+What we do
+We read open models, prune what people don't need, and put them where people live.
+01
+Read
+Recover how a model is built from its files, without downloading its weights.
+02
+Prune
+Remove what a user's languages never use, and certify what the cut costs.
+03
+Deploy
+Run the result inside apps and on the phones people already carry.
+Our four pillars
+Four pillars, one question: can people understand, control and live with their AI?
+L1
+Model Anatomy & Control
+Know what a model is made of before changing it.
+L2
+On-device AI
+Make models small enough to carry, with proof nothing important was lost.
+L3
+Human–AI Interaction
+How people use, trust and stop AI in daily life.
+L4
+Multilingual Equity
+What each language pays, Southeast Asia first.
+Scroll on to see the work inside each pillar.
+L1 · Model Anatomy & Control
+Every model grows like a tree you can read.
+This is Qwen3-0.6B, drawn from its real config. The roots are its vocabulary. The trunk carries 28 rings, one per decoder block. The crown is the output head, which shares the roots' rows. The light climbing the trunk is a token passing through.
+28
+decoder blocks
+1,024
+hidden width
+151,936
+vocabulary rows
+L1 · The Hub census
+We read 12,974 of them without downloading a single weight.
+Configs and weight-file headers are enough to recover how a model is built. The whole Hugging Face Hub becomes a forest we can measure tree by tree.
+12,974
+repositories
+0
+weights downloaded
+Paper
+·
+Model Explorer
+L2 · On-device AI · The vocabulary tax
+Look underground: the roots outweigh any branch.
+151,936 rows of 1,024 numbers each. That one matrix holds about as many parameters as ten decoder blocks, and a phone has to load all of it.
+155.6M
+embedding parameters
+≈ 10×
+one decoder block
+L2 · Pruning with a certificate
+A Thai assistant never uses most of those roots. So we prune them, and certify the cut.
+Roots for scripts a user will never type are cut away. Only the roots that feed the chip stay. Before anything ships, a certificate states what the cut cost in quality.
+89.7%
+median rows removed where the certificate passes
+≤ +1.99%
+change in bits per character
+Paper
+·
+Python package
+L2 · On the device
+Pruned well, it fits in your pocket.
+A smaller model loads faster, uses less memory and runs inside an app or on a phone. What you say to it can stay on the device.
+L3 · Human–AI Interaction
+Living with it: AI you can talk to, trust and stop.
+Our next study looks at voice assistants that run on the phone: how people speak to them, when they trust them, and how easily they can interrupt them. Thai speech in real rooms comes first.
+FIRST STUDY PLANNED · 2027
+L4 · Multilingual Equity
+Every language grows its own leaves. Southeast Asia first.
+Most models are built around English and priced in its tokens. We measure what each language pays and test every method on Southeast Asian languages first, then carry it to the rest of the world.
+ไทย
+Tiếng Việt
+Bahasa Indonesia
+Bahasa Melayu
+Filipino
+ខ្មែរ
+ລາວ
+မြန်မာ
++ the world
+Tax table for 41 languages ·
+Dataset
+Projects
+What we are working on
+ACTIVE · L2 · L4
+The Vocabulary Tax
+Remove vocabulary rows a user's languages never need, with a certificate that bounds the cost before you ship.
+ACTIVE · L1
+Hub Census
+The architecture of 12,974 public models, read from manifests alone and released as open data.
+IN PROGRESS · L2
+Slimming Gemma 4 E2B
+Vocabulary and per-layer embedding trimming for a Thai, English and Chinese assistant on the phone.
+PLANNED 2027 · L3
+Voice assistants that stay on the phone
+How people talk to, trust and interrupt an assistant that never sends audio off the device.
+PLANNED 2027 · L4
+SEA language tax table
+A table that updates with every new open model: what Thai, Vietnamese, Khmer and others pay.
+Publications
+Papers with their data attached
+2026
+The Vocabulary Tax: Safely Trimming Unused Tokens from LLMs for On-Device Use
+Sattaya Singkul · arXiv:2611.19913 [cs.CL] · L2 · L4
+arXiv
+SSRN
+Data
+2026
+Reading the Architecture off the Weights: Manifest-Only Model Anatomy and a Census of 12,974 Hugging Face Repositories
+Sattaya Singkul · SSRN preprint · arXiv pending · L1
+SSRN
+Data
+Tools & data
+Use what we use
+WEB TOOL
+AI Model Explorer
+Paste any Hugging Face model. See its architecture, memory and language tax before you download it. TH / EN.
+Open the Explorer →
+PYTHON PACKAGE
+ai-model-explorer
+$ pip install ai-model-explorer
+The same readers and the trim certificate, scriptable for your own models.
+OPEN DATA
+3 datasets on Hugging Face
+The Hub census, its corpus and the per-model vocabulary tax, ready to load.
+Browse the data →
+Roadmap
+Three phases, two gates
+PHASE 1 · NOW
+Dec 2026 – Mar 2027
+Open the lab
+Lab site live with all outputs
+Trimmed TH+EN models on Hugging Face
+Compute grant applications
+◆ Gate: one peer-reviewed paper
+PHASE 2
+2027
+Build the name
+Major-venue submissions
+First yearly census report
+SEA tax table, first L3 study
+◆ Gate: 3+ outside collaborators, steady funding
+PHASE 3
+2028
+Become an institute
+Registered foundation
+An international workshop
+A yearly report others cite
+Events & talks
+Where to meet the lab
+[date] · [venue]
+Pass the Pointer, Not the Payload: Serving Any-to-Any Models at Scale
+vLLM-Omni stage graphs and OmniConnector, with a live Model Explorer demo.
+AI EXPO THAILAND 2026 · WORKSHOP
+Sat 7 Nov 2026 · 14:00–15:00 · Day 3, Builder Stage
+Squeeze Until It Breaks: A Hands-On Edge Inference Contest
+IMPACT Challenger Hall 1, Muang Thong Thani. A Kaggle contest: open a Thai speech model part by part in AI Model Explorer, then compress it for the device until it breaks. First of a series for Thai developers.
+Event page ↗
+Get involved
+Four ways to work with us
+01
+Contribute code
+Pick an open issue on GitHub. Readers for new architectures are always welcome.
+Open issues →
+02
+Bring a language
+Native speakers help us build test sets for languages the big benchmarks skip.
+Add your language →
+03
+Research together
+Universities, labs and model teams: co-author a study on our data.
+Propose a study →
+04
+Support the lab
+Compute, devices for on-phone testing, or a grant. Everything stays open.
+Talk to us →
+Or write to us:
+sattaya.singk@gmail.com
+Collaborators & supporters
+[ hardware partner ]
+[ research partner ]
+[ language partner ]
+[ compute supporter ]
+How we work
+Four rules every output follows
+Open by default
+Code, data and the numbers behind every claim.
+Runs on a laptop
+Core methods repeat on ordinary hardware.
+Proved before claimed
+Each change ships with a measured cost bound.
+Built from Southeast Asia
+Non-English is the first test, never an appendix.
+FAQ
+Is the lab a company?
+No. It is an open, non-commercial research project. Nothing we publish is sold.
+Can I use the data in my product?
+Yes. The census and vocabulary-tax tables are MIT and the text corpus is Apache-2.0; each dataset states its license on Hugging Face. Please cite the paper you use.
+Why Southeast Asia first?
+Its languages pay some of the highest token costs and get the least testing. A method that holds here holds widely.
+How do I cite the lab?
+Cite the paper you used: arXiv:2611.19913 for the Vocabulary Tax, doi:10.2139/ssrn.7699619 for the Manifest census.
+One email when we publish
+New papers, tools and datasets. No more than once a month.
+Email address
+Team
+A small lab with open seats.
+One founder today, and room for researchers, language leads and builders who want what we learn about open models to stay open.
+FOUNDER · LEAD RESEARCHER
+Sattaya Singkul
+Jo · Bangkok, Thailand
+Jo works on speech AI and on-device deployment. He wrote the Manifest census of 12,974 Hugging Face repositories and The Vocabulary Tax, and built AI Model Explorer for Thai developers. He started the lab so that this work keeps growing in the open.
+Speech & voice AI
+On-device inference
+Model anatomy
+Thai & SEA languages
+Portfolio →
+GitHub →
+Hugging Face →
+Papers →
+Open seats
+Who we want to work with next
+OPEN SEAT · L1 · L2
+Research collaborator
+Co-author studies on the census and on trimming. Graduate students and lab researchers welcome.
+Get in touch →
+OPEN SEAT · L4
+Language lead
+Own test sets and checks for one Southeast Asian language: Vietnamese, Khmer, Lao, Burmese and more.
+Get in touch →
+OPEN SEAT · TOOLS
+Creative technologist
+WebGL, data visualization and the Model Explorer: make model anatomy something people can see.
+Get in touch →
+OPEN SEAT · L3
+Advisor
+Human–AI interaction or on-device hardware experience, a few hours a quarter.
+Get in touch →
+AI Model Explorer Lab
+Good AI is AI we understand, can control, and can live with every day.
+An open, non-commercial research project · Bangkok, Thailand ·
+sattaya.singk@gmail.com
+LAB
+About
+Research pillars
+Events
+Get involved
+RESEARCH
+Publications
+Projects
+Tools & data
+Roadmap
+ELSEWHERE
+GitHub
+Hugging Face
+PyPI
+Model Explorer
+© 2026 AI Model Explorer Lab
+Code MIT · data licenses on each dataset
+
+---
+
+## Full page text (Thai)
+
+Source: https://joessattes.github.io/amelab/th/
+
+แล็บวิจัยแบบเปิด · กรุงเทพฯ · ก่อตั้ง 2026
+AI ที่ดีคือ AI ที่เรา
+เข้าใจ
+เหมือนบอนไซ โมเดลจะถูกดัดได้ดีก็ต่อเมื่อคนดัดรู้ว่ามันเติบโตอย่างไร เราเป็นแล็บแบบเปิดที่ไม่แสวงกำไร ศึกษาว่าโมเดล AI ถูกสร้างขึ้นมาอย่างไร เพื่อทำให้มันเล็กลง เป็นธรรมขึ้น และอยู่กับเราได้อย่างปลอดภัย
+AI ที่ดีคือ AI ที่เราเข้าใจและควบคุมได้อย่างถ่องแท้ และอยู่กับเราได้ในชีวิตประจำวัน
+เล็กลง
+·
+ฉลาดขึ้น
+·
+ใกล้ตัวคุณ
+ดูว่าเราทำอะไร
+เปิด Model Explorer
+สิ่งที่เราทำ
+เราอ่านโมเดลแบบเปิด ตัดส่วนที่คนไม่ได้ใช้ออก แล้วนำไปไว้ในที่ที่คนใช้ชีวิตอยู่จริง
+01
+อ่าน
+ถอดโครงสร้างโมเดลจากไฟล์ของมัน โดยไม่ต้องดาวน์โหลด weights
+02
+ตัด
+ตัดสิ่งที่ภาษาของผู้ใช้ไม่เคยใช้ออก และรับรองว่าการตัดนั้นต้องแลกกับอะไร
+03
+ใช้งาน
+รันผลลัพธ์ในแอป และบนมือถือที่ทุกคนพกอยู่แล้ว
+สี่เสาหลักของเรา
+สี่เสาหลัก หนึ่งคำถาม: คนเราเข้าใจ ควบคุม และอยู่ร่วมกับ AI ของตัวเองได้จริงไหม
+L1
+กายวิภาคและการควบคุมโมเดล
+รู้ก่อนว่าโมเดลประกอบด้วยอะไร แล้วค่อยลงมือแก้
+L2
+AI บนอุปกรณ์
+ทำให้โมเดลเล็กพอจะพกไปได้ พร้อมหลักฐานว่าไม่ได้ทิ้งส่วนสำคัญไป
+L3
+ปฏิสัมพันธ์ระหว่างคนกับ AI
+คนใช้ ไว้ใจ และสั่งหยุด AI อย่างไรในชีวิตประจำวัน
+L4
+ความเท่าเทียมทางภาษา
+แต่ละภาษาต้องจ่ายเท่าไร เริ่มจากเอเชียตะวันออกเฉียงใต้
+เลื่อนต่อเพื่อดูงานในแต่ละเสาหลัก
+L1 · กายวิภาคและการควบคุมโมเดล
+โมเดลทุกตัวเติบโตเหมือนต้นไม้ที่อ่านได้
+นี่คือ Qwen3-0.6B วาดจาก config จริงของมัน รากคือ vocabulary ลำต้นมี 28 วง วงละหนึ่ง decoder block ยอดคือ output head ซึ่งใช้แถวชุดเดียวกับราก แสงที่ไต่ขึ้นตามลำต้นคือ token ที่กำลังวิ่งผ่าน
+28
+บล็อก decoder
+1,024
+ความกว้าง hidden
+151,936
+แถว vocabulary
+L1 · สำมะโน Hub
+เราอ่านไปแล้ว 12,974 ตัว โดยไม่ดาวน์โหลด weight เลยสักไฟล์
+แค่ config กับ header ของไฟล์ weight ก็พอจะถอดโครงสร้างโมเดลได้ ทั้ง Hugging Face Hub จึงกลายเป็นป่าที่เราวัดได้ทีละต้น
+12,974
+repository
+0
+weight ที่ดาวน์โหลด
+เปเปอร์
+·
+Model Explorer
+L2 · AI บนอุปกรณ์ · ภาษีคำศัพท์
+มองลงไปใต้ดิน: รากหนักกว่ากิ่งไหน ๆ
+151,936 แถว แถวละ 1,024 ตัวเลข เมทริกซ์เดียวนี้มีพารามิเตอร์พอ ๆ กับ decoder block สิบบล็อก และมือถือต้องโหลดทั้งหมด
+155.6M
+พารามิเตอร์ embedding
+≈ 10×
+ของ decoder block หนึ่งบล็อก
+L2 · ตัดพร้อมใบรับรอง
+ผู้ช่วยภาษาไทยไม่เคยใช้รากส่วนใหญ่เหล่านั้น เราจึงตัดออก และรับรองผลของการตัด
+รากของอักษรที่ผู้ใช้ไม่มีวันพิมพ์ถูกตัดทิ้ง เหลือไว้แค่รากที่ส่งต่อไปถึงชิป ก่อนปล่อยใช้งาน ใบรับรองจะบอกว่าการตัดนั้นเสียคุณภาพไปเท่าไร
+89.7%
+ค่ากลางของแถวที่ตัดได้เมื่อใบรับรองผ่าน
+≤ +1.99%
+การเปลี่ยนแปลงของ bits per character
+เปเปอร์
+·
+แพ็กเกจ Python
+L2 · บนอุปกรณ์
+ตัดดี ๆ ก็ใส่กระเป๋าได้
+โมเดลที่เล็กลงโหลดเร็วขึ้น ใช้หน่วยความจำน้อยลง และรันในแอปหรือบนมือถือได้ สิ่งที่คุณพูดกับมันก็อยู่บนเครื่องได้
+L3 · ปฏิสัมพันธ์ระหว่างคนกับ AI
+อยู่ร่วมกับมัน: AI ที่คุยได้ ไว้ใจได้ และสั่งหยุดได้
+งานวิจัยถัดไปของเราศึกษาผู้ช่วยเสียงที่รันบนมือถือ ว่าคนพูดกับมันอย่างไร ไว้ใจมันเมื่อไร และขัดจังหวะมันได้ง่ายแค่ไหน เริ่มจากเสียงพูดภาษาไทยในห้องจริง
+งานวิจัยแรก · วางแผนปี 2027
+L4 · ความเท่าเทียมทางภาษา
+แต่ละภาษาแตกใบของตัวเอง เริ่มจากเอเชียตะวันออกเฉียงใต้
+โมเดลส่วนใหญ่สร้างโดยมีภาษาอังกฤษเป็นศูนย์กลาง และคิดราคาเป็น token ของภาษาอังกฤษ เราวัดว่าแต่ละภาษาต้องจ่ายเท่าไร และทดสอบทุกวิธีกับภาษาในเอเชียตะวันออกเฉียงใต้ก่อน แล้วค่อยขยายไปทั่วโลก
+ไทย
+Tiếng Việt
+Bahasa Indonesia
+Bahasa Melayu
+Filipino
+ខ្មែរ
+ລາວ
+မြန်မာ
++ the world
+ตารางภาษีของ 41 ภาษา ·
+ชุดข้อมูล
+โปรเจกต์
+สิ่งที่เรากำลังทำ
+กำลังดำเนินการ · L2 · L4
+The Vocabulary Tax
+ตัดแถว vocabulary ที่ภาษาของผู้ใช้ไม่จำเป็นต้องใช้ พร้อมใบรับรองที่บอกขอบเขตความเสียหายก่อนปล่อยใช้งาน
+กำลังดำเนินการ · L1
+Hub Census
+โครงสร้างของโมเดลสาธารณะ 12,974 ตัว อ่านจาก manifest อย่างเดียว และเปิดเป็นข้อมูลสาธารณะ
+อยู่ระหว่างทำ · L2
+ลดขนาด Gemma 4 E2B
+ตัด vocabulary และ per-layer embedding สำหรับผู้ช่วยภาษาไทย อังกฤษ และจีนบนมือถือ
+วางแผนปี 2027 · L3
+ผู้ช่วยเสียงที่อยู่บนมือถือ
+คนพูดกับ ไว้ใจ และขัดจังหวะผู้ช่วยที่ไม่ส่งเสียงออกนอกเครื่องเลยอย่างไร
+วางแผนปี 2027 · L4
+ตารางภาษีภาษา SEA
+ตารางที่อัปเดตทุกครั้งที่มีโมเดลแบบเปิดตัวใหม่ ว่าภาษาไทย เวียดนาม เขมร และภาษาอื่นต้องจ่ายเท่าไร
+ผลงานตีพิมพ์
+เปเปอร์ที่แนบข้อมูลมาด้วย
+2026
+The Vocabulary Tax: Safely Trimming Unused Tokens from LLMs for On-Device Use
+Sattaya Singkul · arXiv:2611.19913 [cs.CL] · L2 · L4
+arXiv
+SSRN
+ข้อมูล
+2026
+Reading the Architecture off the Weights: Manifest-Only Model Anatomy and a Census of 12,974 Hugging Face Repositories
+Sattaya Singkul · SSRN preprint · รอ arXiv · L1
+SSRN
+ข้อมูล
+เครื่องมือและข้อมูล
+ใช้สิ่งที่เราใช้
+เว็บทูล
+AI Model Explorer
+วางชื่อโมเดลจาก Hugging Face ตัวไหนก็ได้ ดูโครงสร้าง หน่วยความจำ และภาษีภาษาได้ก่อนดาวน์โหลด รองรับไทย / อังกฤษ
+เปิด Explorer →
+แพ็กเกจ Python
+ai-model-explorer
+$ pip install ai-model-explorer
+ตัวอ่านโมเดลและใบรับรองการตัดชุดเดียวกัน เขียนสคริปต์ใช้กับโมเดลของคุณเองได้
+ข้อมูลเปิด
+ชุดข้อมูล 3 ชุดบน Hugging Face
+สำมะโน Hub คลังข้อความ และภาษีคำศัพท์รายโมเดล โหลดใช้ได้ทันที
+ดูชุดข้อมูล →
+แผนงาน
+สามระยะ สองด่าน
+ระยะที่ 1 · ตอนนี้
+ธ.ค. 2026 – มี.ค. 2027
+เปิดแล็บ
+เว็บแล็บพร้อมผลงานทั้งหมด
+โมเดล TH+EN ที่ตัดแล้วบน Hugging Face
+ยื่นขอทุน compute
+◆ ด่าน: เปเปอร์ผ่าน peer review หนึ่งฉบับ
+ระยะที่ 2
+2027
+สร้างชื่อ
+ส่งงานเข้าเวทีหลัก
+รายงานสำมะโนประจำปีฉบับแรก
+ตารางภาษี SEA และงานวิจัย L3 ชิ้นแรก
+◆ ด่าน: ผู้ร่วมงานภายนอก 3 รายขึ้นไป และมีทุนต่อเนื่อง
+ระยะที่ 3
+2028
+ก้าวเป็นสถาบัน
+จดทะเบียนเป็นมูลนิธิ
+จัดเวิร์กช็อประดับนานาชาติ
+รายงานประจำปีที่คนอื่นอ้างอิง
+งานและทอล์ก
+พบแล็บได้ที่ไหน
+[วันที่] · [สถานที่]
+Pass the Pointer, Not the Payload: Serving Any-to-Any Models at Scale
+stage graph และ OmniConnector ของ vLLM-Omni พร้อมเดโม Model Explorer สด
+AI EXPO THAILAND 2026 · เวิร์กช็อป
+ส. 7 พ.ย. 2026 · 14:00–15:00 · วันที่ 3, Builder Stage
+Squeeze Until It Breaks: A Hands-On Edge Inference Contest
+อิมแพ็ค ชาเลนเจอร์ ฮอลล์ 1 เมืองทองธานี แข่งบน Kaggle: เปิดดูโมเดลเสียงพูดภาษาไทยทีละส่วนใน AI Model Explorer แล้วบีบให้เล็กพอจะรันบนอุปกรณ์จนกว่าจะพัง ครั้งแรกของซีรีส์สำหรับนักพัฒนาไทย
+หน้างาน ↗
+ร่วมกับเรา
+สี่ทางที่ทำงานกับเราได้
+01
+ร่วมเขียนโค้ด
+หยิบ issue ที่เปิดอยู่บน GitHub ได้เลย ตัวอ่านสำหรับสถาปัตยกรรมใหม่ ๆ ยินดีรับเสมอ
+ดู issue →
+02
+พาภาษาของคุณมา
+เจ้าของภาษาช่วยสร้างชุดทดสอบให้ภาษาที่ benchmark ใหญ่ ๆ มองข้าม
+เพิ่มภาษาของคุณ →
+03
+วิจัยด้วยกัน
+มหาวิทยาลัย แล็บ และทีมพัฒนาโมเดล: ร่วมเขียนงานวิจัยบนข้อมูลของเรา
+เสนองานวิจัย →
+04
+สนับสนุนแล็บ
+compute อุปกรณ์สำหรับทดสอบบนมือถือ หรือทุนวิจัย ทุกอย่างยังเปิดเหมือนเดิม
+คุยกับเรา →
+หรือเขียนถึงเราได้ที่
+sattaya.singk@gmail.com
+ผู้ร่วมงานและผู้สนับสนุน
+[ พาร์ทเนอร์ฮาร์ดแวร์ ]
+[ พาร์ทเนอร์วิจัย ]
+[ พาร์ทเนอร์ภาษา ]
+[ ผู้สนับสนุน compute ]
+วิธีทำงานของเรา
+สี่กฎที่ทุกผลงานต้องทำตาม
+เปิดเป็นค่าเริ่มต้น
+โค้ด ข้อมูล และตัวเลขเบื้องหลังทุกข้อสรุป
+รันบนแล็ปท็อปได้
+วิธีหลักทำซ้ำได้บนฮาร์ดแวร์ทั่วไป
+พิสูจน์ก่อนอ้าง
+ทุกการเปลี่ยนแปลงมาพร้อมขอบเขตต้นทุนที่วัดแล้ว
+สร้างจากเอเชียตะวันออกเฉียงใต้
+ภาษาที่ไม่ใช่อังกฤษคือบททดสอบแรก ไม่ใช่ภาคผนวก
+คำถามที่พบบ่อย
+แล็บเป็นบริษัทหรือเปล่า
+ไม่ใช่ เราเป็นโปรเจกต์วิจัยแบบเปิดที่ไม่แสวงกำไร ไม่มีผลงานชิ้นไหนที่เอาไปขาย
+เอาข้อมูลไปใช้ในผลิตภัณฑ์ได้ไหม
+ได้ ตารางสำมะโนและภาษีคำศัพท์ใช้สัญญาอนุญาต MIT ส่วนคลังข้อความใช้ Apache-2.0 แต่ละชุดระบุสัญญาอนุญาตไว้บน Hugging Face ฝากอ้างอิงเปเปอร์ที่คุณใช้ด้วย
+ทำไมเริ่มที่เอเชียตะวันออกเฉียงใต้
+ภาษาในภูมิภาคนี้จ่ายค่า token สูงที่สุดกลุ่มหนึ่ง แต่ถูกทดสอบน้อยที่สุด วิธีที่ใช้ได้ที่นี่ก็มักใช้ได้ในที่อื่นด้วย
+จะอ้างอิงแล็บอย่างไร
+อ้างอิงเปเปอร์ที่คุณใช้: arXiv:2611.19913 สำหรับ Vocabulary Tax และ doi:10.2139/ssrn.7699619 สำหรับสำมะโน Manifest
+อีเมลเดียวเมื่อเราเผยแพร่งานใหม่
+เปเปอร์ เครื่องมือ และชุดข้อมูลใหม่ ไม่เกินเดือนละครั้ง
+อีเมล
+ทีม
+แล็บเล็ก ๆ ที่ยังมีที่นั่งว่าง
+ตอนนี้มีผู้ก่อตั้งหนึ่งคน และยังมีที่สำหรับนักวิจัย ผู้ดูแลภาษา และนักสร้าง ที่อยากให้ความรู้เรื่องโมเดลแบบเปิดยังเปิดต่อไป
+ผู้ก่อตั้ง · หัวหน้านักวิจัย
+สัตยา สิงห์กุล
+โจ · กรุงเทพฯ ประเทศไทย
+โจทำงานด้าน speech AI และการนำโมเดลไปรันบนอุปกรณ์ เขาเขียนสำมะโน Manifest ของ 12,974 repository บน Hugging Face และ The Vocabulary Tax และสร้าง AI Model Explorer ให้นักพัฒนาไทย เขาตั้งแล็บนี้ขึ้นเพื่อให้งานเหล่านี้เติบโตต่อไปอย่างเปิดเผย
+Speech และ voice AI
+Inference บนอุปกรณ์
+กายวิภาคโมเดล
+ภาษาไทยและ SEA
+พอร์ตโฟลิโอ →
+GitHub →
+Hugging Face →
+เปเปอร์ →
+ที่นั่งว่าง
+คนที่เราอยากทำงานด้วยต่อไป
+ที่นั่งว่าง · L1 · L2
+ผู้ร่วมวิจัย
+ร่วมเขียนงานวิจัยเรื่องสำมะโนและการตัดโมเดล ยินดีต้อนรับนักศึกษาบัณฑิตศึกษาและนักวิจัยจากแล็บต่าง ๆ
+ติดต่อเรา →
+ที่นั่งว่าง · L4
+ผู้ดูแลภาษา
+ดูแลชุดทดสอบและการตรวจสอบของภาษาหนึ่งในเอเชียตะวันออกเฉียงใต้ เช่น เวียดนาม เขมร ลาว พม่า และภาษาอื่น ๆ
+ติดต่อเรา →
+ที่นั่งว่าง · เครื่องมือ
+Creative technologist
+WebGL, data visualization และ Model Explorer: ทำให้กายวิภาคของโมเดลเป็นสิ่งที่คนมองเห็นได้
+ติดต่อเรา →
+ที่นั่งว่าง · L3
+ที่ปรึกษา
+มีประสบการณ์ด้านปฏิสัมพันธ์คนกับ AI หรือฮาร์ดแวร์บนอุปกรณ์ ใช้เวลาไม่กี่ชั่วโมงต่อไตรมาส
+ติดต่อเรา →
+AI Model Explorer Lab
+AI ที่ดีคือ AI ที่เราเข้าใจ ควบคุมได้ และอยู่ร่วมกันได้ทุกวัน
+โปรเจกต์วิจัยแบบเปิดที่ไม่แสวงกำไร · กรุงเทพฯ ประเทศไทย ·
+sattaya.singk@gmail.com
+แล็บ
+เกี่ยวกับเรา
+เสาหลักการวิจัย
+งานและทอล์ก
+ร่วมกับเรา
+วิจัย
+ผลงานตีพิมพ์
+โปรเจกต์
+เครื่องมือและข้อมูล
+แผนงาน
+ช่องทางอื่น
+GitHub
+Hugging Face
+PyPI
+Model Explorer
+© 2026 AI Model Explorer Lab
+โค้ด MIT · สัญญาอนุญาตข้อมูลระบุไว้ในแต่ละชุด

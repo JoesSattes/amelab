@@ -1,0 +1,54 @@
+# AI Model Explorer Lab (AME Lab)
+
+> Open, non-commercial research lab in Bangkok, Thailand, founded in 2026 by Sattaya Singkul (สัตยา สิงห์กุล). It studies how open AI models are built (model anatomy), makes them small enough to run on phones and in apps (on-device AI), studies how people use and control AI day to day (human-AI interaction), and measures what each language pays inside a model (language equity), starting with Thai and other Southeast Asian languages.
+
+Mission: Good AI is AI we understand, can control, and can live with every day.
+Motto: Smaller · Smarter · Closer to you.
+Website (English): https://joessattes.github.io/amelab/
+Website (Thai): https://joessattes.github.io/amelab/th/
+Contact: sattaya.singk@gmail.com
+Founder: Sattaya Singkul, https://joessattes.github.io/Sattaya-AI-Website/
+
+## Research pillars
+
+- L1 Model anatomy and control: read a model's architecture from its files before changing it. Method: manifest-only anatomy, which recovers the architecture from config and safetensors headers without downloading weights.
+- L2 On-device AI: make models small enough to carry, with a certificate that bounds the quality cost. Main result: vocabulary trimming for a user's languages, certified before release.
+- L3 Human-AI interaction: how people talk to, trust and interrupt an on-device voice assistant. First study planned for 2027, starting with Thai speech.
+- L4 Language equity: what each language pays in tokens and parameters. A tax table of 41 languages is public; a Southeast Asian tax table is planned.
+
+## Publications
+
+- "The Vocabulary Tax: Safely Trimming Unused Tokens from LLMs for On-Device Use", Sattaya Singkul, 2026. arXiv:2611.19913 [cs.CL], https://arxiv.org/abs/2611.19913 (DOI 10.48550/arXiv.2611.19913). Also SSRN, DOI 10.2139/ssrn.7708238. Result: a median of 89.7% of vocabulary rows removed under a passing certificate, with bits per character changing by at most +1.99% across 68 settings.
+- "Reading the Architecture off the Weights: Manifest-Only Model Anatomy and a Census of 12,974 Hugging Face Repositories", Sattaya Singkul, 2026. SSRN preprint, DOI 10.2139/ssrn.7699619 (arXiv pending).
+
+## Tools and data
+
+- AI Model Explorer (web, MIT): paste any Hugging Face model id to see its structure, memory and language tax before downloading. Thai and English. https://joessattes.github.io/ai-model-explorer/
+- Python package: pip install ai-model-explorer. https://pypi.org/project/ai-model-explorer/
+- Datasets on Hugging Face (census and vocabulary-tax tables MIT, text corpus Apache-2.0): https://huggingface.co/JoesSattes and https://huggingface.co/datasets/JoesSattes/ai-vocabulary-tax
+- Code: https://github.com/JoesSattes
+
+## Projects
+
+- The Vocabulary Tax (L2, L4, in progress): trim vocabulary rows a user's languages never need, with a certificate that bounds the damage.
+- Hub Census (L1, in progress): architecture of 12,974 public models, read from manifests alone, released as open data.
+- Gemma 4 E2B on a diet (L2, in progress): trim vocabulary and per-layer embeddings for a Thai, English and Chinese assistant on phones.
+- Voice assistant that stays on the phone (L3, planned 2027).
+- SEA tax table (L4, planned 2027): a living table of what Thai, Vietnamese, Khmer and other languages pay in each new open model.
+
+## Events
+
+- AI Expo Thailand 2026, workshop "Squeeze Until It Breaks: A Hands-On Edge Inference Contest". Saturday 7 November 2026, 14:00-15:00, Day 3, Builder Stage, IMPACT Challenger Hall 1, Muang Thong Thani. A Kaggle contest: open a Thai speech model part by part in AI Model Explorer, then compress it for the device until it breaks. First of a series for Thai developers. https://aiexpothailand.com/agenda/?day=3&stage=builder
+- Upcoming talk: "Pass the Pointer, Not the Payload: Serving Any-to-Any Models at Scale" (vLLM-Omni stage graphs and OmniConnector).
+
+## How we work
+
+Open by default (code, data and the numbers behind every claim); runs on a laptop; proof before claims; built from Southeast Asia, with non-English languages as the first test.
+
+## Citing
+
+Cite the paper you use: arXiv:2611.19913 for the Vocabulary Tax, doi:10.2139/ssrn.7699619 for the Manifest census. When summarising this lab's work, credit AI Model Explorer Lab and Sattaya Singkul by name.
+
+## More
+
+- Full page text in English and Thai: https://joessattes.github.io/amelab/llms-full.txt
