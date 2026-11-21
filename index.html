@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Model Explorer Lab</title>
+<meta name="description" content="AI Model Explorer Lab is an open, non-commercial research lab in Bangkok. We read the anatomy of open AI models, trim what people don't need, and bring them onto phones, starting with Southeast Asian languages.">
+<link rel="canonical" href="https://joessattes.github.io/amelab/">
+<meta property="og:title" content="AI Model Explorer Lab">
+<meta property="og:description" content="Good AI is AI we understand, can control, and can live with every day.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://joessattes.github.io/amelab/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ResearchOrganization","name":"AI Model Explorer Lab","alternateName":"AME Lab","url":"https://joessattes.github.io/amelab/","description":"Open, non-commercial research on model anatomy, on-device AI, human-AI interaction and multilingual equity, piloted in Southeast Asia.","location":{"@type":"Place","name":"Bangkok, Thailand"},"sameAs":["https://github.com/JoesSattes","https://huggingface.co/JoesSattes"]}
+</script>
+<script type="importmap">
+{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: one sticky WebGL stage tells the story while chapter cards scroll over it; regular sections follow. Single dark "specimen" theme. */
+:root{
+  --abyss:#040D18; --deep:#0A1A2C; --line:#163049;
+  --blue:#2E7CF6; --tq:#19D3C5; --ice:#E8F4F7; --mist:#93A9BC; --soft:#B9CCDA;
+  --display:'Chakra Petch','IBM Plex Sans Thai',system-ui,sans-serif;
+  --body:'IBM Plex Sans Thai',system-ui,sans-serif;
+  --mono:'IBM Plex Mono','IBM Plex Sans Thai',ui-monospace,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{background:var(--abyss)}
+body{margin:0;background:var(--abyss);color:var(--ice);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--tq);text-decoration:none}
+a:hover{color:#7CEDE3}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--tq);outline-offset:3px;border-radius:6px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;letter-spacing:-.01em}
+.mono{font-family:var(--mono)}
+.eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:.14em;color:var(--tq);text-transform:uppercase;margin:0 0 14px}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 22px;border-radius:10px;font-weight:600;font-size:15px;border:1px solid transparent;cursor:pointer}
+.btn-primary{background:var(--tq);color:#03201D}
+.btn-primary:hover{background:#4BE3D7;color:#03201D}
+.btn-ghost{border-color:var(--blue);color:var(--ice);background:rgba(4,13,24,.55)}
+.btn-ghost:hover{color:var(--ice);border-color:var(--tq)}
+
+/* header */
+.site-head{position:fixed;inset:0 0 auto 0;z-index:20;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+.site-head.solid{background:rgba(4,13,24,.86);backdrop-filter:blur(10px);border-color:var(--line)}
+.head-in{max-width:1280px;margin:0 auto;padding:14px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px}
+.logo{display:flex;align-items:center;gap:12px;color:var(--ice)}
+.logo b{font-family:var(--display);font-weight:600;font-size:17px;letter-spacing:.01em}
+.logo small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--mist)}
+.nav{display:flex;flex-wrap:wrap;align-items:center;gap:6px 22px;font-size:14px}
+.nav a{color:var(--soft)}
+.lang-btn{font:500 12px var(--mono);letter-spacing:.08em;color:var(--ice);background:transparent;border:1px solid var(--line);border-radius:999px;padding:7px 12px;cursor:pointer;transition:border-color .2s,color .2s}
+.lang-btn:hover,.lang-btn:focus-visible{border-color:var(--tq);color:var(--tq)}
+.head-in .nav{margin-left:auto}
+@media (max-width:860px){.head-in .lang-btn{order:2;margin-left:auto}.head-in .nav{order:3;flex-basis:100%;margin-left:0}.hud-spec{display:none}}
+html[lang="th"] h1,html[lang="th"] h2,html[lang="th"] h3{letter-spacing:0;line-height:1.3}
+html[lang="th"] .hero-card h1{line-height:1.15}
+html[lang="th"] .eyebrow,html[lang="th"] .logo small{letter-spacing:.04em}
+html[lang="th"] .hero-card .th{display:none}
+.nav a:hover{color:var(--ice)}
+.nav .btn{min-height:40px;padding:0 16px;font-size:14px}
+
+/* story */
+.story{position:relative}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;z-index:1;background:radial-gradient(70% 70% at 70% 55%,rgba(46,124,246,.18),rgba(4,13,24,0) 70%),var(--abyss)}
+.stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.grid-floor{position:absolute;inset:0;background-image:linear-gradient(rgba(46,124,246,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(46,124,246,.05) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(80% 70% at 50% 60%,#000,transparent)}
+.corner{position:absolute;width:26px;height:26px;border-color:var(--blue);border-style:solid;opacity:.8}
+.c-tl{top:86px;left:24px;border-width:1.5px 0 0 1.5px}.c-tr{top:86px;right:24px;border-width:1.5px 1.5px 0 0}
+.c-bl{bottom:24px;left:24px;border-width:0 0 1.5px 1.5px}.c-br{bottom:24px;right:24px;border-width:0 1.5px 1.5px 0}
+.hud{position:absolute;font-family:var(--mono);font-size:12px;color:var(--mist);line-height:1.8;pointer-events:none}
+.hud-spec{top:96px;left:56px}
+.hud-spec strong{color:var(--ice);font-weight:500}
+.hud-read{bottom:40px;left:56px;display:flex;flex-wrap:wrap;gap:6px 26px}
+.hud-read .row{display:flex;gap:8px}
+.hud-read .v{color:var(--ice);font-variant-numeric:tabular-nums}
+.hud-read .v.tq{color:var(--tq)}
+.chapters{position:fixed;right:30px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:6px;z-index:15;transition:opacity .3s}
+.chapters.off{opacity:0;pointer-events:none}
+.chapters button{display:flex;align-items:center;justify-content:flex-end;gap:10px;min-height:28px;padding:0;border:0;background:none;color:var(--mist);font-family:var(--mono);font-size:11px;cursor:pointer}
+.chapters button span{opacity:0;transform:translateX(6px);transition:.25s}
+.chapters button i{width:8px;height:8px;border-radius:50%;border:1.5px solid var(--mist);transition:.25s}
+.chapters button:hover span,.chapters button.on span{opacity:1;transform:none}
+.chapters button.on{color:var(--tq)}
+.chapters button.on i{background:var(--tq);border-color:var(--tq);box-shadow:0 0 10px var(--tq)}
+.progress{position:absolute;left:0;top:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--tq));width:0}
+.phone{position:absolute;top:50%;left:70%;width:250px;height:510px;transform:translate(-50%,-50%);opacity:0;pointer-events:none}
+.cert{position:absolute;top:110px;right:80px;border:1.5px solid var(--tq);color:var(--tq);border-radius:12px;padding:10px 14px;font-family:var(--mono);font-size:11.5px;line-height:1.6;background:rgba(25,211,197,.06);opacity:0;transform:rotate(-4deg)}
+.cert b{display:block;font-size:13px;letter-spacing:.12em}
+.scroll-cue{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--mist);display:flex;flex-direction:column;align-items:center;gap:8px}
+.scroll-cue i{width:1px;height:34px;background:linear-gradient(var(--tq),transparent);animation:cue 2s ease-in-out infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+.steps{position:relative;z-index:2;margin-top:-100vh;margin-top:-100svh}
+.step{min-height:100vh;min-height:100svh;display:flex;align-items:center;padding:96px 7vw 64px}
+.step.right{justify-content:flex-end}
+.card{max-width:460px;border:1px solid var(--line);border-radius:18px;padding:30px 32px;background:rgba(4,13,24,.74);backdrop-filter:blur(10px)}
+.card h2{font-size:clamp(28px,3.2vw,40px);line-height:1.1;font-weight:600}
+.card p{margin:14px 0 0;color:var(--soft)}
+.card .fig{margin-top:18px;display:flex;flex-wrap:wrap;gap:10px 22px;font-family:var(--mono);font-size:12.5px;color:var(--mist)}
+.card .fig b{display:block;font-family:var(--display);font-size:26px;font-weight:600;color:var(--ice);font-variant-numeric:tabular-nums}
+.card .fig b.tq{color:var(--tq)}
+.hero-card{max-width:620px;padding:0;border:0;background:none;backdrop-filter:none}
+.hero-card h1{font-size:clamp(44px,6.6vw,92px);line-height:.98;font-weight:700;letter-spacing:-.025em}
+.hero-card h1 em{font-style:normal;color:var(--tq)}
+.hero-card .lead{margin:24px 0 0;font-size:clamp(17px,1.5vw,20px);color:var(--soft);max-width:540px}
+.hero-card .th{margin:10px 0 0;color:var(--mist);font-size:15px}
+.cta{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px}
+.langs{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.langs span{padding:6px 14px;border-radius:999px;border:1px solid var(--tq);color:var(--tq);font-size:14px}
+.langs span.more{border-style:dashed;border-color:var(--blue);color:var(--mist)}
+.pill-list{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:10px}
+.pill-list li{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:baseline;border-top:1px solid var(--line);padding-top:10px}
+.pill-list span{font-family:var(--mono);font-size:12px;color:var(--tq)}
+.pill-list b{font-family:var(--display);font-weight:600;font-size:17px}
+.pill-list p{margin:2px 0 0;font-size:14px;color:var(--soft)}
+.card .note{margin-top:16px;font-family:var(--mono);font-size:12.5px;color:var(--mist)}
+
+/* sections */
+.wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+.sec{position:relative;z-index:3;background:var(--abyss);padding:110px 0 30px}
+.sec h2.big{font-size:clamp(32px,4vw,52px);line-height:1.05;font-weight:600;max-width:820px}
+.sec-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:16px;margin-bottom:40px}
+.sec-head a{font-family:var(--mono);font-size:13px}
+.grid{display:grid;gap:20px}
+.g4{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.g2{grid-template-columns:repeat(auto-fit,minmax(380px,1fr))}
+.tile{border:1px solid var(--line);border-radius:18px;padding:28px;background:linear-gradient(180deg,#0B2034,var(--deep));display:flex;flex-direction:column;gap:12px;color:var(--ice);transition:border-color .2s,transform .2s}
+a.tile:hover{border-color:var(--blue);transform:translateY(-3px);color:var(--ice)}
+.tile .tag{font-family:var(--mono);font-size:12px;color:var(--blue)}
+.tile .tag.tq{color:var(--tq)}
+.tile h3{font-size:22px;font-weight:600;line-height:1.25}
+.tile p{margin:0;color:var(--soft);font-size:15px}
+.tile ul{margin:0;padding-left:18px;color:var(--mist);font-size:14px}
+.tile .foot{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);font-family:var(--mono);font-size:12px;color:var(--mist)}
+.code{font-family:var(--mono);font-size:13px;color:var(--soft);background:var(--abyss);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+.status{display:inline-flex;font-family:var(--mono);font-size:11px;border-radius:6px;padding:2px 8px;width:max-content}
+.s-active{background:var(--tq);color:#03201D}.s-prog{background:var(--blue);color:var(--ice)}.s-plan{border:1px dashed var(--mist);color:var(--mist)}
+.pubs{border-top:1px solid var(--line)}
+.pub{display:flex;flex-wrap:wrap;gap:10px 28px;align-items:baseline;padding:24px 0;border-bottom:1px solid var(--line)}
+.pub .yr{width:60px;font-family:var(--mono);font-size:13px;color:var(--mist)}
+.pub .t{flex:1 1 520px;min-width:0}
+.pub .t b{display:block;font-family:var(--display);font-size:20px;font-weight:600;line-height:1.3}
+.pub .t small{color:var(--mist);font-size:14px}
+.pub .l{display:flex;gap:14px;font-family:var(--mono);font-size:13px}
+.road{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;position:relative}
+.phase{border:1px solid var(--line);border-radius:18px;padding:26px;background:var(--deep)}
+.phase.now{border-color:var(--tq);background:rgba(25,211,197,.06)}
+.phase .top{display:flex;justify-content:space-between;font-family:var(--mono);font-size:12px;color:var(--mist)}
+.phase .top b{font-weight:500;color:var(--blue)}.phase.now .top b{color:var(--tq)}
+.phase h3{margin:10px 0;font-size:22px;font-weight:600}
+.phase ul{margin:0;padding-left:18px;color:var(--soft);font-size:15px}
+.phase .gate{margin-top:16px;padding-top:12px;border-top:1px dashed var(--line);font-family:var(--mono);font-size:12px;color:var(--mist)}
+.event{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--deep);color:inherit;text-decoration:none;transition:border-color .3s,transform .3s}
+a.event:hover{border-color:var(--tq);transform:translateY(-3px)}
+.ev-media{aspect-ratio:16/9;background:var(--abyss);overflow:hidden}
+.ev-media img{width:100%;height:100%;object-fit:contain;display:block;transition:transform .5s}
+a.event:hover .ev-media img{transform:scale(1.03)}
+.ev-stub{display:flex;flex-direction:column;justify-content:flex-end;gap:6px;padding:26px;border-bottom:1px dashed var(--blue);background:radial-gradient(120% 90% at 100% 0%,rgba(45,212,191,.22),transparent 60%),radial-gradient(90% 80% at 0% 100%,rgba(59,130,246,.25),transparent 60%),var(--abyss)}
+.ev-stub span{font-size:11px;letter-spacing:.12em;color:var(--tq)}.ev-stub b{font-size:clamp(28px,3.4vw,40px);font-weight:600;line-height:1.05}.ev-stub i{font-style:normal;color:var(--mist);font-size:14px}
+.ev-body{padding:22px 24px 24px;display:flex;flex-direction:column;gap:8px;flex:1}
+.ev-meta{margin:0;display:flex;flex-direction:column;gap:4px;font-size:12px}
+.ev-event{color:var(--tq);letter-spacing:.08em}.ev-when{color:var(--blue)}.ev-when.tba{border:1px dashed var(--blue);border-radius:6px;padding:2px 8px;align-self:flex-start}
+.event h3{margin:2px 0;font-size:19px;font-weight:600}
+.event p{margin:0;font-size:14px;color:var(--mist)}
+.ev-link{margin-top:auto;padding-top:8px;font-size:14px;color:var(--tq)}
+.involve{border:1px solid var(--line);border-radius:22px;padding:48px;background:linear-gradient(135deg,#0A1F33,#071523)}
+.involve .n{font-family:var(--mono);font-size:12px;color:var(--tq)}
+.involve h3{font-size:20px;font-weight:600;margin:6px 0}
+.involve p{margin:0 0 8px;color:var(--soft);font-size:15px}
+.slots{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.slot{height:84px;border:1px dashed var(--line);border-radius:14px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:12px;color:#5F7A90}
+details{border-bottom:1px solid var(--line);padding:18px 0}
+details summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;font-family:var(--display);font-size:18px;font-weight:600}
+details summary::-webkit-details-marker{display:none}
+details summary::after{content:"+";color:var(--tq);transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{margin:10px 0 0;color:var(--soft);font-size:15px}
+.rules{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.rules div{border-top:2px solid var(--blue);padding-top:14px}
+.rules div:nth-child(1),.rules div:nth-child(4){border-color:var(--tq)}
+.rules h3{font-size:18px;font-weight:600;margin-bottom:6px}
+.rules p{margin:0;color:var(--soft);font-size:14px}
+.news{border:1px solid var(--blue);border-radius:22px;padding:40px 48px;background:rgba(46,124,246,.07);display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:24px}
+.news h2{font-size:30px;font-weight:600}
+.news p{margin:6px 0 0;color:var(--soft)}
+.news form{flex:1 1 380px;display:flex;flex-direction:column;gap:6px}
+.news label{font-family:var(--mono);font-size:12px;color:var(--mist)}
+.news .row{display:flex;flex-wrap:wrap;gap:10px}
+.news input{flex:1 1 220px;min-height:48px;padding:0 16px;border-radius:10px;border:1px solid var(--line);background:var(--abyss);color:var(--ice);font-size:15px;font-family:var(--body)}
+.news .ok{min-height:20px;font-size:13px;color:var(--tq)}
+footer{position:relative;z-index:3;border-top:1px solid var(--line);background:#030A13;margin-top:90px}
+.foot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:32px;padding:56px 24px 32px;font-size:14px}
+.foot-grid .brand{grid-column:span 2;display:flex;flex-direction:column;gap:10px;min-width:0}
+.foot-grid .brand b{font-family:var(--display);font-size:20px;font-weight:600}
+.foot-grid .col{display:flex;flex-direction:column;gap:8px}
+.foot-grid .col span{font-family:var(--mono);font-size:12px;color:var(--mist)}
+.foot-grid .col a{color:var(--soft)}
+.legal{border-top:1px solid #10263C;padding:18px 24px 28px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:12px;color:#5F7A90}
+
+.nav a[aria-current="page"]{color:var(--tq)}
+.team-wrap{padding:150px 0 40px}
+.team-wrap h1{font-size:clamp(40px,5.4vw,72px);line-height:1.02;font-weight:700;letter-spacing:-.02em;max-width:900px}
+.team-wrap .lead{margin:20px 0 0;color:var(--soft);font-size:19px;max-width:640px}
+.founder{margin-top:56px;display:grid;grid-template-columns:300px minmax(0,1fr);gap:44px;align-items:center;border:1px solid var(--line);border-radius:24px;padding:40px;background:linear-gradient(135deg,#0A1F33,#071523)}
+.avatar{width:100%;aspect-ratio:1;border-radius:24px;border:1px solid var(--line);background:#06121F;display:block}
+.founder .role{font-family:var(--mono);font-size:12.5px;letter-spacing:.14em;color:var(--tq)}
+.founder h2{font-size:40px;font-weight:700;margin:8px 0 2px}
+.founder .nick{color:var(--mist);font-size:16px}
+.founder p{color:var(--soft);margin:18px 0 0;max-width:620px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.chips span{font-family:var(--mono);font-size:12px;padding:5px 12px;border-radius:999px;border:1px solid var(--line);color:var(--soft)}
+.links{display:flex;flex-wrap:wrap;gap:12px 22px;margin-top:24px;font-family:var(--mono);font-size:13px}
+.seats{margin-top:28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.seat{border:1px dashed #2A4A6B;border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:10px;background:rgba(10,26,44,.5)}
+.seat .open{font-family:var(--mono);font-size:11.5px;color:var(--mist)}
+.seat h3{font-size:20px;font-weight:600}
+.seat p{margin:0;color:var(--soft);font-size:15px}
+.seat a{margin-top:auto;font-size:14px}
+.stage .vignette{position:absolute;inset:0;pointer-events:none;background:radial-gradient(85% 80% at 50% 55%,transparent 50%,rgba(3,11,22,.75) 100%)}
+.no-gl .stage{background:radial-gradient(50% 60% at 68% 58%,rgba(25,211,197,.22),rgba(46,124,246,.10) 45%,rgba(4,13,24,0) 75%),var(--abyss)}
+#links{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.tag{position:absolute;left:0;top:0;pointer-events:none;border:1px solid rgba(25,211,197,.45);background:rgba(6,22,40,.6);backdrop-filter:blur(6px);border-radius:12px;padding:10px 14px;min-width:170px;opacity:0;will-change:transform}
+.tag small{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--tq)}
+.tag b{display:block;font-family:var(--display);font-size:17px;font-weight:600;margin-top:2px}
+.tag span{display:block;font-size:12.5px;color:var(--soft)}
+.tag i{display:block;height:3px;margin-top:8px;border-radius:2px;background:linear-gradient(90deg,var(--tq) 90%,rgba(255,255,255,.08) 90%)}
+.motto{margin:24px 0 0;font-family:var(--mono);font-size:13px;letter-spacing:.18em;color:var(--tq)}
+.motto span{color:var(--mist);margin:0 10px}
+
+@media (max-width:860px){.founder{grid-template-columns:1fr;padding:26px}.avatar{max-width:220px}}
+
+@media (max-width:860px){
+  .step,.step.right{justify-content:center;align-items:flex-end;padding:96px 16px 40px}
+  .hero-card{align-self:center}
+  .card{max-width:100%}
+  .hud-read,.chapters,.cert{display:none}
+  .hud-spec{left:24px}
+  .involve,.news{padding:28px}
+  .rules{grid-template-columns:1fr}
+  .foot-grid .brand{grid-column:auto}
+  .g2,.g3{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  .scroll-cue i{animation:none}
+  a.tile,.chapters button span{transition:none}
+}
+</style>
+</head>
+<body>
+
+<header class="site-head" id="head">
+  <div class="head-in">
+    <a class="logo" href="#top" aria-label="AI Model Explorer Lab, home">
+      <svg width="32" height="32" viewBox="0 0 30 30" aria-hidden="true"><path d="M15 3 L27 9 L15 15 L3 9 Z" fill="rgba(25,211,197,.15)" stroke="#19D3C5" stroke-width="1.6"/><path d="M3 15 L15 21 L27 15" fill="none" stroke="#2E7CF6" stroke-width="1.6"/><path d="M3 21 L15 27 L27 21" fill="none" stroke="#2E7CF6" stroke-width="1.6" opacity=".6"/></svg>
+      <span><b>AI Model Explorer Lab</b><small>UNDERSTAND · CONTROL · LIVE WITH</small></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#pillars">Research</a>
+      <a href="#outputs">Publications</a>
+      <a href="#tools">Tools &amp; Data</a>
+      <a href="#events">Events</a>
+      <a href="#team" id="nav-team">Team</a>
+      <a href="#about">About</a>
+      <a href="#involve" class="btn btn-primary">Join the lab</a>
+    </nav>
+    <button type="button" class="lang-btn" id="langBtn" lang="th" aria-label="เปลี่ยนเป็นภาษาไทย" data-i18n-skip>TH</button>
+  </div>
+</header>
+
+<main id="top">
+<section class="story" id="story" aria-label="Who we are, what we do and our four pillars, told in ten steps">
+  <div class="stage" aria-hidden="true">
+    <canvas id="gl"></canvas>
+    <div class="vignette"></div>
+    <svg id="links"><line id="l0" stroke="#19D3C5" stroke-opacity=".6" stroke-width="1"/><line id="l1" stroke="#19D3C5" stroke-opacity=".6" stroke-width="1"/><line id="l2" stroke="#19D3C5" stroke-opacity=".6" stroke-width="1"/><circle id="d0" r="3.5" fill="#19D3C5"/><circle id="d1" r="3.5" fill="#19D3C5"/><circle id="d2" r="3.5" fill="#19D3C5"/></svg>
+    <div class="tag" id="h0"><small>01 · READ</small><b>28 layers</b><span>read from the manifest alone</span></div>
+    <div class="tag" id="h1"><small>02 · PRUNE</small><b>89.7% of rows</b><span>median cut, quality certified</span><i></i></div>
+    <div class="tag" id="h2"><small>03 · DEPLOY</small><b>On the device</b><span>phone · laptop · app</span></div>
+    <div class="hud hud-spec"><strong>SPECIMEN 001</strong> · Qwen3-0.6B<br><span id="hudChap">01 · INTRO</span></div>
+    <div class="hud hud-read">
+      <div class="row"><span>decoder blocks</span><span class="v">28</span></div>
+      <div class="row"><span>hidden width</span><span class="v">1,024</span></div>
+      <div class="row"><span>vocab rows</span><span class="v tq" id="hudRows">151,936</span></div>
+      <div class="row"><span>embedding params</span><span class="v tq" id="hudEmb">155.6M</span></div>
+      <div class="row"><span>repos in census</span><span class="v" id="hudRepos">—</span></div>
+    </div>
+    <div class="cert" id="cert"><b>PRUNING CERTIFICATE · PASS</b>median 89.7% rows removed<br>ΔBPC ≤ +1.99% across 68 settings</div>
+    <div class="progress" id="prog"></div>
+    <div class="scroll-cue" id="cue">SCROLL<i></i></div>
+  </div>
+  <nav class="chapters" id="chapters" aria-label="Story chapters"></nav>
+
+  <div class="steps">
+    <article class="step" data-name="Who we are" data-name-th="เราคือใคร">
+      <div class="card hero-card">
+        <p class="eyebrow">Open research lab · Bangkok · est. 2026</p>
+        <h1>Good AI is AI we <em>understand</em>.</h1>
+        <p class="lead">Like a bonsai, a model can only be shaped well by someone who knows how it grows. We are an open, non-commercial lab that studies how AI models are built, so they can be made smaller, fairer and safe to live with.</p>
+        <p class="th" lang="th">AI ที่ดีคือ AI ที่เราเข้าใจและควบคุมได้อย่างถ่องแท้ และอยู่กับเราได้ในชีวิตประจำวัน</p>
+        <p class="motto">SMALLER<span>·</span>SMARTER<span>·</span>CLOSER TO YOU</p>
+        <div class="cta"><a class="btn btn-primary" href="#what">See what we do</a><a class="btn btn-ghost" href="https://joessattes.github.io/ai-model-explorer/">Open the Model Explorer</a></div>
+      </div>
+    </article>
+
+    <article class="step right" id="what" data-name="What we do" data-name-th="สิ่งที่เราทำ">
+      <div class="card">
+        <p class="eyebrow">What we do</p>
+        <h2>We read open models, prune what people don't need, and put them where people live.</h2>
+        <ul class="pill-list">
+          <li><span>01</span><div><b>Read</b><p>Recover how a model is built from its files, without downloading its weights.</p></div></li>
+          <li><span>02</span><div><b>Prune</b><p>Remove what a user's languages never use, and certify what the cut costs.</p></div></li>
+          <li><span>03</span><div><b>Deploy</b><p>Run the result inside apps and on the phones people already carry.</p></div></li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="step" id="pillars" data-name="Pillars" data-name-th="เสาหลัก">
+      <div class="card">
+        <p class="eyebrow">Our four pillars</p>
+        <h2>Four pillars, one question: can people understand, control and live with their AI?</h2>
+        <ul class="pill-list">
+          <li><span>L1</span><div><b>Model Anatomy &amp; Control</b><p>Know what a model is made of before changing it.</p></div></li>
+          <li><span>L2</span><div><b>On-device AI</b><p>Make models small enough to carry, with proof nothing important was lost.</p></div></li>
+          <li><span>L3</span><div><b>Human–AI Interaction</b><p>How people use, trust and stop AI in daily life.</p></div></li>
+          <li><span>L4</span><div><b>Multilingual Equity</b><p>What each language pays, Southeast Asia first.</p></div></li>
+        </ul>
+        <p class="note">Scroll on to see the work inside each pillar.</p>
+      </div>
+    </article>
+
+    <article class="step right" data-name="L1 · Anatomy" data-name-th="L1 · กายวิภาค">
+      <div class="card">
+        <p class="eyebrow">L1 · Model Anatomy &amp; Control</p>
+        <h2>Every model grows like a tree you can read.</h2>
+        <p>This is Qwen3-0.6B, drawn from its real config. The roots are its vocabulary. The trunk carries 28 rings, one per decoder block. The crown is the output head, which shares the roots' rows. The light climbing the trunk is a token passing through.</p>
+        <div class="fig"><span><b>28</b>decoder blocks</span><span><b>1,024</b>hidden width</span><span><b class="tq">151,936</b>vocabulary rows</span></div>
+      </div>
+    </article>
+
+    <article class="step" data-name="L1 · Census" data-name-th="L1 · สำมะโน">
+      <div class="card">
+        <p class="eyebrow">L1 · The Hub census</p>
+        <h2>We read 12,974 of them without downloading a single weight.</h2>
+        <p>Configs and weight-file headers are enough to recover how a model is built. The whole Hugging Face Hub becomes a forest we can measure tree by tree.</p>
+        <div class="fig"><span><b>12,974</b>repositories</span><span><b>0</b>weights downloaded</span></div>
+        <p class="note"><a href="https://doi.org/10.2139/ssrn.7699619">Paper</a> · <a href="https://joessattes.github.io/ai-model-explorer/">Model Explorer</a></p>
+      </div>
+    </article>
+
+    <article class="step right" data-name="L2 · Vocabulary" data-name-th="L2 · คำศัพท์">
+      <div class="card">
+        <p class="eyebrow">L2 · On-device AI · The vocabulary tax</p>
+        <h2>Look underground: the roots outweigh any branch.</h2>
+        <p>151,936 rows of 1,024 numbers each. That one matrix holds about as many parameters as ten decoder blocks, and a phone has to load all of it.</p>
+        <div class="fig"><span><b class="tq">155.6M</b>embedding parameters</span><span><b>≈ 10×</b>one decoder block</span></div>
+      </div>
+    </article>
+
+    <article class="step" data-name="L2 · Prune" data-name-th="L2 · ตัด">
+      <div class="card">
+        <p class="eyebrow">L2 · Pruning with a certificate</p>
+        <h2>A Thai assistant never uses most of those roots. So we prune them, and certify the cut.</h2>
+        <p>Roots for scripts a user will never type are cut away. Only the roots that feed the chip stay. Before anything ships, a certificate states what the cut cost in quality.</p>
+        <div class="fig"><span><b class="tq">89.7%</b>median rows removed where the certificate passes</span><span><b>≤ +1.99%</b>change in bits per character</span></div>
+        <p class="note"><a href="https://arxiv.org/abs/2611.19913">Paper</a> · <a href="https://pypi.org/project/ai-model-explorer/">Python package</a></p>
+      </div>
+    </article>
+
+    <article class="step right" data-name="L2 · Device" data-name-th="L2 · บนอุปกรณ์">
+      <div class="card">
+        <p class="eyebrow">L2 · On the device</p>
+        <h2>Pruned well, it fits in your pocket.</h2>
+        <p>A smaller model loads faster, uses less memory and runs inside an app or on a phone. What you say to it can stay on the device.</p>
+      </div>
+    </article>
+
+    <article class="step" data-name="L3 · Interaction" data-name-th="L3 · ปฏิสัมพันธ์">
+      <div class="card">
+        <p class="eyebrow">L3 · Human–AI Interaction</p>
+        <h2>Living with it: AI you can talk to, trust and stop.</h2>
+        <p>Our next study looks at voice assistants that run on the phone: how people speak to them, when they trust them, and how easily they can interrupt them. Thai speech in real rooms comes first.</p>
+        <p class="note"><span class="status s-plan">FIRST STUDY PLANNED · 2027</span></p>
+      </div>
+    </article>
+
+    <article class="step right" data-name="L4 · Languages" data-name-th="L4 · ภาษา">
+      <div class="card">
+        <p class="eyebrow">L4 · Multilingual Equity</p>
+        <h2>Every language grows its own leaves. Southeast Asia first.</h2>
+        <p>Most models are built around English and priced in its tokens. We measure what each language pays and test every method on Southeast Asian languages first, then carry it to the rest of the world.</p>
+        <div class="langs" lang="mul"><span lang="th">ไทย</span><span>Tiếng Việt</span><span>Bahasa Indonesia</span><span>Bahasa Melayu</span><span>Filipino</span><span lang="km">ខ្មែរ</span><span lang="lo">ລາວ</span><span lang="my">မြန်မာ</span><span class="more">+ the world</span></div>
+        <p class="note">Tax table for 41 languages · <a href="https://huggingface.co/datasets/JoesSattes/ai-vocabulary-tax">Dataset</a></p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="sec" id="projects">
+  <div class="wrap">
+    <div class="sec-head"><div><p class="eyebrow">Projects</p><h2 class="big">What we are working on</h2></div></div>
+    <div class="grid g3">
+      <article class="tile"><span class="status s-active">ACTIVE · L2 · L4</span><h3>The Vocabulary Tax</h3><p>Remove vocabulary rows a user's languages never need, with a certificate that bounds the cost before you ship.</p></article>
+      <article class="tile"><span class="status s-active">ACTIVE · L1</span><h3>Hub Census</h3><p>The architecture of 12,974 public models, read from manifests alone and released as open data.</p></article>
+      <article class="tile"><span class="status s-prog">IN PROGRESS · L2</span><h3>Slimming Gemma 4 E2B</h3><p>Vocabulary and per-layer embedding trimming for a Thai, English and Chinese assistant on the phone.</p></article>
+      <article class="tile"><span class="status s-plan">PLANNED 2027 · L3</span><h3>Voice assistants that stay on the phone</h3><p>How people talk to, trust and interrupt an assistant that never sends audio off the device.</p></article>
+      <article class="tile"><span class="status s-plan">PLANNED 2027 · L4</span><h3>SEA language tax table</h3><p>A table that updates with every new open model: what Thai, Vietnamese, Khmer and others pay.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="outputs">
+  <div class="wrap">
+    <div class="sec-head"><div><p class="eyebrow">Publications</p><h2 class="big">Papers with their data attached</h2></div></div>
+    <div class="pubs">
+      <div class="pub"><span class="yr">2026</span><div class="t"><b>The Vocabulary Tax: Safely Trimming Unused Tokens from LLMs for On-Device Use</b><small>Sattaya Singkul · arXiv:2611.19913 [cs.CL] · L2 · L4</small></div><div class="l"><a href="https://arxiv.org/abs/2611.19913">arXiv</a><a href="https://doi.org/10.2139/ssrn.7708238">SSRN</a><a href="https://huggingface.co/datasets/JoesSattes/ai-vocabulary-tax">Data</a></div></div>
+      <div class="pub"><span class="yr">2026</span><div class="t"><b>Reading the Architecture off the Weights: Manifest-Only Model Anatomy and a Census of 12,974 Hugging Face Repositories</b><small>Sattaya Singkul · SSRN preprint · arXiv pending · L1</small></div><div class="l"><a href="https://doi.org/10.2139/ssrn.7699619">SSRN</a><a href="https://huggingface.co/JoesSattes">Data</a></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="tools">
+  <div class="wrap">
+    <div class="sec-head"><div><p class="eyebrow">Tools &amp; data</p><h2 class="big">Use what we use</h2></div></div>
+    <div class="grid g3">
+      <a class="tile" href="https://joessattes.github.io/ai-model-explorer/"><span class="tag">WEB TOOL</span><h3>AI Model Explorer</h3><p>Paste any Hugging Face model. See its architecture, memory and language tax before you download it. TH / EN.</p><span class="foot">Open the Explorer →</span></a>
+      <a class="tile" href="https://pypi.org/project/ai-model-explorer/"><span class="tag">PYTHON PACKAGE</span><h3>ai-model-explorer</h3><span class="code">$ pip install ai-model-explorer</span><p>The same readers and the trim certificate, scriptable for your own models.</p></a>
+      <a class="tile" href="https://huggingface.co/JoesSattes"><span class="tag">OPEN DATA</span><h3>3 datasets on Hugging Face</h3><p>The Hub census, its corpus and the per-model vocabulary tax, ready to load.</p><span class="foot">Browse the data →</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="roadmap">
+  <div class="wrap">
+    <div class="sec-head"><div><p class="eyebrow">Roadmap</p><h2 class="big">Three phases, two gates</h2></div></div>
+    <div class="road">
+      <div class="phase now"><div class="top"><b>PHASE 1 · NOW</b><span>Dec 2026 – Mar 2027</span></div><h3>Open the lab</h3><ul><li>Lab site live with all outputs</li><li>Trimmed TH+EN models on Hugging Face</li><li>Compute grant applications</li></ul><div class="gate">◆ Gate: one peer-reviewed paper</div></div>
+      <div class="phase"><div class="top"><b>PHASE 2</b><span>2027</span></div><h3>Build the name</h3><ul><li>Major-venue submissions</li><li>First yearly census report</li><li>SEA tax table, first L3 study</li></ul><div class="gate">◆ Gate: 3+ outside collaborators, steady funding</div></div>
+      <div class="phase"><div class="top"><b>PHASE 3</b><span>2028</span></div><h3>Become an institute</h3><ul><li>Registered foundation</li><li>An international workshop</li><li>A yearly report others cite</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="events">
+  <div class="wrap">
+    <div class="sec-head"><div><p class="eyebrow">Events &amp; talks</p><h2 class="big">Where to meet the lab</h2></div></div>
+    <div class="grid g2 events">
+      <article class="event">
+        <div class="ev-media ev-stub" aria-hidden="true"><span class="mono">UPCOMING · TALK</span><b>Pass the Pointer</b><i>Any-to-any serving with vLLM-Omni</i></div>
+        <div class="ev-body">
+          <p class="ev-meta mono"><span class="ev-when tba">[date] · [venue]</span></p>
+          <h3>Pass the Pointer, Not the Payload: Serving Any-to-Any Models at Scale</h3>
+          <p>vLLM-Omni stage graphs and OmniConnector, with a live Model Explorer demo.</p>
+        </div>
+      </article>
+      <a class="event past" href="https://aiexpothailand.com/agenda/?day=3&amp;stage=builder" target="_blank" rel="noopener" aria-label="AI Expo Thailand 2026, Day 3 Builder Stage agenda (opens the event page)">
+        <div class="ev-media"><img src="assets/aiexpo-2026-squeeze-banner.webp" width="960" height="540" loading="lazy" decoding="async" alt="Banner for Squeeze Until It Breaks, the on-edge inference Kaggle competition and workshop at AI Expo Thailand 2026"></div>
+        <div class="ev-body">
+          <p class="ev-meta mono"><span class="ev-event">AI EXPO THAILAND 2026 · WORKSHOP</span><span class="ev-when">Sat 7 Nov 2026 · 14:00–15:00 · Day 3, Builder Stage</span></p>
+          <h3>Squeeze Until It Breaks: A Hands-On Edge Inference Contest</h3>
+          <p>IMPACT Challenger Hall 1, Muang Thong Thani. A Kaggle contest: open a Thai speech model part by part in AI Model Explorer, then compress it for the device until it breaks. First of a series for Thai developers.</p>
+          <span class="ev-link">Event page ↗</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="involve">
+  <div class="wrap">
+    <div class="involve">
+      <p class="eyebrow">Get involved</p>
+      <h2 class="big" style="margin-bottom:32px">Four ways to work with us</h2>
+      <div class="grid g4">
+        <div><span class="n">01</span><h3>Contribute code</h3><p>Pick an open issue on GitHub. Readers for new architectures are always welcome.</p><a href="https://github.com/JoesSattes">Open issues →</a></div>
+        <div><span class="n">02</span><h3>Bring a language</h3><p>Native speakers help us build test sets for languages the big benchmarks skip.</p><a href="#involve">Add your language →</a></div>
+        <div><span class="n">03</span><h3>Research together</h3><p>Universities, labs and model teams: co-author a study on our data.</p><a href="#involve">Propose a study →</a></div>
+        <div><span class="n">04</span><h3>Support the lab</h3><p>Compute, devices for on-phone testing, or a grant. Everything stays open.</p><a href="#involve">Talk to us →</a></div>
+      </div>
+    </div>
+    <p class="eyebrow" style="margin-top:56px;color:var(--mist)">Collaborators &amp; supporters</p>
+    <div class="slots"><div class="slot">[ hardware partner ]</div><div class="slot">[ research partner ]</div><div class="slot">[ language partner ]</div><div class="slot">[ compute supporter ]</div></div>
+  </div>
+</section>
+
+<section class="sec" id="about">
+  <div class="wrap grid g2" style="gap:48px">
+    <div><p class="eyebrow">How we work</p><h2 class="big" style="margin-bottom:28px">Four rules every output follows</h2>
+      <div class="rules">
+        <div><h3>Open by default</h3><p>Code, data and the numbers behind every claim.</p></div>
+        <div><h3>Runs on a laptop</h3><p>Core methods repeat on ordinary hardware.</p></div>
+        <div><h3>Proved before claimed</h3><p>Each change ships with a measured cost bound.</p></div>
+        <div><h3>Built from Southeast Asia</h3><p>Non-English is the first test, never an appendix.</p></div>
+      </div>
+    </div>
+    <div><p class="eyebrow">FAQ</p>
+      <div style="border-top:1px solid var(--line)">
+        <details><summary>Is the lab a company?</summary><p>No. It is an open, non-commercial research project. Nothing we publish is sold.</p></details>
+        <details><summary>Can I use the data in my product?</summary><p>Each dataset states its license on Hugging Face. [license summary]</p></details>
+        <details><summary>Why Southeast Asia first?</summary><p>Its languages pay some of the highest token costs and get the least testing. A method that holds here holds widely.</p></details>
+        <details><summary>How do I cite the lab?</summary><p>Cite the paper you used: arXiv:2611.19913 for the Vocabulary Tax, doi:10.2139/ssrn.7699619 for the Manifest census.</p></details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="newsletter">
+  <div class="wrap">
+    <div class="news">
+      <div style="flex:1 1 380px"><h2>One email when we publish</h2><p>New papers, tools and datasets. No more than once a month.</p></div>
+      <form id="nl" novalidate>
+        <label for="nl-email">Email address</label>
+        <div class="row"><input id="nl-email" type="email" placeholder="you@example.org" autocomplete="email"><button class="btn btn-primary" type="submit">Subscribe</button></div>
+        <div class="ok" id="nl-ok" role="status"></div>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<section id="team" class="team-view" hidden aria-label="Team">
+  <div class="wrap team-wrap">
+    <p class="eyebrow">Team</p>
+    <h1>A small lab with open seats.</h1>
+    <p class="lead">One founder today, and room for researchers, language leads and builders who want what we learn about open models to stay open.</p>
+
+    <article class="founder">
+      <svg class="avatar" viewBox="0 0 300 300" role="img" aria-label="Monogram SS on a faceted crystal">
+        <defs><linearGradient id="gm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#19D3C5" stop-opacity=".55"/><stop offset="1" stop-color="#2E7CF6" stop-opacity=".25"/></linearGradient></defs>
+        <polygon points="150,34 236,96 236,204 150,266 64,204 64,96" fill="url(#gm)" stroke="#19D3C5" stroke-width="2"/>
+        <path d="M150 34 L150 266 M64 96 L236 204 M236 96 L64 204" stroke="#E8F4F7" stroke-opacity=".18" stroke-width="1.2"/>
+        <text x="150" y="172" text-anchor="middle" fill="#E8F4F7" font-family="Chakra Petch, sans-serif" font-size="74" font-weight="700">SS</text>
+      </svg>
+      <div>
+        <span class="role">FOUNDER · LEAD RESEARCHER</span>
+        <h2>Sattaya Singkul</h2>
+        <span class="nick">Jo · Bangkok, Thailand</span>
+        <p>Jo works on speech AI and on-device deployment. He wrote the Manifest census of 12,974 Hugging Face repositories and The Vocabulary Tax, and built AI Model Explorer for Thai developers. He started the lab so that this work keeps growing in the open.</p>
+        <div class="chips"><span>Speech &amp; voice AI</span><span>On-device inference</span><span>Model anatomy</span><span>Thai &amp; SEA languages</span></div>
+        <div class="links"><a href="https://joessattes.github.io/Sattaya-AI-Website/">Portfolio →</a><a href="https://github.com/JoesSattes">GitHub →</a><a href="https://huggingface.co/JoesSattes">Hugging Face →</a><a href="#outputs">Papers →</a></div>
+      </div>
+    </article>
+
+    <p class="eyebrow" style="margin-top:72px">Open seats</p>
+    <h2 class="big" style="font-size:clamp(28px,3.4vw,40px);font-weight:600">Who we want to work with next</h2>
+    <div class="seats">
+      <article class="seat"><span class="open">OPEN SEAT · L1 · L2</span><h3>Research collaborator</h3><p>Co-author studies on the census and on trimming. Graduate students and lab researchers welcome.</p><a href="#involve">Get in touch →</a></article>
+      <article class="seat"><span class="open">OPEN SEAT · L4</span><h3>Language lead</h3><p>Own test sets and checks for one Southeast Asian language: Vietnamese, Khmer, Lao, Burmese and more.</p><a href="#involve">Get in touch →</a></article>
+      <article class="seat"><span class="open">OPEN SEAT · TOOLS</span><h3>Creative technologist</h3><p>WebGL, data visualization and the Model Explorer: make model anatomy something people can see.</p><a href="#involve">Get in touch →</a></article>
+      <article class="seat"><span class="open">OPEN SEAT · L3</span><h3>Advisor</h3><p>Human–AI interaction or on-device hardware experience, a few hours a quarter.</p><a href="#involve">Get in touch →</a></article>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div class="brand"><b>AI Model Explorer Lab</b><span style="color:var(--mist);max-width:360px">Good AI is AI we understand, can control, and can live with every day.</span><span style="color:#5F7A90">An open, non-commercial research project · Bangkok, Thailand · [contact email]</span></div>
+    <div class="col"><span>LAB</span><a href="#about">About</a><a href="#pillars">Research pillars</a><a href="#events">Events</a><a href="#involve">Get involved</a></div>
+    <div class="col"><span>RESEARCH</span><a href="#outputs">Publications</a><a href="#projects">Projects</a><a href="#tools">Tools &amp; data</a><a href="#roadmap">Roadmap</a></div>
+    <div class="col"><span>ELSEWHERE</span><a href="https://github.com/JoesSattes">GitHub</a><a href="https://huggingface.co/JoesSattes">Hugging Face</a><a href="https://pypi.org/project/ai-model-explorer/">PyPI</a><a href="https://joessattes.github.io/ai-model-explorer/">Model Explorer</a></div>
+  </div>
+  <div class="wrap legal"><span>© 2026 AI Model Explorer Lab</span><span>Code MIT · data licenses on each dataset</span></div>
+</footer>
+
+<script>
+/* TH/EN switch. English is the page itself (and what search engines index); Thai swaps in from the
+   dictionary below. Default is English; ?lang=th or a saved choice switches. */
+(function () {
+  var DICT = {"text":{"<b>AI Model Explorer Lab<\/b><small>UNDERSTAND · CONTROL · LIVE WITH<\/small>":"<b>AI Model Explorer Lab<\/b><small>เข้าใจ · ควบคุม · อยู่ร่วมกัน<\/small>","Research":"วิจัย","Publications":"ผลงานตีพิมพ์","Tools &amp; Data":"เครื่องมือและข้อมูล","Events":"งานและทอล์ก","Team":"ทีม","About":"เกี่ยวกับเรา","Join the lab":"ร่วมกับแล็บ","<small>01 · READ<\/small><b>28 layers<\/b><span>read from the manifest alone<\/span>":"<small>01 · อ่าน<\/small><b>28 เลเยอร์<\/b><span>อ่านจาก manifest อย่างเดียว<\/span>","02 · PRUNE":"02 · ตัด","89.7% of rows":"89.7% ของแถว","median cut, quality certified":"ค่ากลางที่ตัดได้ ผ่านใบรับรองคุณภาพ","<small>03 · DEPLOY<\/small><b>On the device<\/b><span>phone · laptop · app<\/span>":"<small>03 · ใช้งาน<\/small><b>บนอุปกรณ์<\/b><span>มือถือ · แล็ปท็อป · แอป<\/span>","SPECIMEN 001":"ตัวอย่างที่ 001","<span>decoder blocks<\/span><span class=\"v\">28<\/span>":"<span>บล็อก decoder<\/span><span class=\"v\">28<\/span>","<span>hidden width<\/span><span class=\"v\">1,024<\/span>":"<span>ความกว้าง hidden<\/span><span class=\"v\">1,024<\/span>","vocab rows":"แถว vocab","embedding params":"พารามิเตอร์ embedding","repos in census":"repo ในสำมะโน","<b>PRUNING CERTIFICATE · PASS<\/b>median 89.7% rows removed<br>ΔBPC ≤ +1.99% across 68 settings":"<b>ใบรับรองการตัด · ผ่าน<\/b>ค่ากลางตัดแถวได้ 89.7%<br>ΔBPC ≤ +1.99% ทั้ง 68 การตั้งค่า","Open research lab · Bangkok · est. 2026":"แล็บวิจัยแบบเปิด · กรุงเทพฯ · ก่อตั้ง 2026","Good AI is AI we <em>understand<\/em>.":"AI ที่ดีคือ AI ที่เรา<em>เข้าใจ<\/em>","Like a bonsai, a model can only be shaped well by someone who knows how it grows. We are an open, non-commercial lab that studies how AI models are built, so they can be made smaller, fairer and safe to live with.":"เหมือนบอนไซ โมเดลจะถูกดัดได้ดีก็ต่อเมื่อคนดัดรู้ว่ามันเติบโตอย่างไร เราเป็นแล็บแบบเปิดที่ไม่แสวงกำไร ศึกษาว่าโมเดล AI ถูกสร้างขึ้นมาอย่างไร เพื่อทำให้มันเล็กลง เป็นธรรมขึ้น และอยู่กับเราได้อย่างปลอดภัย","SMALLER<span>·<\/span>SMARTER<span>·<\/span>CLOSER TO YOU":"เล็กลง<span>·<\/span>ฉลาดขึ้น<span>·<\/span>ใกล้ตัวคุณ","<a class=\"btn btn-primary\" href=\"#what\">See what we do<\/a><a class=\"btn btn-ghost\" href=\"https://joessattes.github.io/ai-model-explorer/\">Open the Model Explorer<\/a>":"<a class=\"btn btn-primary\" href=\"#what\">ดูว่าเราทำอะไร<\/a><a class=\"btn btn-ghost\" href=\"https://joessattes.github.io/ai-model-explorer/\">เปิด Model Explorer<\/a>","What we do":"สิ่งที่เราทำ","We read open models, prune what people don't need, and put them where people live.":"เราอ่านโมเดลแบบเปิด ตัดส่วนที่คนไม่ได้ใช้ออก แล้วนำไปไว้ในที่ที่คนใช้ชีวิตอยู่จริง","Read":"อ่าน","Recover how a model is built from its files, without downloading its weights.":"ถอดโครงสร้างโมเดลจากไฟล์ของมัน โดยไม่ต้องดาวน์โหลด weights","Prune":"ตัด","Remove what a user's languages never use, and certify what the cut costs.":"ตัดสิ่งที่ภาษาของผู้ใช้ไม่เคยใช้ออก และรับรองว่าการตัดนั้นต้องแลกกับอะไร","Deploy":"ใช้งาน","Run the result inside apps and on the phones people already carry.":"รันผลลัพธ์ในแอป และบนมือถือที่ทุกคนพกอยู่แล้ว","Our four pillars":"สี่เสาหลักของเรา","Four pillars, one question: can people understand, control and live with their AI?":"สี่เสาหลัก หนึ่งคำถาม: คนเราเข้าใจ ควบคุม และอยู่ร่วมกับ AI ของตัวเองได้จริงไหม","Model Anatomy &amp; Control":"กายวิภาคและการควบคุมโมเดล","Know what a model is made of before changing it.":"รู้ก่อนว่าโมเดลประกอบด้วยอะไร แล้วค่อยลงมือแก้","On-device AI":"AI บนอุปกรณ์","Make models small enough to carry, with proof nothing important was lost.":"ทำให้โมเดลเล็กพอจะพกไปได้ พร้อมหลักฐานว่าไม่ได้ทิ้งส่วนสำคัญไป","Human–AI Interaction":"ปฏิสัมพันธ์ระหว่างคนกับ AI","How people use, trust and stop AI in daily life.":"คนใช้ ไว้ใจ และสั่งหยุด AI อย่างไรในชีวิตประจำวัน","Multilingual Equity":"ความเท่าเทียมทางภาษา","What each language pays, Southeast Asia first.":"แต่ละภาษาต้องจ่ายเท่าไร เริ่มจากเอเชียตะวันออกเฉียงใต้","Scroll on to see the work inside each pillar.":"เลื่อนต่อเพื่อดูงานในแต่ละเสาหลัก","L1 · Model Anatomy &amp; Control":"L1 · กายวิภาคและการควบคุมโมเดล","Every model grows like a tree you can read.":"โมเดลทุกตัวเติบโตเหมือนต้นไม้ที่อ่านได้","This is Qwen3-0.6B, drawn from its real config. The roots are its vocabulary. The trunk carries 28 rings, one per decoder block. The crown is the output head, which shares the roots' rows. The light climbing the trunk is a token passing through.":"นี่คือ Qwen3-0.6B วาดจาก config จริงของมัน รากคือ vocabulary ลำต้นมี 28 วง วงละหนึ่ง decoder block ยอดคือ output head ซึ่งใช้แถวชุดเดียวกับราก แสงที่ไต่ขึ้นตามลำต้นคือ token ที่กำลังวิ่งผ่าน","<span><b>28<\/b>decoder blocks<\/span><span><b>1,024<\/b>hidden width<\/span><span><b class=\"tq\">151,936<\/b>vocabulary rows<\/span>":"<span><b>28<\/b>บล็อก decoder<\/span><span><b>1,024<\/b>ความกว้าง hidden<\/span><span><b class=\"tq\">151,936<\/b>แถว vocabulary<\/span>","L1 · The Hub census":"L1 · สำมะโน Hub","We read 12,974 of them without downloading a single weight.":"เราอ่านไปแล้ว 12,974 ตัว โดยไม่ดาวน์โหลด weight เลยสักไฟล์","Configs and weight-file headers are enough to recover how a model is built. The whole Hugging Face Hub becomes a forest we can measure tree by tree.":"แค่ config กับ header ของไฟล์ weight ก็พอจะถอดโครงสร้างโมเดลได้ ทั้ง Hugging Face Hub จึงกลายเป็นป่าที่เราวัดได้ทีละต้น","<span><b>12,974<\/b>repositories<\/span><span><b>0<\/b>weights downloaded<\/span>":"<span><b>12,974<\/b>repository<\/span><span><b>0<\/b>weight ที่ดาวน์โหลด<\/span>","<a href=\"https://doi.org/10.2139/ssrn.7699619\">Paper<\/a> · <a href=\"https://joessattes.github.io/ai-model-explorer/\">Model Explorer<\/a>":"<a href=\"https://doi.org/10.2139/ssrn.7699619\">เปเปอร์<\/a> · <a href=\"https://joessattes.github.io/ai-model-explorer/\">Model Explorer<\/a>","L2 · On-device AI · The vocabulary tax":"L2 · AI บนอุปกรณ์ · ภาษีคำศัพท์","Look underground: the roots outweigh any branch.":"มองลงไปใต้ดิน: รากหนักกว่ากิ่งไหน ๆ","151,936 rows of 1,024 numbers each. That one matrix holds about as many parameters as ten decoder blocks, and a phone has to load all of it.":"151,936 แถว แถวละ 1,024 ตัวเลข เมทริกซ์เดียวนี้มีพารามิเตอร์พอ ๆ กับ decoder block สิบบล็อก และมือถือต้องโหลดทั้งหมด","<span><b class=\"tq\">155.6M<\/b>embedding parameters<\/span><span><b>≈ 10×<\/b>one decoder block<\/span>":"<span><b class=\"tq\">155.6M<\/b>พารามิเตอร์ embedding<\/span><span><b>≈ 10×<\/b>ของ decoder block หนึ่งบล็อก<\/span>","L2 · Pruning with a certificate":"L2 · ตัดพร้อมใบรับรอง","A Thai assistant never uses most of those roots. So we prune them, and certify the cut.":"ผู้ช่วยภาษาไทยไม่เคยใช้รากส่วนใหญ่เหล่านั้น เราจึงตัดออก และรับรองผลของการตัด","Roots for scripts a user will never type are cut away. Only the roots that feed the chip stay. Before anything ships, a certificate states what the cut cost in quality.":"รากของอักษรที่ผู้ใช้ไม่มีวันพิมพ์ถูกตัดทิ้ง เหลือไว้แค่รากที่ส่งต่อไปถึงชิป ก่อนปล่อยใช้งาน ใบรับรองจะบอกว่าการตัดนั้นเสียคุณภาพไปเท่าไร","<span><b class=\"tq\">89.7%<\/b>median rows removed where the certificate passes<\/span><span><b>≤ +1.99%<\/b>change in bits per character<\/span>":"<span><b class=\"tq\">89.7%<\/b>ค่ากลางของแถวที่ตัดได้เมื่อใบรับรองผ่าน<\/span><span><b>≤ +1.99%<\/b>การเปลี่ยนแปลงของ bits per character<\/span>","<a href=\"https://arxiv.org/abs/2611.19913\">Paper<\/a> · <a href=\"https://pypi.org/project/ai-model-explorer/\">Python package<\/a>":"<a href=\"https://arxiv.org/abs/2611.19913\">เปเปอร์<\/a> · <a href=\"https://pypi.org/project/ai-model-explorer/\">แพ็กเกจ Python<\/a>","L2 · On the device":"L2 · บนอุปกรณ์","Pruned well, it fits in your pocket.":"ตัดดี ๆ ก็ใส่กระเป๋าได้","A smaller model loads faster, uses less memory and runs inside an app or on a phone. What you say to it can stay on the device.":"โมเดลที่เล็กลงโหลดเร็วขึ้น ใช้หน่วยความจำน้อยลง และรันในแอปหรือบนมือถือได้ สิ่งที่คุณพูดกับมันก็อยู่บนเครื่องได้","L3 · Human–AI Interaction":"L3 · ปฏิสัมพันธ์ระหว่างคนกับ AI","Living with it: AI you can talk to, trust and stop.":"อยู่ร่วมกับมัน: AI ที่คุยได้ ไว้ใจได้ และสั่งหยุดได้","Our next study looks at voice assistants that run on the phone: how people speak to them, when they trust them, and how easily they can interrupt them. Thai speech in real rooms comes first.":"งานวิจัยถัดไปของเราศึกษาผู้ช่วยเสียงที่รันบนมือถือ ว่าคนพูดกับมันอย่างไร ไว้ใจมันเมื่อไร และขัดจังหวะมันได้ง่ายแค่ไหน เริ่มจากเสียงพูดภาษาไทยในห้องจริง","<span class=\"status s-plan\">FIRST STUDY PLANNED · 2027<\/span>":"<span class=\"status s-plan\">งานวิจัยแรก · วางแผนปี 2027<\/span>","L4 · Multilingual Equity":"L4 · ความเท่าเทียมทางภาษา","Every language grows its own leaves. Southeast Asia first.":"แต่ละภาษาแตกใบของตัวเอง เริ่มจากเอเชียตะวันออกเฉียงใต้","Most models are built around English and priced in its tokens. We measure what each language pays and test every method on Southeast Asian languages first, then carry it to the rest of the world.":"โมเดลส่วนใหญ่สร้างโดยมีภาษาอังกฤษเป็นศูนย์กลาง และคิดราคาเป็น token ของภาษาอังกฤษ เราวัดว่าแต่ละภาษาต้องจ่ายเท่าไร และทดสอบทุกวิธีกับภาษาในเอเชียตะวันออกเฉียงใต้ก่อน แล้วค่อยขยายไปทั่วโลก","Tax table for 41 languages · <a href=\"https://huggingface.co/datasets/JoesSattes/ai-vocabulary-tax\">Dataset<\/a>":"ตารางภาษีของ 41 ภาษา · <a href=\"https://huggingface.co/datasets/JoesSattes/ai-vocabulary-tax\">ชุดข้อมูล<\/a>","Projects":"โปรเจกต์","What we are working on":"สิ่งที่เรากำลังทำ","ACTIVE · L2 · L4":"กำลังดำเนินการ · L2 · L4","Remove vocabulary rows a user's languages never need, with a certificate that bounds the cost before you ship.":"ตัดแถว vocabulary ที่ภาษาของผู้ใช้ไม่จำเป็นต้องใช้ พร้อมใบรับรองที่บอกขอบเขตความเสียหายก่อนปล่อยใช้งาน","ACTIVE · L1":"กำลังดำเนินการ · L1","The architecture of 12,974 public models, read from manifests alone and released as open data.":"โครงสร้างของโมเดลสาธารณะ 12,974 ตัว อ่านจาก manifest อย่างเดียว และเปิดเป็นข้อมูลสาธารณะ","IN PROGRESS · L2":"อยู่ระหว่างทำ · L2","Slimming Gemma 4 E2B":"ลดขนาด Gemma 4 E2B","Vocabulary and per-layer embedding trimming for a Thai, English and Chinese assistant on the phone.":"ตัด vocabulary และ per-layer embedding สำหรับผู้ช่วยภาษาไทย อังกฤษ และจีนบนมือถือ","PLANNED 2027 · L3":"วางแผนปี 2027 · L3","Voice assistants that stay on the phone":"ผู้ช่วยเสียงที่อยู่บนมือถือ","How people talk to, trust and interrupt an assistant that never sends audio off the device.":"คนพูดกับ ไว้ใจ และขัดจังหวะผู้ช่วยที่ไม่ส่งเสียงออกนอกเครื่องเลยอย่างไร","PLANNED 2027 · L4":"วางแผนปี 2027 · L4","SEA language tax table":"ตารางภาษีภาษา SEA","A table that updates with every new open model: what Thai, Vietnamese, Khmer and others pay.":"ตารางที่อัปเดตทุกครั้งที่มีโมเดลแบบเปิดตัวใหม่ ว่าภาษาไทย เวียดนาม เขมร และภาษาอื่นต้องจ่ายเท่าไร","Papers with their data attached":"เปเปอร์ที่แนบข้อมูลมาด้วย","<a href=\"https://arxiv.org/abs/2611.19913\">arXiv<\/a><a href=\"https://doi.org/10.2139/ssrn.7708238\">SSRN<\/a><a href=\"https://huggingface.co/datasets/JoesSattes/ai-vocabulary-tax\">Data<\/a>":"<a href=\"https://arxiv.org/abs/2611.19913\">arXiv<\/a><a href=\"https://doi.org/10.2139/ssrn.7708238\">SSRN<\/a><a href=\"https://huggingface.co/datasets/JoesSattes/ai-vocabulary-tax\">ข้อมูล<\/a>","<b>Reading the Architecture off the Weights: Manifest-Only Model Anatomy and a Census of 12,974 Hugging Face Repositories<\/b><small>Sattaya Singkul · SSRN preprint · arXiv pending · L1<\/small>":"<b>Reading the Architecture off the Weights: Manifest-Only Model Anatomy and a Census of 12,974 Hugging Face Repositories<\/b><small>Sattaya Singkul · SSRN preprint · รอ arXiv · L1<\/small>","<a href=\"https://doi.org/10.2139/ssrn.7699619\">SSRN<\/a><a href=\"https://huggingface.co/JoesSattes\">Data<\/a>":"<a href=\"https://doi.org/10.2139/ssrn.7699619\">SSRN<\/a><a href=\"https://huggingface.co/JoesSattes\">ข้อมูล<\/a>","Tools &amp; data":"เครื่องมือและข้อมูล","Use what we use":"ใช้สิ่งที่เราใช้","WEB TOOL":"เว็บทูล","Paste any Hugging Face model. See its architecture, memory and language tax before you download it. TH / EN.":"วางชื่อโมเดลจาก Hugging Face ตัวไหนก็ได้ ดูโครงสร้าง หน่วยความจำ และภาษีภาษาได้ก่อนดาวน์โหลด รองรับไทย / อังกฤษ","Open the Explorer →":"เปิด Explorer →","PYTHON PACKAGE":"แพ็กเกจ Python","The same readers and the trim certificate, scriptable for your own models.":"ตัวอ่านโมเดลและใบรับรองการตัดชุดเดียวกัน เขียนสคริปต์ใช้กับโมเดลของคุณเองได้","OPEN DATA":"ข้อมูลเปิด","3 datasets on Hugging Face":"ชุดข้อมูล 3 ชุดบน Hugging Face","The Hub census, its corpus and the per-model vocabulary tax, ready to load.":"สำมะโน Hub คลังข้อความ และภาษีคำศัพท์รายโมเดล โหลดใช้ได้ทันที","Browse the data →":"ดูชุดข้อมูล →","Roadmap":"แผนงาน","Three phases, two gates":"สามระยะ สองด่าน","<b>PHASE 1 · NOW<\/b><span>Dec 2026 – Mar 2027<\/span>":"<b>ระยะที่ 1 · ตอนนี้<\/b><span>ธ.ค. 2026 – มี.ค. 2027<\/span>","Open the lab":"เปิดแล็บ","Lab site live with all outputs":"เว็บแล็บพร้อมผลงานทั้งหมด","Trimmed TH+EN models on Hugging Face":"โมเดล TH+EN ที่ตัดแล้วบน Hugging Face","Compute grant applications":"ยื่นขอทุน compute","◆ Gate: one peer-reviewed paper":"◆ ด่าน: เปเปอร์ผ่าน peer review หนึ่งฉบับ","<b>PHASE 2<\/b><span>2027<\/span>":"<b>ระยะที่ 2<\/b><span>2027<\/span>","Build the name":"สร้างชื่อ","Major-venue submissions":"ส่งงานเข้าเวทีหลัก","First yearly census report":"รายงานสำมะโนประจำปีฉบับแรก","SEA tax table, first L3 study":"ตารางภาษี SEA และงานวิจัย L3 ชิ้นแรก","◆ Gate: 3+ outside collaborators, steady funding":"◆ ด่าน: ผู้ร่วมงานภายนอก 3 รายขึ้นไป และมีทุนต่อเนื่อง","<b>PHASE 3<\/b><span>2028<\/span>":"<b>ระยะที่ 3<\/b><span>2028<\/span>","Become an institute":"ก้าวเป็นสถาบัน","Registered foundation":"จดทะเบียนเป็นมูลนิธิ","An international workshop":"จัดเวิร์กช็อประดับนานาชาติ","A yearly report others cite":"รายงานประจำปีที่คนอื่นอ้างอิง","Events &amp; talks":"งานและทอล์ก","Where to meet the lab":"พบแล็บได้ที่ไหน","<span class=\"mono\">UPCOMING · TALK<\/span><b>Pass the Pointer<\/b><i>Any-to-any serving with vLLM-Omni<\/i>":"<span class=\"mono\">เร็ว ๆ นี้ · ทอล์ก<\/span><b>Pass the Pointer<\/b><i>เสิร์ฟโมเดล any-to-any ด้วย vLLM-Omni<\/i>","<span class=\"ev-when tba\">[date] · [venue]<\/span>":"<span class=\"ev-when tba\">[วันที่] · [สถานที่]<\/span>","vLLM-Omni stage graphs and OmniConnector, with a live Model Explorer demo.":"stage graph และ OmniConnector ของ vLLM-Omni พร้อมเดโม Model Explorer สด","<span class=\"ev-event\">AI EXPO THAILAND 2026 · WORKSHOP<\/span><span class=\"ev-when\">Sat 7 Nov 2026 · 14:00–15:00 · Day 3, Builder Stage<\/span>":"<span class=\"ev-event\">AI EXPO THAILAND 2026 · เวิร์กช็อป<\/span><span class=\"ev-when\">ส. 7 พ.ย. 2026 · 14:00–15:00 · วันที่ 3, Builder Stage<\/span>","IMPACT Challenger Hall 1, Muang Thong Thani. A Kaggle contest: open a Thai speech model part by part in AI Model Explorer, then compress it for the device until it breaks. First of a series for Thai developers.":"อิมแพ็ค ชาเลนเจอร์ ฮอลล์ 1 เมืองทองธานี แข่งบน Kaggle: เปิดดูโมเดลเสียงพูดภาษาไทยทีละส่วนใน AI Model Explorer แล้วบีบให้เล็กพอจะรันบนอุปกรณ์จนกว่าจะพัง ครั้งแรกของซีรีส์สำหรับนักพัฒนาไทย","Event page ↗":"หน้างาน ↗","Get involved":"ร่วมกับเรา","Four ways to work with us":"สี่ทางที่ทำงานกับเราได้","Contribute code":"ร่วมเขียนโค้ด","Pick an open issue on GitHub. Readers for new architectures are always welcome.":"หยิบ issue ที่เปิดอยู่บน GitHub ได้เลย ตัวอ่านสำหรับสถาปัตยกรรมใหม่ ๆ ยินดีรับเสมอ","Open issues →":"ดู issue →","Bring a language":"พาภาษาของคุณมา","Native speakers help us build test sets for languages the big benchmarks skip.":"เจ้าของภาษาช่วยสร้างชุดทดสอบให้ภาษาที่ benchmark ใหญ่ ๆ มองข้าม","Add your language →":"เพิ่มภาษาของคุณ →","Research together":"วิจัยด้วยกัน","Universities, labs and model teams: co-author a study on our data.":"มหาวิทยาลัย แล็บ และทีมพัฒนาโมเดล: ร่วมเขียนงานวิจัยบนข้อมูลของเรา","Propose a study →":"เสนองานวิจัย →","Support the lab":"สนับสนุนแล็บ","Compute, devices for on-phone testing, or a grant. Everything stays open.":"compute อุปกรณ์สำหรับทดสอบบนมือถือ หรือทุนวิจัย ทุกอย่างยังเปิดเหมือนเดิม","Talk to us →":"คุยกับเรา →","Collaborators &amp; supporters":"ผู้ร่วมงานและผู้สนับสนุน","[ hardware partner ]":"[ พาร์ทเนอร์ฮาร์ดแวร์ ]","[ research partner ]":"[ พาร์ทเนอร์วิจัย ]","[ language partner ]":"[ พาร์ทเนอร์ภาษา ]","[ compute supporter ]":"[ ผู้สนับสนุน compute ]","How we work":"วิธีทำงานของเรา","Four rules every output follows":"สี่กฎที่ทุกผลงานต้องทำตาม","Open by default":"เปิดเป็นค่าเริ่มต้น","Code, data and the numbers behind every claim.":"โค้ด ข้อมูล และตัวเลขเบื้องหลังทุกข้อสรุป","Runs on a laptop":"รันบนแล็ปท็อปได้","Core methods repeat on ordinary hardware.":"วิธีหลักทำซ้ำได้บนฮาร์ดแวร์ทั่วไป","Proved before claimed":"พิสูจน์ก่อนอ้าง","Each change ships with a measured cost bound.":"ทุกการเปลี่ยนแปลงมาพร้อมขอบเขตต้นทุนที่วัดแล้ว","Built from Southeast Asia":"สร้างจากเอเชียตะวันออกเฉียงใต้","Non-English is the first test, never an appendix.":"ภาษาที่ไม่ใช่อังกฤษคือบททดสอบแรก ไม่ใช่ภาคผนวก","FAQ":"คำถามที่พบบ่อย","Is the lab a company?":"แล็บเป็นบริษัทหรือเปล่า","No. It is an open, non-commercial research project. Nothing we publish is sold.":"ไม่ใช่ เราเป็นโปรเจกต์วิจัยแบบเปิดที่ไม่แสวงกำไร ไม่มีผลงานชิ้นไหนที่เอาไปขาย","Can I use the data in my product?":"เอาข้อมูลไปใช้ในผลิตภัณฑ์ได้ไหม","Each dataset states its license on Hugging Face. [license summary]":"แต่ละชุดข้อมูลระบุสัญญาอนุญาตไว้บน Hugging Face [license summary]","Why Southeast Asia first?":"ทำไมเริ่มที่เอเชียตะวันออกเฉียงใต้","Its languages pay some of the highest token costs and get the least testing. A method that holds here holds widely.":"ภาษาในภูมิภาคนี้จ่ายค่า token สูงที่สุดกลุ่มหนึ่ง แต่ถูกทดสอบน้อยที่สุด วิธีที่ใช้ได้ที่นี่ก็มักใช้ได้ในที่อื่นด้วย","How do I cite the lab?":"จะอ้างอิงแล็บอย่างไร","Cite the paper you used: arXiv:2611.19913 for the Vocabulary Tax, doi:10.2139/ssrn.7699619 for the Manifest census.":"อ้างอิงเปเปอร์ที่คุณใช้: arXiv:2611.19913 สำหรับ Vocabulary Tax และ doi:10.2139/ssrn.7699619 สำหรับสำมะโน Manifest","One email when we publish":"อีเมลเดียวเมื่อเราเผยแพร่งานใหม่","New papers, tools and datasets. No more than once a month.":"เปเปอร์ เครื่องมือ และชุดข้อมูลใหม่ ไม่เกินเดือนละครั้ง","Email address":"อีเมล","Subscribe":"สมัครรับ","A small lab with open seats.":"แล็บเล็ก ๆ ที่ยังมีที่นั่งว่าง","One founder today, and room for researchers, language leads and builders who want what we learn about open models to stay open.":"ตอนนี้มีผู้ก่อตั้งหนึ่งคน และยังมีที่สำหรับนักวิจัย ผู้ดูแลภาษา และนักสร้าง ที่อยากให้ความรู้เรื่องโมเดลแบบเปิดยังเปิดต่อไป","FOUNDER · LEAD RESEARCHER":"ผู้ก่อตั้ง · หัวหน้านักวิจัย","Sattaya Singkul":"สัตยา สิงห์กุล","Jo · Bangkok, Thailand":"โจ · กรุงเทพฯ ประเทศไทย","Jo works on speech AI and on-device deployment. He wrote the Manifest census of 12,974 Hugging Face repositories and The Vocabulary Tax, and built AI Model Explorer for Thai developers. He started the lab so that this work keeps growing in the open.":"โจทำงานด้าน speech AI และการนำโมเดลไปรันบนอุปกรณ์ เขาเขียนสำมะโน Manifest ของ 12,974 repository บน Hugging Face และ The Vocabulary Tax และสร้าง AI Model Explorer ให้นักพัฒนาไทย เขาตั้งแล็บนี้ขึ้นเพื่อให้งานเหล่านี้เติบโตต่อไปอย่างเปิดเผย","<span>Speech &amp; voice AI<\/span><span>On-device inference<\/span><span>Model anatomy<\/span><span>Thai &amp; SEA languages<\/span>":"<span>Speech และ voice AI<\/span><span>Inference บนอุปกรณ์<\/span><span>กายวิภาคโมเดล<\/span><span>ภาษาไทยและ SEA<\/span>","<a href=\"https://joessattes.github.io/Sattaya-AI-Website/\">Portfolio →<\/a><a href=\"https://github.com/JoesSattes\">GitHub →<\/a><a href=\"https://huggingface.co/JoesSattes\">Hugging Face →<\/a><a href=\"#outputs\">Papers →<\/a>":"<a href=\"https://joessattes.github.io/Sattaya-AI-Website/\">พอร์ตโฟลิโอ →<\/a><a href=\"https://github.com/JoesSattes\">GitHub →<\/a><a href=\"https://huggingface.co/JoesSattes\">Hugging Face →<\/a><a href=\"#outputs\">เปเปอร์ →<\/a>","Open seats":"ที่นั่งว่าง","Who we want to work with next":"คนที่เราอยากทำงานด้วยต่อไป","OPEN SEAT · L1 · L2":"ที่นั่งว่าง · L1 · L2","Research collaborator":"ผู้ร่วมวิจัย","Co-author studies on the census and on trimming. Graduate students and lab researchers welcome.":"ร่วมเขียนงานวิจัยเรื่องสำมะโนและการตัดโมเดล ยินดีต้อนรับนักศึกษาบัณฑิตศึกษาและนักวิจัยจากแล็บต่าง ๆ","Get in touch →":"ติดต่อเรา →","OPEN SEAT · L4":"ที่นั่งว่าง · L4","Language lead":"ผู้ดูแลภาษา","Own test sets and checks for one Southeast Asian language: Vietnamese, Khmer, Lao, Burmese and more.":"ดูแลชุดทดสอบและการตรวจสอบของภาษาหนึ่งในเอเชียตะวันออกเฉียงใต้ เช่น เวียดนาม เขมร ลาว พม่า และภาษาอื่น ๆ","OPEN SEAT · TOOLS":"ที่นั่งว่าง · เครื่องมือ","WebGL, data visualization and the Model Explorer: make model anatomy something people can see.":"WebGL, data visualization และ Model Explorer: ทำให้กายวิภาคของโมเดลเป็นสิ่งที่คนมองเห็นได้","OPEN SEAT · L3":"ที่นั่งว่าง · L3","Advisor":"ที่ปรึกษา","Human–AI interaction or on-device hardware experience, a few hours a quarter.":"มีประสบการณ์ด้านปฏิสัมพันธ์คนกับ AI หรือฮาร์ดแวร์บนอุปกรณ์ ใช้เวลาไม่กี่ชั่วโมงต่อไตรมาส","<b>AI Model Explorer Lab<\/b><span style=\"color:var(--mist);max-width:360px\">Good AI is AI we understand, can control, and can live with every day.<\/span><span style=\"color:#5F7A90\">An open, non-commercial research project · Bangkok, Thailand · [contact email]<\/span>":"<b>AI Model Explorer Lab<\/b><span style=\"color:var(--mist);max-width:360px\">AI ที่ดีคือ AI ที่เราเข้าใจ ควบคุมได้ และอยู่ร่วมกันได้ทุกวัน<\/span><span style=\"color:#5F7A90\">โปรเจกต์วิจัยแบบเปิดที่ไม่แสวงกำไร · กรุงเทพฯ ประเทศไทย · [contact email]<\/span>","<span>LAB<\/span><a href=\"#about\">About<\/a><a href=\"#pillars\">Research pillars<\/a><a href=\"#events\">Events<\/a><a href=\"#involve\">Get involved<\/a>":"<span>แล็บ<\/span><a href=\"#about\">เกี่ยวกับเรา<\/a><a href=\"#pillars\">เสาหลักการวิจัย<\/a><a href=\"#events\">งานและทอล์ก<\/a><a href=\"#involve\">ร่วมกับเรา<\/a>","<span>RESEARCH<\/span><a href=\"#outputs\">Publications<\/a><a href=\"#projects\">Projects<\/a><a href=\"#tools\">Tools &amp; data<\/a><a href=\"#roadmap\">Roadmap<\/a>":"<span>วิจัย<\/span><a href=\"#outputs\">ผลงานตีพิมพ์<\/a><a href=\"#projects\">โปรเจกต์<\/a><a href=\"#tools\">เครื่องมือและข้อมูล<\/a><a href=\"#roadmap\">แผนงาน<\/a>","<span>ELSEWHERE<\/span><a href=\"https://github.com/JoesSattes\">GitHub<\/a><a href=\"https://huggingface.co/JoesSattes\">Hugging Face<\/a><a href=\"https://pypi.org/project/ai-model-explorer/\">PyPI<\/a><a href=\"https://joessattes.github.io/ai-model-explorer/\">Model Explorer<\/a>":"<span>ช่องทางอื่น<\/span><a href=\"https://github.com/JoesSattes\">GitHub<\/a><a href=\"https://huggingface.co/JoesSattes\">Hugging Face<\/a><a href=\"https://pypi.org/project/ai-model-explorer/\">PyPI<\/a><a href=\"https://joessattes.github.io/ai-model-explorer/\">Model Explorer<\/a>","<span>© 2026 AI Model Explorer Lab<\/span><span>Code MIT · data licenses on each dataset<\/span>":"<span>© 2026 AI Model Explorer Lab<\/span><span>โค้ด MIT · สัญญาอนุญาตข้อมูลระบุไว้ในแต่ละชุด<\/span>","SCROLL":"เลื่อน"},"attr":{"AI Model Explorer Lab, home":"AI Model Explorer Lab หน้าแรก","Main":"เมนูหลัก","Who we are, what we do and our four pillars, told in ten steps":"เราคือใคร ทำอะไร และสี่เสาหลักของเรา เล่าในสิบขั้น","Story chapters":"บทของเรื่อง","AI Expo Thailand 2026, Day 3 Builder Stage agenda (opens the event page)":"AI Expo Thailand 2026 วันที่ 3 Builder Stage (เปิดหน้างาน)","Banner for Squeeze Until It Breaks, the on-edge inference Kaggle competition and workshop at AI Expo Thailand 2026":"แบนเนอร์ Squeeze Until It Breaks การแข่งขัน Kaggle และเวิร์กช็อป on-edge inference ที่ AI Expo Thailand 2026","Team":"ทีม","Monogram SS on a faceted crystal":"อักษรย่อ SS บนคริสตัลเหลี่ยม"}};
+  var SKIP = 'script,style,svg,canvas,noscript,[lang]:not([lang="en"]),.langs,#chapters,#hudChap,#hudRows,#hudEmb,#hudRepos,#nl-ok,[data-i18n-skip]';
+  var INLINE = { EM: 1, B: 1, STRONG: 1, I: 1, A: 1, SPAN: 1, BR: 1, SMALL: 1, CODE: 1, SUP: 1, SUB: 1, ABBR: 1 };
+  var norm = function (s) { return s.replace(/\s+/g, ' ').trim(); };
+  var swaps = [];
+  function isLeaf(el) {
+    if (!norm(el.textContent)) return false;
+    var all = el.querySelectorAll('*');
+    for (var i = 0; i < all.length; i++) {
+      var d = all[i];
+      if (!INLINE[d.tagName] || d.id || d.matches(SKIP)) return false;
+      if (d.tagName !== 'BR' && !norm(d.textContent)) return false;
+    }
+    return true;
+  }
+  function walk(el) {
+    for (var n = el.firstChild; n; n = n.nextSibling) {
+      if (n.nodeType === 3) {
+        var t = norm(n.nodeValue);
+        if (t && el !== document.body && DICT.text[t] != null) swaps.push({ node: n, prop: 'nodeValue', en: n.nodeValue, th: DICT.text[t] });
+        continue;
+      }
+      if (n.nodeType !== 1 || n.matches(SKIP)) continue;
+      if (isLeaf(n)) {
+        var k = norm(n.innerHTML);
+        if (DICT.text[k] != null) swaps.push({ node: n, prop: 'innerHTML', en: n.innerHTML, th: DICT.text[k] });
+      } else walk(n);
+    }
+  }
+  walk(document.body);
+  document.querySelectorAll('[aria-label],[alt]').forEach(function (el) {
+    ['aria-label', 'alt'].forEach(function (a) {
+      var v = el.getAttribute(a);
+      if (v && DICT.attr[v] != null) swaps.push({ node: el, attr: a, en: v, th: DICT.attr[v] });
+    });
+  });
+
+  var btn = document.getElementById('langBtn');
+  function set(lang, save) {
+    var th = lang === 'th';
+    document.documentElement.lang = th ? 'th' : 'en';
+    swaps.forEach(function (s) {
+      var v = th ? s.th : s.en;
+      if (s.attr) s.node.setAttribute(s.attr, v); else s.node[s.prop] = v;
+    });
+    if (btn) {
+      btn.textContent = th ? 'EN' : 'TH';
+      btn.lang = th ? 'en' : 'th';
+      btn.setAttribute('aria-label', th ? 'Switch to English' : 'เปลี่ยนเป็นภาษาไทย');
+    }
+    if (save) { try { localStorage.setItem('amelab-lang', lang); } catch (e) {} }
+    document.dispatchEvent(new CustomEvent('langchange', { detail: lang }));
+  }
+  window.amelabLang = function () { return document.documentElement.lang === 'th' ? 'th' : 'en'; };
+  if (btn) btn.addEventListener('click', function () { set(window.amelabLang() === 'th' ? 'en' : 'th', true); });
+
+  var start = 'en';
+  try {
+    var q = new URLSearchParams(location.search).get('lang');
+    start = q === 'th' || q === 'en' ? q : (localStorage.getItem('amelab-lang') || 'en');
+  } catch (e) {}
+  if (start === 'th') set('th', false);
+})();
+</script>
+<script type="module">
+/* ================= Bonsai of Light: the story scene ================= */
+async function initScene(canvas) {
+  const THREE = await import('three');
+  const { EffectComposer } = await import('three/addons/postprocessing/EffectComposer.js');
+  const { RenderPass } = await import('three/addons/postprocessing/RenderPass.js');
+  const { UnrealBloomPass } = await import('three/addons/postprocessing/UnrealBloomPass.js');
+  const { OutputPass } = await import('three/addons/postprocessing/OutputPass.js');
+
+  let renderer;
+  try { renderer = new THREE.WebGLRenderer({ canvas, antialias: true }); } catch (e) { return null; }
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5));
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 0.85;
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x040C1A);
+  scene.fog = new THREE.FogExp2(0x040C1A, 0.045);
+  const camera = new THREE.PerspectiveCamera(32, 1, 0.1, 160);
+
+  let seed = 11;
+  const rand = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
+  const rr = (a, b) => a + (b - a) * rand();
+  const C = (h) => new THREE.Color(h);
+  const TQ = C(0x19D3C5), BLUE = C(0x2E7CF6), ICE = C(0xD6F7FF), JADE = C(0x35D99A), VIOLET = C(0x6F7CFF), DEEP = C(0x0A2A52), WOOD = C(0x061A33), ROOT = C(0x05303A);
+  const LANG = [TQ, BLUE, ICE, JADE, VIOLET, C(0xFFB86B), C(0x7FD1FF), C(0xB48CFF), C(0x5EF2C7)];
+  const PILL = [TQ, BLUE, C(0x8FC2FF), JADE];
+
+  const world = new THREE.Group();
+  world.position.y = -1.2;
+  scene.add(world);
+
+  function taper(curve, r0, r1, segs = 64, radial = 10) {
+    const frames = curve.computeFrenetFrames(segs, false);
+    const pos = [], idx = [], tv = [];
+    for (let i = 0; i <= segs; i++) {
+      const t = i / segs, p = curve.getPointAt(t), r = r0 + (r1 - r0) * Math.pow(t, 0.8);
+      const N = frames.normals[i], B = frames.binormals[i];
+      for (let j = 0; j <= radial; j++) {
+        const a = j / radial * Math.PI * 2, c = Math.cos(a), s = Math.sin(a);
+        pos.push(p.x + r * (c * N.x + s * B.x), p.y + r * (c * N.y + s * B.y), p.z + r * (c * N.z + s * B.z));
+        tv.push(t);
+      }
+    }
+    for (let i = 0; i < segs; i++) { for (let j = 0; j < radial; j++) { const a = i * (radial + 1) + j, b = a + radial + 1; idx.push(a, b, a + 1, b, b + 1, a + 1); } }
+    const g = new THREE.BufferGeometry();
+    g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+    g.setAttribute('t', new THREE.Float32BufferAttribute(tv, 1));
+    g.setIndex(idx);
+    g.computeVertexNormals();
+    return g;
+  }
+  const mats = [];
+  const lightMat = (base, glow, rimPow, speed = 1.4, see = false) => {
+    const m = new THREE.ShaderMaterial({
+      uniforms: { uTime: { value: 0 }, uBase: { value: base }, uGlow: { value: glow }, uOff: { value: rand() * 6.28 }, uA: { value: 1 }, uGain: { value: 1 } },
+      vertexShader: `attribute float t; varying float vT; varying vec3 vN; varying vec3 vV;
+        void main(){ vT = t; vec4 mv = modelViewMatrix * vec4(position,1.0); vN = normalize(normalMatrix * normal); vV = normalize(-mv.xyz); gl_Position = projectionMatrix * mv; }`,
+      fragmentShader: `uniform float uTime; uniform vec3 uBase; uniform vec3 uGlow; uniform float uOff; uniform float uA; uniform float uGain;
+        varying float vT; varying vec3 vN; varying vec3 vV;
+        void main(){ float rim = pow(1.0 - abs(dot(vN, vV)), ${rimPow.toFixed(1)});
+          float pulse = smoothstep(0.86, 1.0, sin(vT * 7.0 - uTime * ${speed.toFixed(2)} + uOff) * 0.5 + 0.5);
+          gl_FragColor = vec4(uBase * 0.5 + uGlow * uGain * (0.18 + rim * 0.95 + pulse * 1.0), uA); }`,
+      transparent: see, depthWrite: !see
+    });
+    mats.push(m);
+    return m;
+  };
+
+  const flowCurves = [];
+  function bundle(parent, guide, r0, r1, count, twist, thick, colors, segs = 90, owner = null) {
+    const frames = guide.computeFrenetFrames(segs, false);
+    for (let k = 0; k < count; k++) {
+      const pts = [], f = rr(0.55, 1.0), ph = k / count * Math.PI * 2;
+      for (let i = 0; i <= segs; i++) {
+        const t = i / segs, p = guide.getPointAt(t), r = (r0 + (r1 - r0) * Math.pow(t, 0.8)) * f;
+        const a = ph + t * twist, N = frames.normals[i], B = frames.binormals[i];
+        pts.push(new THREE.Vector3(p.x + r * (Math.cos(a) * N.x + Math.sin(a) * B.x), p.y + r * (Math.cos(a) * N.y + Math.sin(a) * B.y), p.z + r * (Math.cos(a) * N.z + Math.sin(a) * B.z)));
+      }
+      const c = new THREE.CatmullRomCurve3(pts);
+      parent.add(new THREE.Mesh(taper(c, thick, thick * 0.4, segs, 6), lightMat(DEEP, colors[k % colors.length], 1.4, rr(1.0, 2.0))));
+      flowCurves.push({ c, owner });
+    }
+  }
+
+  /* trunk and 28 rings */
+  const trunk = new THREE.CatmullRomCurve3([
+    new THREE.Vector3(0, 0, 0), new THREE.Vector3(0.32, 0.5, 0.05), new THREE.Vector3(0.1, 1.0, -0.08),
+    new THREE.Vector3(-0.45, 1.5, 0.02), new THREE.Vector3(-0.25, 2.0, 0.1), new THREE.Vector3(0.15, 2.45, 0.0)
+  ]);
+  world.add(new THREE.Mesh(taper(trunk, 0.2, 0.05, 96, 14), lightMat(WOOD, BLUE, 3.0, 0.8)));
+  bundle(world, trunk, 0.27, 0.07, 22, 5.5, 0.017, [BLUE, TQ, ICE, BLUE, VIOLET]);
+  const bandMat = new THREE.MeshBasicMaterial({ color: 0x7CC4FF, transparent: true, opacity: 0.22, blending: THREE.AdditiveBlending, depthWrite: false });
+  for (let i = 0; i < 28; i++) {
+    const t = 0.05 + i / 27 * 0.8, p = trunk.getPointAt(t), tan = trunk.getTangentAt(t);
+    const ring = new THREE.Mesh(new THREE.TorusGeometry(0.27 + (0.07 - 0.27) * Math.pow(t, 0.8) + 0.02, 0.003, 4, 48), bandMat);
+    ring.position.copy(p); ring.quaternion.setFromUnitVectors(new THREE.Vector3(0, 0, 1), tan); world.add(ring);
+  }
+
+  /* branches and foliage pads */
+  const pads = [];
+  function grow(start, dir, len, r0, depth) {
+    const end = start.clone().add(dir.clone().multiplyScalar(len));
+    end.y += len * rr(0.08, 0.28);
+    const mid = start.clone().lerp(end, 0.5).add(new THREE.Vector3(rr(-0.12, 0.12), rr(0.06, 0.2), rr(-0.12, 0.12)));
+    const c = new THREE.CatmullRomCurve3([start, mid, end]);
+    world.add(new THREE.Mesh(taper(c, r0 * 0.7, r0 * 0.3, 32, 8), lightMat(WOOD, BLUE, 2.6, 0.8)));
+    bundle(world, c, r0 * 1.2, r0 * 0.5, depth ? 5 : 3, 4, 0.009, [BLUE, TQ, ICE], 40);
+    if (depth > 0) {
+      for (const sgn of [-1, 1]) {
+        const d = dir.clone().applyAxisAngle(new THREE.Vector3(0, 1, 0), sgn * rr(0.4, 0.9));
+        d.y = rr(-0.05, 0.12); d.normalize();
+        grow(end, d, len * rr(0.5, 0.65), r0 * 0.55, depth - 1);
+      }
+    } else { pads.push(end.clone().add(new THREE.Vector3(0, 0.1, 0))); }
+  }
+  for (const [t, d, len, r] of [
+    [0.42, new THREE.Vector3(1, 0.12, 0.25), 1.15, 0.07], [0.56, new THREE.Vector3(-1, 0.12, -0.15), 1.05, 0.062],
+    [0.68, new THREE.Vector3(0.6, 0.1, -0.8), 0.85, 0.055], [0.8, new THREE.Vector3(-0.5, 0.15, 0.8), 0.75, 0.05],
+    [0.93, new THREE.Vector3(0.9, 0.3, 0.2), 0.6, 0.04]
+  ]) { grow(trunk.getPointAt(t), d.normalize(), len, r, 1); }
+  pads.push(trunk.getPointAt(1).clone().add(new THREE.Vector3(0, 0.18, 0)));
+
+  /* roots: the vocabulary. Each root has a rank; pruning keeps the lowest ranks. The roots that reach the chip are kept. */
+  const roots = [];
+  for (let i = 0; i < 24; i++) {
+    const a = i / 24 * Math.PI * 2 + rr(-0.12, 0.12), toChip = i % 4 === 0;
+    const L = toChip ? rr(0.35, 0.5) : rr(0.9, 1.6);
+    const p0 = new THREE.Vector3(Math.cos(a) * 0.12, 0.02, Math.sin(a) * 0.12);
+    const p1 = new THREE.Vector3(Math.cos(a) * L * 0.5, -0.08, Math.sin(a) * L * 0.5);
+    const p2 = toChip ? new THREE.Vector3(Math.cos(a) * 0.3, -0.31, Math.sin(a) * 0.3) : new THREE.Vector3(Math.cos(a + rr(-0.3, 0.3)) * L, -0.2, Math.sin(a + rr(-0.3, 0.3)) * L);
+    const c = new THREE.CatmullRomCurve3([p0, p1, p2]);
+    const root = { rank: toChip ? rr(0, 0.08) : rr(0.12, 1), mats: [], alpha: 1 };
+    const m = lightMat(ROOT, toChip ? ICE : TQ, 1.5, 1.6, true); root.mats.push(m);
+    world.add(new THREE.Mesh(taper(c, 0.04, 0.006, 32, 6), m));
+    flowCurves.push({ c, owner: root });
+    if (!toChip) {
+      for (let k = 0; k < 2; k++) {
+        const s = c.getPointAt(rr(0.4, 0.8)), e = s.clone().add(new THREE.Vector3(rr(-0.45, 0.45), rr(-0.1, -0.03), rr(-0.45, 0.45)));
+        const mm = lightMat(ROOT, TQ, 1.5, 1.4, true); root.mats.push(mm);
+        world.add(new THREE.Mesh(taper(new THREE.CatmullRomCurve3([s, s.clone().lerp(e, 0.5), e]), 0.01, 0.003, 16, 5), mm));
+      }
+    }
+    roots.push(root);
+  }
+
+  /* pedestal, chip, rings */
+  const base = new THREE.Group(); world.add(base);
+  const addMat = (o, col = 0x8FE9FF) => new THREE.MeshBasicMaterial({ color: col, transparent: true, opacity: o, blending: THREE.AdditiveBlending, depthWrite: false });
+  const ped = new THREE.Mesh(new THREE.CylinderGeometry(1.75, 1.8, 0.42, 96, 1, true), new THREE.MeshBasicMaterial({ color: 0x5FA8FF, transparent: true, opacity: 0.06, side: THREE.DoubleSide, depthWrite: false, blending: THREE.AdditiveBlending }));
+  ped.position.y = -0.21; base.add(ped);
+  for (const [y, r, o] of [[0, 1.75, 0.9], [-0.42, 1.8, 0.7], [-0.44, 2.0, 0.45]]) {
+    const ring = new THREE.Mesh(new THREE.TorusGeometry(r, 0.008, 6, 160), addMat(o)); ring.rotation.x = Math.PI / 2; ring.position.y = y; base.add(ring);
+  }
+  const chip = new THREE.Group(); chip.position.y = -0.34;
+  const die = new THREE.Mesh(new THREE.BoxGeometry(0.62, 0.05, 0.62), new THREE.MeshBasicMaterial({ color: 0x08182C }));
+  chip.add(die);
+  const coreM = new THREE.MeshBasicMaterial({ color: 0x19D3C5, transparent: true, opacity: 0.85 });
+  const core = new THREE.Mesh(new THREE.PlaneGeometry(0.3, 0.3), coreM); core.rotation.x = -Math.PI / 2; core.position.y = 0.027; chip.add(core);
+  chip.add(new THREE.LineSegments(new THREE.EdgesGeometry(die.geometry), new THREE.LineBasicMaterial({ color: 0x8FE9FF })));
+  const pinG = new THREE.BoxGeometry(0.02, 0.012, 0.07), pinM = new THREE.MeshBasicMaterial({ color: 0x5FB8FF });
+  for (let s = 0; s < 4; s++) {
+    for (let k = 0; k < 9; k++) {
+      const pin = new THREE.Mesh(pinG, pinM), o = -0.24 + k * 0.06;
+      if (s === 0) { pin.position.set(o, 0, 0.345); } else if (s === 1) { pin.position.set(o, 0, -0.345); } else if (s === 2) { pin.position.set(0.345, 0, o); pin.rotation.y = Math.PI / 2; } else { pin.position.set(-0.345, 0, o); pin.rotation.y = Math.PI / 2; }
+      chip.add(pin);
+    }
+  }
+  base.add(chip);
+  const floorMats = [];
+  for (const [r, o] of [[2.35, 0.35], [2.9, 0.18], [3.6, 0.09]]) {
+    const fm = addMat(o); fm.userData.o = o; floorMats.push(fm);
+    const ring = new THREE.Mesh(new THREE.RingGeometry(r, r + 0.012, 160), fm); ring.rotation.x = -Math.PI / 2; ring.position.y = -0.45; base.add(ring);
+  }
+  const glow = new THREE.Mesh(new THREE.CircleGeometry(4.5, 64), new THREE.ShaderMaterial({
+    transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
+    vertexShader: `varying vec2 vU; void main(){ vU = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0); }`,
+    fragmentShader: `varying vec2 vU; void main(){ float d = length(vU - 0.5) * 2.0; gl_FragColor = vec4(vec3(0.12, 0.38, 0.95) * pow(max(1.0 - d, 0.0), 2.0) * 0.55, 1.0); }`
+  }));
+  glow.rotation.x = -Math.PI / 2; glow.position.y = -0.46; base.add(glow);
+  const orbitMats = [];
+  const orbit = new THREE.Group(); orbit.position.y = 1.45; orbit.rotation.set(0.22, 0, 0.12);
+  const orbitM = addMat(0.55); const orbitRing = new THREE.Mesh(new THREE.TorusGeometry(2.75, 0.006, 6, 240), orbitM); orbitRing.rotation.x = Math.PI / 2; orbit.add(orbitRing);
+  world.add(orbit);
+
+  /* glowing sprites with three colour sets: base, languages, pillars */
+  const spriteMat = (scale) => new THREE.ShaderMaterial({
+    uniforms: { uTime: { value: 0 }, uPx: { value: renderer.getPixelRatio() }, uA: { value: 1 }, uLang: { value: 0 }, uPill: { value: 0 } },
+    vertexShader: `attribute vec3 color; attribute vec3 color2; attribute vec3 color3; attribute float phase; attribute float size;
+      uniform float uTime; uniform float uPx; uniform float uLang; uniform float uPill; varying vec3 vC; varying float vA;
+      void main(){ vC = mix(mix(color, color2, uLang), color3, uPill); vA = 0.55 + 0.45 * sin(uTime * 1.8 + phase);
+        vec4 mv = modelViewMatrix * vec4(position, 1.0); gl_PointSize = size * uPx * ${scale.toFixed(1)} / -mv.z; gl_Position = projectionMatrix * mv; }`,
+    fragmentShader: `uniform float uA; varying vec3 vC; varying float vA;
+      void main(){ float d = length(gl_PointCoord - 0.5); if (d > 0.5) discard; float a = smoothstep(0.5, 0.0, d); gl_FragColor = vec4(vC * (0.45 + 0.7 * a), a * vA * 0.8 * uA); }`,
+    transparent: true, depthWrite: false, blending: THREE.AdditiveBlending
+  });
+  const points = (parent, n, fill, scale) => {
+    const pos = new Float32Array(n * 3), c1 = new Float32Array(n * 3), c2 = new Float32Array(n * 3), c3 = new Float32Array(n * 3), ph = new Float32Array(n), sz = new Float32Array(n);
+    for (let i = 0; i < n; i++) { fill(i, pos, c1, c2, c3, ph, sz); }
+    const g = new THREE.BufferGeometry();
+    g.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+    g.setAttribute('color', new THREE.BufferAttribute(c1, 3));
+    g.setAttribute('color2', new THREE.BufferAttribute(c2, 3));
+    g.setAttribute('color3', new THREE.BufferAttribute(c3, 3));
+    g.setAttribute('phase', new THREE.BufferAttribute(ph, 1));
+    g.setAttribute('size', new THREE.BufferAttribute(sz, 1));
+    const m = spriteMat(scale); const p = new THREE.Points(g, m); parent.add(p); return { g, m, p };
+  };
+  const put = (arr, i, col) => { arr[i * 3] = col.r; arr[i * 3 + 1] = col.g; arr[i * 3 + 2] = col.b; };
+  const PER = 1100;
+  const leaves = points(world, pads.length * PER, (i, pos, c1, c2, c3, ph, sz) => {
+    const pi = Math.floor(i / PER), c = pads[pi];
+    if (!c.r) { c.r = [rr(0.5, 0.72), rr(0.17, 0.26), rr(0.4, 0.56)]; }
+    let x, y, z; do { x = rr(-1, 1); y = rr(-1, 1); z = rr(-1, 1); } while (x * x + y * y + z * z > 1);
+    y = y < 0 ? y * 0.45 : y;
+    pos[i * 3] = c.x + x * c.r[0]; pos[i * 3 + 1] = c.y + y * c.r[1]; pos[i * 3 + 2] = c.z + z * c.r[2];
+    const m = rand(), col = m < 0.4 ? TQ.clone().lerp(ICE, rand() * 0.4) : m < 0.62 ? JADE.clone().lerp(TQ, rand()) : m < 0.88 ? BLUE.clone().lerp(TQ, rand()) : VIOLET.clone();
+    put(c1, i, col); put(c2, i, LANG[pi % LANG.length].clone().lerp(ICE, rand() * 0.25)); put(c3, i, PILL[pi % 4]);
+    ph[i] = rand() * 6.28; sz[i] = rr(0.6, 1.5);
+  }, 34);
+  const moss = points(world, 2600, (i, pos, c1, c2, c3, ph, sz) => {
+    const r = Math.sqrt(rand()) * 1.55, a = rand() * Math.PI * 2;
+    pos[i * 3] = Math.cos(a) * r; pos[i * 3 + 1] = 0.01 + (1 - r / 1.55) * 0.14 * rand(); pos[i * 3 + 2] = Math.sin(a) * r;
+    const col = rand() < 0.6 ? JADE.clone().lerp(TQ, rand()) : DEEP.clone().lerp(TQ, 0.5);
+    put(c1, i, col); put(c2, i, col); put(c3, i, col); ph[i] = rand() * 6.28; sz[i] = rr(0.5, 1.1);
+  }, 26);
+  const FLOW = 600, flowSrc = [];
+  const flow = points(world, FLOW, (i, pos, c1, c2, c3, ph, sz) => {
+    flowSrc.push({ f: flowCurves[Math.floor(rand() * flowCurves.length)], o: rand(), sp: rr(0.05, 0.12) });
+    const col = rand() < 0.5 ? ICE : TQ; put(c1, i, col); put(c2, i, col); put(c3, i, col); ph[i] = rand() * 6.28; sz[i] = rr(1.2, 2.2);
+  }, 30);
+  const SPARK = 40;
+  const spark = points(world, SPARK, (i, pos, c1, c2, c3, ph, sz) => { const k = 1 - i / SPARK, col = new THREE.Color(0.6 * k, 0.95 * k, k); put(c1, i, col); put(c2, i, col); put(c3, i, col); ph[i] = 1.57; sz[i] = 4.5 * k + 0.5; }, 30);
+  const dust = points(scene, 420, (i, pos, c1, c2, c3, ph, sz) => { pos[i * 3] = rr(-8, 8); pos[i * 3 + 1] = rr(-1.5, 4); pos[i * 3 + 2] = rr(-7, 5); const col = new THREE.Color(0.5, 0.72, 1); put(c1, i, col); put(c2, i, col); put(c3, i, col); ph[i] = rand() * 6.28; sz[i] = rr(0.5, 1.1); }, 24);
+
+  /* voxel tokens */
+  const VOX = 150;
+  const vox = new THREE.InstancedMesh(new THREE.BoxGeometry(1, 1, 1), new THREE.MeshBasicMaterial({ transparent: true, opacity: 0.9 }), VOX);
+  const voxE = new THREE.InstancedMesh(new THREE.BoxGeometry(1.25, 1.25, 1.25), new THREE.MeshBasicMaterial({ color: 0x9FEFFF, wireframe: true, transparent: true, opacity: 0.35 }), VOX);
+  const voxS = [];
+  for (let i = 0; i < VOX; i++) {
+    const c = pads[i % pads.length];
+    voxS.push({ home: c.clone().add(new THREE.Vector3(rr(-0.7, 0.7), rr(0.0, 0.3), rr(-0.55, 0.55))), drift: i % 4 === 0, dir: new THREE.Vector3(rr(-0.4, 0.4), rr(0.3, 0.8), rr(-0.4, 0.4)), o: rand(), s: rr(0.02, 0.05), rot: rr(0.3, 1.2) });
+    vox.setColorAt(i, [TQ, BLUE, ICE, VIOLET, JADE][i % 5].clone());
+  }
+  world.add(vox); world.add(voxE);
+
+  /* the forest: 12,974 models, drawn as a field of small glowing trees */
+  const forest = new THREE.Group(); scene.add(forest);
+  const trunkPts = [], tops = [];
+  for (let gx = -13; gx <= 13; gx++) {
+    for (let gz = -13; gz <= 13; gz++) {
+      if (Math.abs(gx) <= 1 && Math.abs(gz) <= 1) { continue; }
+      if (rand() < 0.25) { continue; }
+      const x = gx * 1.9 + rr(-0.5, 0.5), z = gz * 1.9 + rr(-0.5, 0.5), h = rr(0.7, 1.7), lean = rr(-0.25, 0.25);
+      trunkPts.push(x, -1.65, z, x + lean, -1.65 + h * 0.55, z, x + lean, -1.65 + h * 0.55, z, x - lean * 0.4, -1.65 + h, z);
+      tops.push([x - lean * 0.4, -1.65 + h, z, rr(0.3, 0.55)]);
+    }
+  }
+  const tg = new THREE.BufferGeometry(); tg.setAttribute('position', new THREE.Float32BufferAttribute(trunkPts, 3));
+  const forestLineM = new THREE.LineBasicMaterial({ color: 0x4FA0FF, transparent: true, opacity: 0, blending: THREE.AdditiveBlending, depthWrite: false });
+  forest.add(new THREE.LineSegments(tg, forestLineM));
+  const PERT = 26;
+  const forestPts = points(forest, tops.length * PERT, (i, pos, c1, c2, c3, ph, sz) => {
+    const t = tops[Math.floor(i / PERT)];
+    pos[i * 3] = t[0] + rr(-1, 1) * t[3]; pos[i * 3 + 1] = t[1] + rr(-0.3, 0.6) * t[3] * 0.6; pos[i * 3 + 2] = t[2] + rr(-1, 1) * t[3];
+    const col = rand() < 0.7 ? TQ.clone().lerp(BLUE, rand()) : ICE; put(c1, i, col); put(c2, i, col); put(c3, i, col); ph[i] = rand() * 6.28; sz[i] = rr(0.8, 1.6);
+  }, 95);
+
+  /* a phone outline for the device chapter */
+  const phoneShape = new THREE.Shape();
+  const pw = 1.9, ph2 = 3.7, pr = 0.32;
+  phoneShape.moveTo(-pw / 2 + pr, -ph2 / 2); phoneShape.lineTo(pw / 2 - pr, -ph2 / 2); phoneShape.absarc(pw / 2 - pr, -ph2 / 2 + pr, pr, -Math.PI / 2, 0);
+  phoneShape.lineTo(pw / 2, ph2 / 2 - pr); phoneShape.absarc(pw / 2 - pr, ph2 / 2 - pr, pr, 0, Math.PI / 2);
+  phoneShape.lineTo(-pw / 2 + pr, ph2 / 2); phoneShape.absarc(-pw / 2 + pr, ph2 / 2 - pr, pr, Math.PI / 2, Math.PI);
+  phoneShape.lineTo(-pw / 2, -ph2 / 2 + pr); phoneShape.absarc(-pw / 2 + pr, -ph2 / 2 + pr, pr, Math.PI, Math.PI * 1.5);
+  const phoneM = new THREE.LineBasicMaterial({ color: 0x19D3C5, transparent: true, opacity: 0, blending: THREE.AdditiveBlending, depthWrite: false });
+  const phone = new THREE.Group();
+  phone.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(phoneShape.getPoints(64)), phoneM));
+  const notch = new THREE.Shape(); notch.absarc(0, ph2 / 2 - 0.2, 0.05, 0, Math.PI * 2);
+  phone.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(-0.22, ph2 / 2 - 0.2, 0), new THREE.Vector3(0.22, ph2 / 2 - 0.2, 0)]), phoneM));
+  phone.position.y = 0.2;
+  scene.add(phone);
+
+  /* Bangkok skyline, far and dim */
+  function skyline() {
+    const c = document.createElement('canvas'); c.width = 2048; c.height = 512; const x = c.getContext('2d');
+    let px = 0, s2 = 3;
+    const r2 = () => { s2 = (s2 * 16807) % 2147483647; return (s2 - 1) / 2147483646; };
+    while (px < 2048) {
+      const w = 30 + r2() * 70, h = 70 + r2() * (px > 1300 && px < 1700 ? 90 : 230);
+      x.fillStyle = `rgb(${18 + r2() * 14 | 0},${40 + r2() * 20 | 0},${80 + r2() * 30 | 0})`;
+      x.fillRect(px, 512 - h, w, h);
+      for (let wy = 512 - h + 8; wy < 506; wy += 9) { for (let wx = px + 5; wx < px + w - 4; wx += 8) { if (r2() < 0.12) { x.fillStyle = r2() < 0.7 ? 'rgba(160,210,255,.55)' : 'rgba(255,190,110,.6)'; x.fillRect(wx, wy, 2, 3); } } }
+      px += w + 4 + r2() * 12;
+    }
+    const prang = (cx, b, H, W) => {
+      x.fillStyle = 'rgb(30,58,105)';
+      x.beginPath(); x.moveTo(cx - W, b);
+      for (let k = 0; k <= 8; k++) { const t = k / 8, yy = b - H * t, ww = W * (1 - t) * (1 - t * 0.15); x.lineTo(cx - ww, yy); x.lineTo(cx - ww * 0.92, yy - H / 32); }
+      x.lineTo(cx, b - H * 1.1);
+      for (let k = 8; k >= 0; k--) { const t = k / 8, yy = b - H * t, ww = W * (1 - t) * (1 - t * 0.15); x.lineTo(cx + ww * 0.92, yy - H / 32); x.lineTo(cx + ww, yy); }
+      x.closePath(); x.fill();
+      x.fillStyle = 'rgba(255,196,120,.35)';
+      for (let k = 1; k < 8; k++) { const t = k / 8; x.fillRect(cx - W * (1 - t) * 0.8, b - H * t, W * (1 - t) * 1.6, 1.5); }
+    };
+    prang(1500, 512, 300, 70); prang(1400, 512, 150, 36); prang(1600, 512, 150, 36);
+    x.globalCompositeOperation = 'destination-in';
+    const fade = x.createLinearGradient(0, 120, 0, 512); fade.addColorStop(0, 'rgba(0,0,0,0)'); fade.addColorStop(0.55, 'rgba(0,0,0,.8)'); fade.addColorStop(1, 'rgba(0,0,0,1)');
+    x.fillStyle = fade; x.fillRect(0, 0, 2048, 512);
+    const tex = new THREE.CanvasTexture(c); tex.colorSpace = THREE.SRGBColorSpace; return tex;
+  }
+  const skyM = new THREE.MeshBasicMaterial({ map: skyline(), transparent: true, opacity: 0.32, fog: false, depthWrite: false });
+  const sky = new THREE.Mesh(new THREE.PlaneGeometry(40, 6), skyM);
+  scene.add(sky);
+
+  /* post */
+  const composer = new EffectComposer(renderer);
+  composer.addPass(new RenderPass(scene, camera));
+  const bloom = new UnrealBloomPass(new THREE.Vector2(1, 1), 0.7, 0.55, 0.22);
+  composer.addPass(bloom);
+  composer.addPass(new OutputPass());
+  let W = 0, H = 0;
+  function resize() {
+    const w = canvas.clientWidth, h = canvas.clientHeight;
+    if (w === W && h === H) { return; }
+    W = w; H = h;
+    renderer.setSize(w, h, false); composer.setSize(w, h); bloom.setSize(w, h);
+    camera.aspect = w / h; camera.updateProjectionMatrix();
+  }
+
+  const anchors = [trunk.getPointAt(0.55), pads[0].clone(), new THREE.Vector3(0.3, -0.34, 0.3)];
+  const tmp = new THREE.Vector3(), e3 = new THREE.Euler(0.22, 0, 0.12), back = new THREE.Vector3(), dummy = new THREE.Object3D(), v = new THREE.Vector3();
+
+  function render(s, t, mx, my) {
+    resize();
+    const shift = innerWidth > 860 ? s.shift : 0;
+    camera.setViewOffset(W, H, W * shift, 0, W, H);
+    const az = s.az + Math.sin(t * 0.08) * 0.2 + mx * 0.3;
+    const R = s.camR * (innerWidth > 860 ? 1 : 1.35);
+    camera.position.set(Math.sin(az) * R, s.camY - my * 0.6, Math.cos(az) * R);
+    camera.lookAt(0, s.tgtY, 0);
+    world.scale.setScalar(s.scale);
+    world.position.y = -1.2 * s.scale + (1 - s.scale) * 0.4;
+    back.set(-camera.position.x, 0, -camera.position.z).normalize().multiplyScalar(18);
+    sky.position.set(back.x, 0.1, back.z); sky.lookAt(camera.position.x, 0.1, camera.position.z);
+    skyM.opacity = s.sky;
+    phone.lookAt(camera.position.x, phone.position.y, camera.position.z);
+    phoneM.opacity = s.phone * 0.9;
+    for (const fm of floorMats) { fm.opacity = fm.userData.o * (1 - s.phone); }
+    glow.visible = s.phone < 0.6; orbitM.opacity = 0.55 * (1 - s.phone); spark.p.visible = s.phone < 0.5;
+    bandMat.opacity = s.rings;
+    forestLineM.opacity = s.forest * 0.7; scene.fog.density = 0.045 * (1 - 0.8 * s.forest); forestPts.m.uniforms.uA.value = s.forest; forest.visible = s.forest > 0.01;
+
+    for (const m of mats) { m.uniforms.uTime.value = t; }
+    const keep = s.trim;
+    for (const r of roots) {
+      r.alpha = Math.min(1, Math.max(0, (keep - r.rank) / 0.06 + 0.5));
+      for (const m of r.mats) { m.uniforms.uA.value = r.alpha; m.uniforms.uGain.value = s.rootGlow; }
+    }
+    for (const p of [leaves, moss, flow, spark, dust, forestPts]) { p.m.uniforms.uTime.value = t; }
+    leaves.m.uniforms.uA.value = s.crown; leaves.m.uniforms.uLang.value = s.lang; leaves.m.uniforms.uPill.value = s.pill;
+    const fp = flow.g.attributes.position.array;
+    for (let i = 0; i < FLOW; i++) {
+      const f = flowSrc[i];
+      if (f.f.owner && f.f.owner.alpha < 0.5) { fp[i * 3 + 1] = -999; continue; }
+      f.f.c.getPointAt((f.o + t * f.sp) % 1, tmp); fp[i * 3] = tmp.x; fp[i * 3 + 1] = tmp.y; fp[i * 3 + 2] = tmp.z;
+    }
+    flow.g.attributes.position.needsUpdate = true;
+    const sp = spark.g.attributes.position.array;
+    for (let i = 0; i < SPARK; i++) {
+      const a = t * 0.5 - i * 0.012;
+      tmp.set(Math.cos(a) * 2.75, 0, Math.sin(a) * 2.75).applyEuler(e3); tmp.y += 1.45;
+      sp[i * 3] = tmp.x; sp[i * 3 + 1] = tmp.y; sp[i * 3 + 2] = tmp.z;
+    }
+    spark.g.attributes.position.needsUpdate = true;
+    for (let i = 0; i < VOX; i++) {
+      const st = voxS[i];
+      if (st.drift || (s.prune > 0.5 && i % 2 === 0)) {
+        const u = (st.o + t * 0.06 * (1 + s.prune)) % 1;
+        dummy.position.copy(st.home).addScaledVector(st.dir, u * 1.6); dummy.scale.setScalar(st.s * (1 - u));
+      } else { dummy.position.copy(st.home); dummy.position.y += Math.sin(t + st.o * 6) * 0.03; dummy.scale.setScalar(st.s); }
+      dummy.rotation.set(t * st.rot, t * st.rot * 0.7, 0); dummy.updateMatrix();
+      vox.setMatrixAt(i, dummy.matrix); voxE.setMatrixAt(i, dummy.matrix);
+    }
+    vox.instanceMatrix.needsUpdate = true; voxE.instanceMatrix.needsUpdate = true;
+    composer.render();
+    world.updateMatrixWorld();
+    return anchors.map((a) => { v.copy(a).applyMatrix4(world.matrixWorld).project(camera); return [(v.x * 0.5 + 0.5) * W, (-v.y * 0.5 + 0.5) * H, v.z < 1]; });
+  }
+  return { render };
+}
+
+const REDUCE = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------- smooth scroll (optional; the page works without it) ---------- */
+let lenis = null;
+if (!REDUCE) {
+  import('https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.mjs')
+    .then((m) => {
+      const Lenis = m.default || m.Lenis;
+      lenis = new Lenis({ lerp: 0.09, smoothWheel: true });
+      const raf = (t) => { lenis.raf(t); requestAnimationFrame(raf); };
+      requestAnimationFrame(raf);
+    })
+    .catch(() => { lenis = null; });
+}
+const goTo = (el) => { if (lenis) { lenis.scrollTo(el, { offset: 0 }); } else { el.scrollIntoView({ behavior: REDUCE ? 'auto' : 'smooth' }); } };
+
+/* ---------- views: home and #team ---------- */
+const mainEl = document.getElementById('top');
+const teamEl = document.getElementById('team');
+const teamLink = document.getElementById('nav-team');
+function route() {
+  const h = location.hash.slice(1);
+  const team = h === 'team';
+  mainEl.hidden = team;
+  teamEl.hidden = !team;
+  if (team) { teamLink.setAttribute('aria-current', 'page'); } else { teamLink.removeAttribute('aria-current'); }
+  if (team) { if (lenis) { lenis.scrollTo(0, { immediate: true }); } else { scrollTo(0, 0); } }
+  else if (h) { const el = document.getElementById(h); if (el) { requestAnimationFrame(() => goTo(el)); } }
+}
+addEventListener('hashchange', route);
+route();
+document.addEventListener('click', (e) => {
+  const a = e.target.closest('a[href^="#"]');
+  if (!a) return;
+  const id = a.getAttribute('href').slice(1);
+  if (id === 'team') { return; }
+  if (mainEl.hidden) { e.preventDefault(); location.hash = id || 'top'; return; }
+  const el = id ? document.getElementById(id) : null;
+  if (el) { e.preventDefault(); goTo(el); }
+});
+
+/* ---------- newsletter ---------- */
+document.getElementById('nl').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const v = document.getElementById('nl-email').value.trim();
+  const th = document.documentElement.lang === 'th';
+  document.getElementById('nl-ok').textContent = /.+@.+\..+/.test(v)
+    ? (th ? 'ขอบคุณ การสมัครจะเปิดพร้อมฉบับแรก ตอนนี้เรายังไม่ได้เก็บอีเมลของคุณ' : 'Thanks. Sign-up opens with the first issue; we have not stored your address.')
+    : (th ? 'กรอกอีเมลให้ถูกรูปแบบ เช่น you@example.org' : 'Enter an email address like you@example.org.');
+});
+
+/* ---------- story chapters ---------- */
+const head = document.getElementById('head');
+const story = document.getElementById('story');
+const steps = [...document.querySelectorAll('.step')];
+const N = steps.length;
+const nav = document.getElementById('chapters');
+const isTh = () => document.documentElement.lang === 'th';
+let names = [];
+steps.forEach((s) => {
+  const b = document.createElement('button');
+  b.type = 'button';
+  b.addEventListener('click', () => goTo(s));
+  nav.appendChild(b);
+});
+const navBtns = [...nav.children];
+function labelChapters() {
+  names = steps.map((s) => (isTh() && s.dataset.nameTh) || s.dataset.name);
+  navBtns.forEach((b, i) => {
+    b.setAttribute('aria-label', (isTh() ? 'ไปที่บท ' : 'Go to chapter ') + (i + 1) + ': ' + names[i]);
+    b.innerHTML = '<span>' + String(i).padStart(2, '0') + ' ' + names[i] + '</span><i></i>';
+    b.classList.toggle('on', i === chap);
+  });
+}
+
+/* what the stage shows while each chapter card is on screen */
+const K = {
+  camR:     [11.2, 10.2, 10.6, 8.4, 31, 6.6, 9.6, 9.4, 8.8, 10.6],
+  camY:     [2.3, 2.0, 2.6, 1.5, 10, 0.2, 1.9, 1.8, 1.6, 2.7],
+  tgtY:     [0.15, 0.25, 0.55, 0.55, -0.4, -1.25, -0.2, 0.35, 0.35, 0.55],
+  az:       [0.5, 0.9, 1.3, 1.8, 2.3, 2.9, 3.4, 3.9, 4.3, 4.8],
+  shift:    [-0.2, 0.2, -0.2, 0.2, 0, 0.2, -0.2, 0.2, -0.2, 0.2],
+  rings:    [0.22, 0.22, 0.22, 0.95, 0.15, 0.25, 0.22, 0.22, 0.22, 0.22],
+  forest:   [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+  rootGlow: [1, 1, 1, 1, 1, 2.2, 1.6, 1, 1, 1],
+  crown:    [1, 1, 1, 1, 1, 0.35, 0.8, 1, 1, 1],
+  trim:     [1, 1, 1, 1, 1, 1, 0.103, 0.103, 0.103, 0.103],
+  prune:    [0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+  scale:    [1, 1, 1, 1, 0.9, 1, 1, 0.5, 0.5, 1],
+  phone:    [0, 0, 0, 0, 0, 0, 0, 1, 1, 0],
+  lang:     [0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  pill:     [0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
+  sky:      [0.32, 0.28, 0.25, 0.18, 0.06, 0.12, 0.25, 0.25, 0.25, 0.4],
+  cert:     [0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+  tagR:     [0, 1, 0, 1, 0, 0, 0, 0, 0, 0],
+  tagP:     [0, 1, 0, 0, 0, 0, 1, 0, 0, 0],
+  tagD:     [0, 1, 0, 0, 0, 0, 0, 1, 0, 0]
+};
+const smooth = (a, b, x) => { const t = Math.min(1, Math.max(0, (x - a) / (b - a))); return t * t * (3 - 2 * t); };
+function sample() {
+  const r = story.getBoundingClientRect();
+  const c = Math.min(N - 1, Math.max(0, -r.top / innerHeight));
+  const i = Math.min(N - 2, Math.floor(c));
+  const f = smooth(0.2, 0.8, c - i);
+  const out = {};
+  for (const k in K) { out[k] = K[k][i] + (K[k][i + 1] - K[k][i]) * f; }
+  out.c = c; out.p = c / (N - 1);
+  return out;
+}
+
+const $ = (id) => document.getElementById(id);
+const hudRows = $('hudRows'), hudEmb = $('hudEmb'), hudRepos = $('hudRepos'), hudChap = $('hudChap'), prog = $('prog'), cert = $('cert'), cue = $('cue');
+const tags = [0, 1, 2].map((i) => ({ el: $('h' + i), l: $('l' + i), d: $('d' + i), key: ['tagR', 'tagP', 'tagD'][i] }));
+const OFF = [[-150, -110], [120, -90], [140, 30]];
+const cache = {};
+const setText = (el, key, v) => { if (cache[key] !== v) { cache[key] = v; el.textContent = v; } };
+let chap = -1;
+labelChapters();
+document.addEventListener('langchange', () => { labelChapters(); delete cache.chap; });
+function updateDom(s) {
+  head.classList.toggle('solid', scrollY > 40 || mainEl.hidden);
+  const ac = Math.round(s.c);
+  if (ac !== chap) { navBtns.forEach((b, j) => b.classList.toggle('on', j === ac)); chap = ac; }
+  setText(hudChap, 'chap', String(ac + 1).padStart(2, '0') + ' · ' + names[ac].toUpperCase());
+  const rows = Math.round(151936 * s.trim);
+  setText(hudRows, 'rows', rows.toLocaleString('en-US'));
+  setText(hudEmb, 'emb', (rows * 1024 / 1e6).toFixed(1) + 'M');
+  setText(hudRepos, 'repos', s.forest > 0.02 ? Math.round(12974 * s.forest).toLocaleString('en-US') : '—');
+  prog.style.width = (s.p * 100).toFixed(2) + '%';
+  cert.style.opacity = s.cert.toFixed(3);
+  cue.style.opacity = Math.max(0, 1 - s.c * 3).toFixed(3);
+}
+function placeTags(s, pts) {
+  const show = innerWidth > 860 && pts;
+  tags.forEach((tg, i) => {
+    const o = show ? s[tg.key] : 0;
+    tg.el.style.opacity = o.toFixed(3);
+    tg.l.style.opacity = o.toFixed(3);
+    tg.d.style.opacity = o.toFixed(3);
+    if (!show || o < 0.01) { return; }
+    const [ax, ay] = pts[i];
+    const bx = ax + OFF[i][0], by = ay + OFF[i][1];
+    const w = tg.el.offsetWidth, h = tg.el.offsetHeight;
+    const left = Math.max(16, Math.min(innerWidth - w - 110, OFF[i][0] < 0 ? bx - w : bx));
+    const top = Math.max(90, Math.min(innerHeight - h - 80, by - h / 2));
+    tg.el.style.transform = `translate(${left.toFixed(1)}px,${top.toFixed(1)}px)`;
+    tg.l.setAttribute('x1', ax.toFixed(1)); tg.l.setAttribute('y1', ay.toFixed(1)); tg.l.setAttribute('x2', (OFF[i][0] < 0 ? left + w : left).toFixed(1)); tg.l.setAttribute('y2', (top + h / 2).toFixed(1));
+    tg.d.setAttribute('cx', ax.toFixed(1)); tg.d.setAttribute('cy', ay.toFixed(1));
+  });
+}
+
+/* ---------- render loop ---------- */
+const canvas = $('gl');
+let scene = null, visible = true, mx = 0, my = 0, cmx = 0, cmy = 0;
+new IntersectionObserver((es) => { visible = es[0].isIntersecting; nav.classList.toggle('off', !visible); }).observe(story);
+addEventListener('pointermove', (e) => { mx = e.clientX / innerWidth - 0.5; my = e.clientY / innerHeight - 0.5; }, { passive: true });
+const cur = {};
+const t0 = performance.now();
+function loop(now) {
+  requestAnimationFrame(loop);
+  const s = sample();
+  updateDom(s);
+  for (const k in s) { cur[k] = cur[k] === undefined ? s[k] : cur[k] + (s[k] - cur[k]) * 0.1; }
+  cmx += (mx - cmx) * 0.05; cmy += (my - cmy) * 0.05;
+  if (scene && visible && !document.hidden && !mainEl.hidden) {
+    const pts = scene.render(cur, REDUCE ? 4 : (now - t0) / 1000, cmx, cmy);
+    placeTags(cur, pts);
+  }
+}
+requestAnimationFrame(loop);
+
+/* start the 3D scene after the text has painted */
+const start = () => { initScene(canvas).then((sc) => { scene = sc; if (!sc) { document.body.classList.add('no-gl'); } }).catch(() => { document.body.classList.add('no-gl'); }); };
+if ('requestIdleCallback' in window) { requestIdleCallback(start, { timeout: 1500 }); } else { setTimeout(start, 400); }
+</script>
+</body>
+</html>
