@@ -712,12 +712,6 @@ Bangkok, Thailand
 Open and non-commercial
 2 papers · 3 datasets · 1 tool
 Why we started
-Vision and goal
-Four pillars
-How we work
-Founder
-Who we work with
-Why we started
 Thailand uses a lot of AI. Few of us study what is inside it.
 Most AI work in Thailand starts from the use case: pick a model, plug it in, ship. That is useful, but it leaves a gap. Few people here study how the models themselves are built, so it is hard to say what a model needs, what it wastes, or where our data goes when we use it.
 We think that understanding should come first. Once you can read a model from the inside, you can make it smaller for a phone, control what it does, design how people work with it, and run it yourself, without sending data out of the country.
@@ -745,11 +739,13 @@ Four pillars
 Four pillars, one main theme.
 Our main theme:
 understand AI models from the inside, so they can be made smaller, controlled, used well by people and fair to every language. The four pillars are the four parts of that theme. Each covers a broad area; the results under "Where we are now" are where we started, not where we stop.
-The bonsai is drawn from a real model. As you scroll, it lights the part each pillar works on.
-roots = vocabulary · trunk = 28 blocks · crown = output
-L1
 Model Anatomy & Control
-Read the inside of a model
+On-device AI
+Human–AI Interaction
+Multilingual Equity
+The bonsai behind this page is drawn from a real model: its roots are the vocabulary, the trunk its 28 blocks, the crown its output. As you scroll, the camera moves to the part each pillar works on.
+L1 · Read the inside of a model
+Model Anatomy & Control
 What is inside a model, and which parts can be changed safely?
 How AI models are built, and how to steer them. Before anything is changed, we want to know what every part of a model is and what it does.
 Why it matters.
@@ -768,9 +764,8 @@ DONE SO FAR
 Manifest-only anatomy reads a model's architecture from its config and weight-file headers. With it we mapped 12,974 Hugging Face repositories without downloading a single weight, and built AI Model Explorer so anyone can do the same.
 NEXT
 Readers for more model families and a yearly census report.
-L2
+L2 · Make it small and sturdy
 On-device AI
-Make it small and sturdy
 How small can a model get and still do its job?
 Making AI run well on the devices people own: phones, laptops, boards and servers inside the country, with a measured cost for every change.
 Why it matters.
@@ -789,9 +784,8 @@ DONE SO FAR
 The Vocabulary Tax removes vocabulary rows a user's languages never need and certifies the cost first: a median of 89.7% of rows removed where the certificate passes, with bits per character changing by at most +1.99%.
 NEXT
 An optimized multimodal model that runs entirely inside an app, and tests of how models hold up under low memory, low-bit weights and offline use.
-L3
+L3 · Make it work for people
 Human–AI Interaction
-Make it work for people
 How do people use, trust, correct and stop AI that runs on their own device?
 How people live with AI that runs on their own devices: how they use it, how much they trust it, and whether they stay in control.
 Why it matters.
@@ -810,9 +804,8 @@ DONE SO FAR
 Nothing published yet. This pillar starts in 2027.
 NEXT
 A first study with Thai users, through text, voice and images.
-L4
+L4 · Make it fair for every language
 Multilingual Equity
-Make it fair for every language
 What does each language pay in cost and quality?
 Making AI fair across languages, so a Thai or Khmer speaker gets the same quality at the same cost as an English speaker.
 Why it matters.
@@ -899,18 +892,14 @@ Code MIT · data licenses on each dataset
 Source: https://joessattes.github.io/amelab/th/about/
 
 เกี่ยวกับแล็บ
-เข้าใจ AI จากข้างใน ก่อนนำไปใช้
+เข้าใจ AI
+จากข้างใน
+ก่อนนำไปใช้
 AI Model Explorer Lab เป็นแล็บวิจัยแบบเปิดที่ไม่แสวงกำไรในกรุงเทพฯ เราศึกษาว่าโมเดล AI ทำงานอย่างไรจากข้างใน แล้วใช้ความเข้าใจนั้นสร้างเวอร์ชันที่รันได้บนทรัพยากรจำกัด คนควบคุมได้ และภาษาไทยกับภาษาอื่นในเอเชียตะวันออกเฉียงใต้จ่ายไหว
 ก่อตั้งปี 2026
 กรุงเทพฯ ประเทศไทย
 เปิดและไม่แสวงกำไร
 2 เปเปอร์ · 3 ชุดข้อมูล · 1 เครื่องมือ
-ทำไมเราตั้งแล็บ
-วิสัยทัศน์และเป้าหมาย
-สี่เสาหลัก
-วิธีทำงานของเรา
-ผู้ก่อตั้ง
-เราทำงานกับใคร
 ทำไมเราตั้งแล็บ
 ไทยใช้ AI เยอะ แต่มีน้อยคนที่ศึกษาว่าข้างในมันมีอะไร
 งาน AI ในไทยส่วนใหญ่เริ่มจาก use case คือเลือกโมเดล ต่อเข้าระบบ แล้วปล่อยใช้งาน ซึ่งมีประโยชน์ แต่ทิ้งช่องว่างไว้ เพราะมีน้อยคนที่ศึกษาว่าตัวโมเดลถูกสร้างมาอย่างไร เราจึงตอบได้ยากว่าโมเดลต้องใช้อะไร เปลืองตรงไหน และข้อมูลของเราไปอยู่ที่ไหนตอนใช้งาน
@@ -939,11 +928,13 @@ AI ที่ไทยรันเองได้
 สี่เสาหลัก หนึ่งธีมหลัก
 ธีมหลักของเรา:
 เข้าใจโมเดล AI จากข้างใน เพื่อทำให้มันเล็กลง ควบคุมได้ คนใช้ได้ดี และยุติธรรมกับทุกภาษา สี่เสาหลักคือสี่ส่วนของธีมนี้ แต่ละเสาครอบคลุมงานกว้าง ส่วนผลงานใต้หัวข้อ "ตอนนี้อยู่ตรงไหน" คือจุดที่เราเริ่ม ไม่ใช่จุดที่เราหยุด
-บอนไซนี้วาดจากโมเดลจริง เมื่อเลื่อนลง ส่วนที่แต่ละเสาหลักศึกษาจะสว่างขึ้น
-ราก = คำศัพท์ · ลำต้น = 28 บล็อก · เรือนยอด = เอาต์พุต
-L1
 กายวิภาคและการควบคุมโมเดล
-อ่านข้างในโมเดล
+AI บนอุปกรณ์
+ปฏิสัมพันธ์ระหว่างคนกับ AI
+ความเท่าเทียมทางภาษา
+บอนไซที่อยู่หลังหน้านี้วาดจากโมเดลจริง รากคือคำศัพท์ ลำต้นคือ 28 บล็อก เรือนยอดคือเอาต์พุต เมื่อเลื่อนลง กล้องจะเคลื่อนไปยังส่วนที่แต่ละเสาหลักศึกษา
+L1 · อ่านข้างในโมเดล
+กายวิภาคและการควบคุมโมเดล
 ข้างในโมเดลมีอะไร และส่วนไหนแก้ได้อย่างปลอดภัย
 โมเดล AI ถูกสร้างอย่างไร และจะบังคับทิศทางมันได้อย่างไร ก่อนแก้อะไร เราอยากรู้ว่าทุกส่วนของโมเดลคืออะไรและทำหน้าที่อะไร
 ทำไมสำคัญ
@@ -962,9 +953,8 @@ tokenizer และโครงสร้างคำศัพท์
 Manifest-only anatomy อ่านสถาปัตยกรรมของโมเดลจาก config และ header ของไฟล์ weight เราใช้วิธีนี้ทำแผนที่ 12,974 repository บน Hugging Face โดยไม่ดาวน์โหลด weight เลยสักตัว และสร้าง AI Model Explorer ให้ใครก็ทำแบบเดียวกันได้
 ต่อไป
 ตัวอ่านสำหรับตระกูลโมเดลเพิ่มเติม และรายงานสำมะโนรายปี
-L2
+L2 · ทำให้เล็กและทนทาน
 AI บนอุปกรณ์
-ทำให้เล็กและทนทาน
 โมเดลเล็กได้แค่ไหนโดยยังทำงานได้ดี
 ทำให้ AI รันได้ดีบนอุปกรณ์ที่คนมีอยู่ ทั้งมือถือ แล็ปท็อป บอร์ด และเซิร์ฟเวอร์ในประเทศ โดยวัดต้นทุนของทุกการเปลี่ยนแปลง
 ทำไมสำคัญ
@@ -983,9 +973,8 @@ benchmark ด้านความเร็ว หน่วยความจำ
 The Vocabulary Tax ตัดแถว vocabulary ที่ภาษาของผู้ใช้ไม่เคยใช้ และรับรองต้นทุนก่อนปล่อย ตัดได้ค่ากลาง 89.7% ของแถวในกรณีที่ใบรับรองผ่าน โดย bits per character เปลี่ยนไม่เกิน +1.99%
 ต่อไป
 โมเดลมัลติโมดัลที่รันในแอปได้ทั้งหมด และการทดสอบว่าโมเดลทนแค่ไหนเมื่อหน่วยความจำน้อย weight บิตต่ำ และใช้งานแบบออฟไลน์
-L3
+L3 · ทำให้ใช้ได้จริงกับคน
 ปฏิสัมพันธ์ระหว่างคนกับ AI
-ทำให้ใช้ได้จริงกับคน
 คนใช้ ไว้ใจ แก้ไข และสั่งหยุด AI ที่รันบนเครื่องของตัวเองอย่างไร
 คนอยู่ร่วมกับ AI ที่รันบนเครื่องของตัวเองอย่างไร ใช้มันอย่างไร ไว้ใจแค่ไหน และยังควบคุมมันได้หรือไม่
 ทำไมสำคัญ
@@ -1004,9 +993,8 @@ L3
 ยังไม่มีผลงานตีพิมพ์ เสาหลักนี้เริ่มปี 2027
 ต่อไป
 งานศึกษาแรกกับผู้ใช้คนไทย ทั้งผ่านข้อความ เสียง และภาพ
-L4
+L4 · ทำให้ยุติธรรมกับทุกภาษา
 ความเท่าเทียมทางภาษา
-ทำให้ยุติธรรมกับทุกภาษา
 แต่ละภาษาต้องจ่ายเท่าไรทั้งต้นทุนและคุณภาพ
 ทำให้ AI ยุติธรรมกับทุกภาษา ให้คนพูดไทยหรือเขมรได้คุณภาพเท่ากัน ในต้นทุนเท่ากับคนพูดอังกฤษ
 ทำไมสำคัญ
