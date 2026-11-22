@@ -11,9 +11,9 @@ Founder: Sattaya Singkul, https://joessattes.github.io/Sattaya-AI-Website/
 
 ## Research pillars
 
-- L1 Model anatomy and control: read a model's architecture from its files before changing it. Method: manifest-only anatomy, which recovers the architecture from config and safetensors headers without downloading weights.
+- L1 Model anatomy and control: what is inside a model, and which parts can be changed safely. Method: manifest-only anatomy, which recovers the architecture from config and safetensors headers without downloading weights.
 - L2 On-device AI: make models small enough to carry, with a certificate that bounds the quality cost. Main result: vocabulary trimming for a user's languages, certified before release.
-- L3 Human-AI interaction: how people talk to, trust and interrupt an on-device voice assistant. First study planned for 2027, starting with Thai speech.
+- L3 Human-AI interaction: how people use, trust, correct and stop AI that runs on their own device, through text, voice and images. First study planned for 2027, starting with Thai users.
 - L4 Language equity: what each language pays in tokens and parameters. A tax table of 41 languages is public; a Southeast Asian tax table is planned.
 
 ## Publications
@@ -32,8 +32,8 @@ Founder: Sattaya Singkul, https://joessattes.github.io/Sattaya-AI-Website/
 
 - The Vocabulary Tax (L2, L4, in progress): trim vocabulary rows a user's languages never need, with a certificate that bounds the damage.
 - Hub Census (L1, in progress): architecture of 12,974 public models, read from manifests alone, released as open data.
-- Gemma 4 E2B on a diet (L2, in progress): trim vocabulary and per-layer embeddings for a Thai, English and Chinese assistant on phones.
-- Voice assistant that stays on the phone (L3, planned 2027).
+- Optimized multimodal on-app AI for HCI (L2, L3, in progress): a multimodal model compressed to run entirely inside an app for Thai, English and Chinese users; the base for the lab's human-AI interaction studies.
+- Living with on-device AI (L3, planned 2027): how people use, trust, correct and stop an assistant that keeps their data on the device, through text, voice and images.
 - SEA tax table (L4, planned 2027): a living table of what Thai, Vietnamese, Khmer and other languages pay in each new open model.
 
 ## Events

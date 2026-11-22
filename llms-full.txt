@@ -11,9 +11,9 @@ Founder: Sattaya Singkul, https://joessattes.github.io/Sattaya-AI-Website/
 
 ## Research pillars
 
-- L1 Model anatomy and control: read a model's architecture from its files before changing it. Method: manifest-only anatomy, which recovers the architecture from config and safetensors headers without downloading weights.
+- L1 Model anatomy and control: what is inside a model, and which parts can be changed safely. Method: manifest-only anatomy, which recovers the architecture from config and safetensors headers without downloading weights.
 - L2 On-device AI: make models small enough to carry, with a certificate that bounds the quality cost. Main result: vocabulary trimming for a user's languages, certified before release.
-- L3 Human-AI interaction: how people talk to, trust and interrupt an on-device voice assistant. First study planned for 2027, starting with Thai speech.
+- L3 Human-AI interaction: how people use, trust, correct and stop AI that runs on their own device, through text, voice and images. First study planned for 2027, starting with Thai users.
 - L4 Language equity: what each language pays in tokens and parameters. A tax table of 41 languages is public; a Southeast Asian tax table is planned.
 
 ## Publications
@@ -32,8 +32,8 @@ Founder: Sattaya Singkul, https://joessattes.github.io/Sattaya-AI-Website/
 
 - The Vocabulary Tax (L2, L4, in progress): trim vocabulary rows a user's languages never need, with a certificate that bounds the damage.
 - Hub Census (L1, in progress): architecture of 12,974 public models, read from manifests alone, released as open data.
-- Gemma 4 E2B on a diet (L2, in progress): trim vocabulary and per-layer embeddings for a Thai, English and Chinese assistant on phones.
-- Voice assistant that stays on the phone (L3, planned 2027).
+- Optimized multimodal on-app AI for HCI (L2, L3, in progress): a multimodal model compressed to run entirely inside an app for Thai, English and Chinese users; the base for the lab's human-AI interaction studies.
+- Living with on-device AI (L3, planned 2027): how people use, trust, correct and stop an assistant that keeps their data on the device, through text, voice and images.
 - SEA tax table (L4, planned 2027): a living table of what Thai, Vietnamese, Khmer and other languages pay in each new open model.
 
 ## Events
@@ -88,17 +88,17 @@ Our four pillars
 Four pillars, one question: can people understand, control and live with their AI?
 L1
 Model Anatomy & Control
-Know what a model is made of before changing it.
+What is inside a model, and which parts can be changed safely? We read architectures from model files and release the maps as open data.
 L2
 On-device AI
-Make models small enough to carry, with proof nothing important was lost.
+How small can a model get and still do its job? We compress models to run inside apps and on phones, with a certificate of what was lost.
 L3
 Human–AI Interaction
-How people use, trust and stop AI in daily life.
+How do people use, trust, correct and stop AI that runs on their own device, through text, voice or images?
 L4
 Multilingual Equity
-What each language pays, Southeast Asia first.
-Scroll on to see the work inside each pillar.
+What does each language pay in cost and quality? We measure it, Southeast Asian languages first.
+L1 reads the model, L2 makes it small, L3 puts it in people's hands, L4 makes it fair for every language.
 L1 · Model Anatomy & Control
 Every model grows like a tree you can read.
 This is Qwen3-0.6B, drawn from its real config. The roots are its vocabulary. The trunk carries 28 rings, one per decoder block. The crown is the output head, which shares the roots' rows. The light climbing the trunk is a token passing through.
@@ -139,8 +139,8 @@ L2 · On the device
 Pruned well, it fits in your pocket.
 A smaller model loads faster, uses less memory and runs inside an app or on a phone. What you say to it can stay on the device.
 L3 · Human–AI Interaction
-Living with it: AI you can talk to, trust and stop.
-Our next study looks at voice assistants that run on the phone: how people speak to them, when they trust them, and how easily they can interrupt them. Thai speech in real rooms comes first.
+Living with it: AI people can understand, correct and stop.
+Once a model runs inside an app, how people use it matters as much as how it was built. We study how people work with on-device AI through text, voice and images: when they trust it, how they correct it and how easily they can stop it. Thai users come first.
 FIRST STUDY PLANNED · 2027
 L4 · Multilingual Equity
 Every language grows its own leaves. Southeast Asia first.
@@ -164,12 +164,12 @@ Remove vocabulary rows a user's languages never need, with a certificate that bo
 ACTIVE · L1
 Hub Census
 The architecture of 12,974 public models, read from manifests alone and released as open data.
-IN PROGRESS · L2
-Slimming Gemma 4 E2B
-Vocabulary and per-layer embedding trimming for a Thai, English and Chinese assistant on the phone.
+IN PROGRESS · L2 · L3
+Optimized multimodal on-app AI for HCI
+A multimodal model compressed to run entirely inside an app for Thai, English and Chinese users. It is the base for our human–AI interaction studies.
 PLANNED 2027 · L3
-Voice assistants that stay on the phone
-How people talk to, trust and interrupt an assistant that never sends audio off the device.
+Living with on-device AI
+How people use, trust, correct and stop an assistant that keeps their data on the device, through text, voice and images.
 PLANNED 2027 · L4
 SEA language tax table
 A table that updates with every new open model: what Thai, Vietnamese, Khmer and others pay.
@@ -367,17 +367,17 @@ AI ที่ดีคือ AI ที่เราเข้าใจและค�
 สี่เสาหลัก หนึ่งคำถาม: คนเราเข้าใจ ควบคุม และอยู่ร่วมกับ AI ของตัวเองได้จริงไหม
 L1
 กายวิภาคและการควบคุมโมเดล
-รู้ก่อนว่าโมเดลประกอบด้วยอะไร แล้วค่อยลงมือแก้
+ข้างในโมเดลมีอะไร และส่วนไหนแก้ได้อย่างปลอดภัย เราอ่านโครงสร้างจากไฟล์ของโมเดล แล้วเปิดแผนที่เหล่านี้เป็นข้อมูลสาธารณะ
 L2
 AI บนอุปกรณ์
-ทำให้โมเดลเล็กพอจะพกไปได้ พร้อมหลักฐานว่าไม่ได้ทิ้งส่วนสำคัญไป
+โมเดลเล็กได้แค่ไหนโดยยังทำงานได้ดี เราย่อโมเดลให้รันในแอปและบนมือถือได้ พร้อมใบรับรองว่าเสียอะไรไปบ้าง
 L3
 ปฏิสัมพันธ์ระหว่างคนกับ AI
-คนใช้ ไว้ใจ และสั่งหยุด AI อย่างไรในชีวิตประจำวัน
+คนใช้ ไว้ใจ แก้ไข และสั่งหยุด AI ที่รันบนเครื่องของตัวเองอย่างไร ทั้งผ่านข้อความ เสียง และภาพ
 L4
 ความเท่าเทียมทางภาษา
-แต่ละภาษาต้องจ่ายเท่าไร เริ่มจากเอเชียตะวันออกเฉียงใต้
-เลื่อนต่อเพื่อดูงานในแต่ละเสาหลัก
+แต่ละภาษาต้องจ่ายเท่าไรทั้งต้นทุนและคุณภาพ เราวัดให้เห็น โดยเริ่มจากภาษาในเอเชียตะวันออกเฉียงใต้
+L1 อ่านโมเดล L2 ทำให้เล็ก L3 ส่งถึงมือคน L4 ทำให้ยุติธรรมกับทุกภาษา
 L1 · กายวิภาคและการควบคุมโมเดล
 โมเดลทุกตัวเติบโตเหมือนต้นไม้ที่อ่านได้
 นี่คือ Qwen3-0.6B วาดจาก config จริงของมัน รากคือ vocabulary ลำต้นมี 28 วง วงละหนึ่ง decoder block ยอดคือ output head ซึ่งใช้แถวชุดเดียวกับราก แสงที่ไต่ขึ้นตามลำต้นคือ token ที่กำลังวิ่งผ่าน
@@ -418,8 +418,8 @@ L2 · บนอุปกรณ์
 ตัดดี ๆ ก็ใส่กระเป๋าได้
 โมเดลที่เล็กลงโหลดเร็วขึ้น ใช้หน่วยความจำน้อยลง และรันในแอปหรือบนมือถือได้ สิ่งที่คุณพูดกับมันก็อยู่บนเครื่องได้
 L3 · ปฏิสัมพันธ์ระหว่างคนกับ AI
-อยู่ร่วมกับมัน: AI ที่คุยได้ ไว้ใจได้ และสั่งหยุดได้
-งานวิจัยถัดไปของเราศึกษาผู้ช่วยเสียงที่รันบนมือถือ ว่าคนพูดกับมันอย่างไร ไว้ใจมันเมื่อไร และขัดจังหวะมันได้ง่ายแค่ไหน เริ่มจากเสียงพูดภาษาไทยในห้องจริง
+อยู่ร่วมกับมัน: AI ที่คนเข้าใจ แก้ไข และสั่งหยุดได้
+เมื่อโมเดลรันอยู่ในแอปแล้ว วิธีที่คนใช้มันสำคัญพอ ๆ กับวิธีที่มันถูกสร้าง เราศึกษาว่าคนทำงานกับ AI บนอุปกรณ์อย่างไร ทั้งผ่านข้อความ เสียง และภาพ เมื่อไหร่ที่ไว้ใจ แก้มันอย่างไร และสั่งหยุดได้ง่ายแค่ไหน เริ่มจากผู้ใช้คนไทย
 งานวิจัยแรก · วางแผนปี 2027
 L4 · ความเท่าเทียมทางภาษา
 แต่ละภาษาแตกใบของตัวเอง เริ่มจากเอเชียตะวันออกเฉียงใต้
@@ -443,12 +443,12 @@ The Vocabulary Tax
 กำลังดำเนินการ · L1
 Hub Census
 โครงสร้างของโมเดลสาธารณะ 12,974 ตัว อ่านจาก manifest อย่างเดียว และเปิดเป็นข้อมูลสาธารณะ
-อยู่ระหว่างทำ · L2
-ลดขนาด Gemma 4 E2B
-ตัด vocabulary และ per-layer embedding สำหรับผู้ช่วยภาษาไทย อังกฤษ และจีนบนมือถือ
+อยู่ระหว่างทำ · L2 · L3
+AI มัลติโมดัลที่รันในแอป เพื่องาน HCI
+ย่อโมเดลมัลติโมดัลให้รันในแอปได้ทั้งหมด สำหรับผู้ใช้ภาษาไทย อังกฤษ และจีน เป็นฐานของงานวิจัยด้านปฏิสัมพันธ์ระหว่างคนกับ AI ของเรา
 วางแผนปี 2027 · L3
-ผู้ช่วยเสียงที่อยู่บนมือถือ
-คนพูดกับ ไว้ใจ และขัดจังหวะผู้ช่วยที่ไม่ส่งเสียงออกนอกเครื่องเลยอย่างไร
+อยู่ร่วมกับ AI บนอุปกรณ์
+คนใช้ ไว้ใจ แก้ไข และสั่งหยุดผู้ช่วยที่เก็บข้อมูลไว้บนเครื่องอย่างไร ทั้งผ่านข้อความ เสียง และภาพ
 วางแผนปี 2027 · L4
 ตารางภาษีภาษา SEA
 ตารางที่อัปเดตทุกครั้งที่มีโมเดลแบบเปิดตัวใหม่ ว่าภาษาไทย เวียดนาม เขมร และภาษาอื่นต้องจ่ายเท่าไร
