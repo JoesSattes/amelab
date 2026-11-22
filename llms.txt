@@ -13,6 +13,13 @@ Founder: Sattaya Singkul, https://joessattes.github.io/Sattaya-AI-Website/
 
 ## Research pillars
 
+Main theme: understand AI models from the inside, so they can be made smaller, controlled, used well by people and fair to every language. Each pillar covers a broad area; current projects are starting points, not the full scope.
+
+- L1 scope: reading architecture from model files; what layers, heads and embeddings do; tokenizers and vocabulary structure; editing and steering model behaviour; trends across thousands of public models; reproducible model reports.
+- L2 scope: pruning, quantization and distillation; vocabulary and embedding trimming; small multimodal models (text, voice, images); robustness under low memory and offline use; speed, memory and energy benchmarks; running models inside apps and on edge chips.
+- L3 scope: trust and over-reliance; correcting and stopping AI; interaction through text, voice and images; explanations people can act on; privacy and on-device data; user studies in Thai contexts.
+- L4 scope: token cost per language; quality gaps between languages; test sets for under-tested languages; trimming models to the languages people use; Southeast Asian language coverage; gaps in data and benchmarks.
+
 - L1 Model anatomy and control: what is inside a model, and which parts can be changed safely. Method: manifest-only anatomy, which recovers the architecture from config and safetensors headers without downloading weights.
 - L2 On-device AI: build model versions from the inside that hold up on phones and in apps, with a certificate that bounds the quality cost. Main result: vocabulary trimming for a user's languages, certified before release.
 - L3 Human-AI interaction: how people use, trust, correct and stop AI that runs on their own device, through text, voice and images. First study planned for 2027, starting with Thai users.

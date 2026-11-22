@@ -13,6 +13,13 @@ Founder: Sattaya Singkul, https://joessattes.github.io/Sattaya-AI-Website/
 
 ## Research pillars
 
+Main theme: understand AI models from the inside, so they can be made smaller, controlled, used well by people and fair to every language. Each pillar covers a broad area; current projects are starting points, not the full scope.
+
+- L1 scope: reading architecture from model files; what layers, heads and embeddings do; tokenizers and vocabulary structure; editing and steering model behaviour; trends across thousands of public models; reproducible model reports.
+- L2 scope: pruning, quantization and distillation; vocabulary and embedding trimming; small multimodal models (text, voice, images); robustness under low memory and offline use; speed, memory and energy benchmarks; running models inside apps and on edge chips.
+- L3 scope: trust and over-reliance; correcting and stopping AI; interaction through text, voice and images; explanations people can act on; privacy and on-device data; user studies in Thai contexts.
+- L4 scope: token cost per language; quality gaps between languages; test sets for under-tested languages; trimming models to the languages people use; Southeast Asian language coverage; gaps in data and benchmarks.
+
 - L1 Model anatomy and control: what is inside a model, and which parts can be changed safely. Method: manifest-only anatomy, which recovers the architecture from config and safetensors headers without downloading weights.
 - L2 On-device AI: build model versions from the inside that hold up on phones and in apps, with a certificate that bounds the quality cost. Main result: vocabulary trimming for a user's languages, certified before release.
 - L3 Human-AI interaction: how people use, trust, correct and stop AI that runs on their own device, through text, voice and images. First study planned for 2027, starting with Thai users.
@@ -735,17 +742,28 @@ OUR PLACE
 One layer of sovereign AI
 National programmes build compute and large Thai models. We work on the layer that reaches people: open models, understood and rebuilt to run on the hardware people already have.
 Four pillars
-Each pillar answers one question.
-Together they take a model from understood, to small, to usable, to fair for every language. The bonsai is drawn from a real model; as you scroll, it lights the part each pillar works on.
+Four pillars, one main theme.
+Our main theme:
+understand AI models from the inside, so they can be made smaller, controlled, used well by people and fair to every language. The four pillars are the four parts of that theme. Each covers a broad area; the results under "Where we are now" are where we started, not where we stop.
+The bonsai is drawn from a real model. As you scroll, it lights the part each pillar works on.
 roots = vocabulary · trunk = 28 blocks · crown = output
 L1
 Model Anatomy & Control
 Read the inside of a model
 What is inside a model, and which parts can be changed safely?
+How AI models are built, and how to steer them. Before anything is changed, we want to know what every part of a model is and what it does.
+Why it matters.
+You cannot shrink, fix or control what you cannot see. Most people choose models by name and benchmark score, not by what they are made of.
+WHAT THIS PILLAR COVERS
+Reading architecture from model files
+What layers, heads and embeddings do
+Tokenizers and vocabulary structure
+Editing and steering model behaviour
+Trends across thousands of public models
+Model reports anyone can reproduce
+WHERE WE ARE NOW
 12,974
 models read, no weights downloaded
-WHY IT MATTERS
-You cannot shrink, fix or control what you cannot see. Most people choose models by name and benchmark score, not by what they are made of.
 DONE SO FAR
 Manifest-only anatomy reads a model's architecture from its config and weight-file headers. With it we mapped 12,974 Hugging Face repositories without downloading a single weight, and built AI Model Explorer so anyone can do the same.
 NEXT
@@ -754,10 +772,19 @@ L2
 On-device AI
 Make it small and sturdy
 How small can a model get and still do its job?
+Making AI run well on the devices people own: phones, laptops, boards and servers inside the country, with a measured cost for every change.
+Why it matters.
+A model that only runs in a data centre abroad cannot keep data in the country. Phones and laptops have little memory, so a model has to be rebuilt for them, not only squeezed.
+WHAT THIS PILLAR COVERS
+Pruning, quantization and distillation
+Vocabulary and embedding trimming
+Small multimodal models: text, voice, images
+Robustness under low memory and offline use
+Benchmarks for speed, memory and energy
+Running models inside apps and on edge chips
+WHERE WE ARE NOW
 89.7%
 median vocabulary rows removed, quality certified
-WHY IT MATTERS
-A model that only runs in a data centre abroad cannot keep data in the country. Phones and laptops have little memory, so a model has to be rebuilt for them, not only squeezed.
 DONE SO FAR
 The Vocabulary Tax removes vocabulary rows a user's languages never need and certifies the cost first: a median of 89.7% of rows removed where the certificate passes, with bits per character changing by at most +1.99%.
 NEXT
@@ -766,10 +793,19 @@ L3
 Human–AI Interaction
 Make it work for people
 How do people use, trust, correct and stop AI that runs on their own device?
+How people live with AI that runs on their own devices: how they use it, how much they trust it, and whether they stay in control.
+Why it matters.
+A model that runs well but that people misread, over-trust or cannot stop is not good AI. How people work with it decides whether it helps.
+WHAT THIS PILLAR COVERS
+Trust and over-reliance
+Correcting and stopping AI
+Interaction through text, voice and images
+Explanations people can act on
+Privacy and on-device data
+User studies in Thai contexts
+WHERE WE ARE NOW
 2027
 first study, with Thai users
-WHY IT MATTERS
-A model that runs well but that people misread, over-trust or cannot stop is not good AI. How people work with it decides whether it helps.
 DONE SO FAR
 Nothing published yet. This pillar starts in 2027.
 NEXT
@@ -778,10 +814,19 @@ L4
 Multilingual Equity
 Make it fair for every language
 What does each language pay in cost and quality?
+Making AI fair across languages, so a Thai or Khmer speaker gets the same quality at the same cost as an English speaker.
+Why it matters.
+Most models are built around English. Thai and other Southeast Asian languages need more tokens for the same text, so they cost more and run slower.
+WHAT THIS PILLAR COVERS
+Token cost per language
+Quality gaps between languages
+Test sets for under-tested languages
+Trimming models to the languages people use
+Southeast Asian language coverage
+Gaps in data and benchmarks
+WHERE WE ARE NOW
 41
 languages in the open tax table
-WHY IT MATTERS
-Most models are built around English. Thai and other Southeast Asian languages need more tokens for the same text, so they cost more and run slower.
 DONE SO FAR
 A vocabulary tax table for 41 languages, released as open data.
 NEXT
@@ -891,17 +936,28 @@ AI ที่ไทยรันเองได้
 ชั้นหนึ่งของ sovereign AI
 โครงการระดับประเทศสร้าง compute และโมเดลภาษาไทยขนาดใหญ่ ส่วนเราทำชั้นที่ไปถึงมือคน คือโมเดลเปิดที่ถูกทำความเข้าใจและสร้างใหม่ ให้รันบนฮาร์ดแวร์ที่คนมีอยู่แล้ว
 สี่เสาหลัก
-แต่ละเสาหลักตอบคำถามหนึ่งข้อ
-รวมกันแล้วพาโมเดลจากเข้าใจได้ ไปสู่เล็กลง ใช้งานได้จริง และยุติธรรมกับทุกภาษา บอนไซนี้วาดจากโมเดลจริง เมื่อเลื่อนลง ส่วนที่แต่ละเสาหลักศึกษาจะสว่างขึ้น
+สี่เสาหลัก หนึ่งธีมหลัก
+ธีมหลักของเรา:
+เข้าใจโมเดล AI จากข้างใน เพื่อทำให้มันเล็กลง ควบคุมได้ คนใช้ได้ดี และยุติธรรมกับทุกภาษา สี่เสาหลักคือสี่ส่วนของธีมนี้ แต่ละเสาครอบคลุมงานกว้าง ส่วนผลงานใต้หัวข้อ "ตอนนี้อยู่ตรงไหน" คือจุดที่เราเริ่ม ไม่ใช่จุดที่เราหยุด
+บอนไซนี้วาดจากโมเดลจริง เมื่อเลื่อนลง ส่วนที่แต่ละเสาหลักศึกษาจะสว่างขึ้น
 ราก = คำศัพท์ · ลำต้น = 28 บล็อก · เรือนยอด = เอาต์พุต
 L1
 กายวิภาคและการควบคุมโมเดล
 อ่านข้างในโมเดล
 ข้างในโมเดลมีอะไร และส่วนไหนแก้ได้อย่างปลอดภัย
-12,974
-โมเดลที่อ่านแล้ว โดยไม่ดาวน์โหลด weight เลย
+โมเดล AI ถูกสร้างอย่างไร และจะบังคับทิศทางมันได้อย่างไร ก่อนแก้อะไร เราอยากรู้ว่าทุกส่วนของโมเดลคืออะไรและทำหน้าที่อะไร
 ทำไมสำคัญ
 สิ่งที่มองไม่เห็น ย่อ แก้ หรือควบคุมไม่ได้ คนส่วนใหญ่เลือกโมเดลจากชื่อและคะแนน benchmark ไม่ใช่จากสิ่งที่มันประกอบขึ้นมา
+ขอบเขตของเสาหลักนี้
+อ่านสถาปัตยกรรมจากไฟล์โมเดล
+layer, head และ embedding ทำหน้าที่อะไร
+tokenizer และโครงสร้างคำศัพท์
+แก้ไขและบังคับพฤติกรรมของโมเดล
+แนวโน้มจากโมเดลสาธารณะนับพันตัว
+รายงานโมเดลที่ใครก็ทำซ้ำได้
+ตอนนี้อยู่ตรงไหน
+12,974
+โมเดลที่อ่านแล้ว โดยไม่ดาวน์โหลด weight เลย
 ทำไปแล้ว
 Manifest-only anatomy อ่านสถาปัตยกรรมของโมเดลจาก config และ header ของไฟล์ weight เราใช้วิธีนี้ทำแผนที่ 12,974 repository บน Hugging Face โดยไม่ดาวน์โหลด weight เลยสักตัว และสร้าง AI Model Explorer ให้ใครก็ทำแบบเดียวกันได้
 ต่อไป
@@ -910,10 +966,19 @@ L2
 AI บนอุปกรณ์
 ทำให้เล็กและทนทาน
 โมเดลเล็กได้แค่ไหนโดยยังทำงานได้ดี
-89.7%
-ค่ากลางของแถว vocabulary ที่ตัดออก พร้อมรับรองคุณภาพ
+ทำให้ AI รันได้ดีบนอุปกรณ์ที่คนมีอยู่ ทั้งมือถือ แล็ปท็อป บอร์ด และเซิร์ฟเวอร์ในประเทศ โดยวัดต้นทุนของทุกการเปลี่ยนแปลง
 ทำไมสำคัญ
 โมเดลที่รันได้แค่ในดาต้าเซ็นเตอร์ต่างประเทศ เก็บข้อมูลไว้ในประเทศไม่ได้ มือถือและแล็ปท็อปมีหน่วยความจำน้อย โมเดลจึงต้องถูกสร้างใหม่ให้เหมาะ ไม่ใช่แค่บีบให้เล็ก
+ขอบเขตของเสาหลักนี้
+pruning, quantization และ distillation
+ตัด vocabulary และ embedding
+โมเดลมัลติโมดัลขนาดเล็ก: ข้อความ เสียง ภาพ
+ความทนทานเมื่อหน่วยความจำน้อยและใช้งานออฟไลน์
+benchmark ด้านความเร็ว หน่วยความจำ และพลังงาน
+รันโมเดลในแอปและบนชิป edge
+ตอนนี้อยู่ตรงไหน
+89.7%
+ค่ากลางของแถว vocabulary ที่ตัดออก พร้อมรับรองคุณภาพ
 ทำไปแล้ว
 The Vocabulary Tax ตัดแถว vocabulary ที่ภาษาของผู้ใช้ไม่เคยใช้ และรับรองต้นทุนก่อนปล่อย ตัดได้ค่ากลาง 89.7% ของแถวในกรณีที่ใบรับรองผ่าน โดย bits per character เปลี่ยนไม่เกิน +1.99%
 ต่อไป
@@ -922,10 +987,19 @@ L3
 ปฏิสัมพันธ์ระหว่างคนกับ AI
 ทำให้ใช้ได้จริงกับคน
 คนใช้ ไว้ใจ แก้ไข และสั่งหยุด AI ที่รันบนเครื่องของตัวเองอย่างไร
-2027
-งานศึกษาแรก กับผู้ใช้คนไทย
+คนอยู่ร่วมกับ AI ที่รันบนเครื่องของตัวเองอย่างไร ใช้มันอย่างไร ไว้ใจแค่ไหน และยังควบคุมมันได้หรือไม่
 ทำไมสำคัญ
 โมเดลที่รันได้ดี แต่คนเข้าใจผิด ไว้ใจเกินไป หรือสั่งหยุดไม่ได้ ไม่ใช่ AI ที่ดี วิธีที่คนทำงานกับมันคือตัวตัดสินว่ามันช่วยได้จริงไหม
+ขอบเขตของเสาหลักนี้
+ความไว้ใจและการพึ่งพาเกินไป
+การแก้ไขและสั่งหยุด AI
+ปฏิสัมพันธ์ผ่านข้อความ เสียง และภาพ
+คำอธิบายที่คนนำไปใช้ตัดสินใจได้
+ความเป็นส่วนตัวและข้อมูลบนอุปกรณ์
+งานศึกษาผู้ใช้ในบริบทไทย
+ตอนนี้อยู่ตรงไหน
+2027
+งานศึกษาแรก กับผู้ใช้คนไทย
 ทำไปแล้ว
 ยังไม่มีผลงานตีพิมพ์ เสาหลักนี้เริ่มปี 2027
 ต่อไป
@@ -934,10 +1008,19 @@ L4
 ความเท่าเทียมทางภาษา
 ทำให้ยุติธรรมกับทุกภาษา
 แต่ละภาษาต้องจ่ายเท่าไรทั้งต้นทุนและคุณภาพ
-41
-ภาษาในตารางภาษีแบบเปิด
+ทำให้ AI ยุติธรรมกับทุกภาษา ให้คนพูดไทยหรือเขมรได้คุณภาพเท่ากัน ในต้นทุนเท่ากับคนพูดอังกฤษ
 ทำไมสำคัญ
 โมเดลส่วนใหญ่สร้างโดยมีภาษาอังกฤษเป็นศูนย์กลาง ภาษาไทยและภาษาอื่นในเอเชียตะวันออกเฉียงใต้ต้องใช้ token มากกว่าสำหรับข้อความเดียวกัน จึงแพงกว่าและช้ากว่า
+ขอบเขตของเสาหลักนี้
+ต้นทุน token ของแต่ละภาษา
+ช่องว่างคุณภาพระหว่างภาษา
+ชุดทดสอบสำหรับภาษาที่ถูกทดสอบน้อย
+ตัดโมเดลให้เหลือเฉพาะภาษาที่คนใช้
+ความครอบคลุมภาษาในเอเชียตะวันออกเฉียงใต้
+ช่องว่างด้านข้อมูลและ benchmark
+ตอนนี้อยู่ตรงไหน
+41
+ภาษาในตารางภาษีแบบเปิด
 ทำไปแล้ว
 ตารางภาษี vocabulary ของ 41 ภาษา เปิดเป็นข้อมูลสาธารณะ
 ต่อไป
