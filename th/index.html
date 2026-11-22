@@ -167,6 +167,7 @@ html[lang="th"] .hero-card .th{display:none}
 .pill-list li{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:baseline;border-top:1px solid var(--line);padding-top:10px}
 .pill-list span{font-family:var(--mono);font-size:12px;color:var(--tq)}
 .pill-list b{font-family:var(--display);font-weight:600;font-size:17px}
+.pill-list .plain{display:block;font-family:var(--body);font-size:13px;color:var(--mist);margin-top:1px}
 .pill-list p{margin:2px 0 0;font-size:14px;color:var(--soft)}
 .card .note{margin-top:16px;font-family:var(--mono);font-size:12.5px;color:var(--mist)}
 
@@ -326,7 +327,7 @@ footer{position:relative;z-index:3;border-top:1px solid var(--line);background:#
 <a href="#tools">เครื่องมือและข้อมูล</a>
 <a href="#events">งานและทอล์ก</a>
 <a href="#team" id="nav-team">ทีม</a>
-<a href="#about">เกี่ยวกับเรา</a>
+<a href="about/">เกี่ยวกับเรา</a>
 <a class="btn btn-primary" href="#involve">ร่วมกับแล็บ</a>
 </nav>
 <a aria-label="Read in English" class="lang-btn" data-i18n-skip="" href="../" hreflang="en" id="langBtn" lang="en">EN</a>
@@ -382,12 +383,13 @@ footer{position:relative;z-index:3;border-top:1px solid var(--line);background:#
 <p class="eyebrow">สี่เสาหลักของเรา</p>
 <h2>สี่เสาหลัก หนึ่งคำถาม: คนเราเข้าใจ ควบคุม และอยู่ร่วมกับ AI ของตัวเองได้จริงไหม</h2>
 <ul class="pill-list">
-<li><span>L1</span><div><b>กายวิภาคและการควบคุมโมเดล</b><p>ข้างในโมเดลมีอะไร และส่วนไหนแก้ได้อย่างปลอดภัย เราอ่านโครงสร้างจากไฟล์ของโมเดล แล้วเปิดแผนที่เหล่านี้เป็นข้อมูลสาธารณะ</p></div></li>
-<li><span>L2</span><div><b>AI บนอุปกรณ์</b><p>โมเดลเล็กได้แค่ไหนโดยยังทำงานได้ดี เราสร้างเวอร์ชันใหม่จากความเข้าใจภายใน ให้ทนทานเมื่อรันในแอปและบนมือถือ พร้อมใบรับรองว่าเสียอะไรไปบ้าง</p></div></li>
-<li><span>L3</span><div><b>ปฏิสัมพันธ์ระหว่างคนกับ AI</b><p>คนใช้ ไว้ใจ แก้ไข และสั่งหยุด AI ที่รันบนเครื่องของตัวเองอย่างไร ทั้งผ่านข้อความ เสียง และภาพ</p></div></li>
-<li><span>L4</span><div><b>ความเท่าเทียมทางภาษา</b><p>แต่ละภาษาต้องจ่ายเท่าไรทั้งต้นทุนและคุณภาพ เราวัดให้เห็น โดยเริ่มจากภาษาในเอเชียตะวันออกเฉียงใต้</p></div></li>
+<li><span>L1</span><div><b>กายวิภาคและการควบคุมโมเดล</b><span class="plain">อ่านข้างในโมเดล</span><p>ข้างในโมเดลมีอะไร และส่วนไหนแก้ได้อย่างปลอดภัย เราอ่านโครงสร้างจากไฟล์ของโมเดล แล้วเปิดแผนที่เหล่านี้เป็นข้อมูลสาธารณะ</p></div></li>
+<li><span>L2</span><div><b>AI บนอุปกรณ์</b><span class="plain">ทำให้เล็กและทนทาน</span><p>โมเดลเล็กได้แค่ไหนโดยยังทำงานได้ดี เราสร้างเวอร์ชันใหม่จากความเข้าใจภายใน ให้ทนทานเมื่อรันในแอปและบนมือถือ พร้อมใบรับรองว่าเสียอะไรไปบ้าง</p></div></li>
+<li><span>L3</span><div><b>ปฏิสัมพันธ์ระหว่างคนกับ AI</b><span class="plain">ทำให้ใช้ได้จริงกับคน</span><p>คนใช้ ไว้ใจ แก้ไข และสั่งหยุด AI ที่รันบนเครื่องของตัวเองอย่างไร ทั้งผ่านข้อความ เสียง และภาพ</p></div></li>
+<li><span>L4</span><div><b>ความเท่าเทียมทางภาษา</b><span class="plain">ทำให้ยุติธรรมกับทุกภาษา</span><p>แต่ละภาษาต้องจ่ายเท่าไรทั้งต้นทุนและคุณภาพ เราวัดให้เห็น โดยเริ่มจากภาษาในเอเชียตะวันออกเฉียงใต้</p></div></li>
 </ul>
 <p class="note">L1 อ่านโมเดล L2 ทำให้เล็ก L3 ส่งถึงมือคน L4 ทำให้ยุติธรรมกับทุกภาษา</p>
+<p class="note"><a href="about/#pillars">ดูแต่ละเสาหลักแบบเต็ม →</a></p>
 </div>
 </article>
 <article class="step right" data-name="L1 · Anatomy" data-name-th="L1 · กายวิภาค">
@@ -616,7 +618,7 @@ footer{position:relative;z-index:3;border-top:1px solid var(--line);background:#
 <footer>
 <div class="wrap foot-grid">
 <div class="brand"><b>AI Model Explorer Lab</b><span style="color:var(--mist);max-width:360px">AI ที่ดีคือ AI ที่เราเข้าใจ ควบคุมได้ และอยู่ร่วมกันได้ทุกวัน</span><span style="color:#7891A8">โปรเจกต์วิจัยแบบเปิดที่ไม่แสวงกำไร · กรุงเทพฯ ประเทศไทย · <a href="mailto:sattaya.singk@gmail.com">sattaya.singk@gmail.com</a></span></div>
-<div class="col"><span>แล็บ</span><a href="#about">เกี่ยวกับเรา</a><a href="#pillars">เสาหลักการวิจัย</a><a href="#events">งานและทอล์ก</a><a href="#involve">ร่วมกับเรา</a></div>
+<div class="col"><span>แล็บ</span><a href="about/">เกี่ยวกับเรา</a><a href="#pillars">เสาหลักการวิจัย</a><a href="#events">งานและทอล์ก</a><a href="#involve">ร่วมกับเรา</a></div>
 <div class="col"><span>วิจัย</span><a href="#outputs">ผลงานตีพิมพ์</a><a href="#projects">โปรเจกต์</a><a href="#tools">เครื่องมือและข้อมูล</a><a href="#roadmap">แผนงาน</a></div>
 <div class="col"><span>ช่องทางอื่น</span><a href="https://github.com/JoesSattes">GitHub</a><a href="https://huggingface.co/JoesSattes">Hugging Face</a><a href="https://pypi.org/project/ai-model-explorer/">PyPI</a><a href="https://joessattes.github.io/ai-model-explorer/">Model Explorer</a></div>
 </div>

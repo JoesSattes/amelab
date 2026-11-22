@@ -7,6 +7,7 @@ Goal: AI that Thailand can run on its own machines, with data that never has to 
 Motto: Smaller · Smarter · Closer to you.
 Website (English): https://joessattes.github.io/amelab/
 Website (Thai): https://joessattes.github.io/amelab/th/
+About (why the lab exists, vision, the four pillars in full, who we work with): https://joessattes.github.io/amelab/about/ (Thai: https://joessattes.github.io/amelab/th/about/)
 Contact: sattaya.singk@gmail.com
 Founder: Sattaya Singkul, https://joessattes.github.io/Sattaya-AI-Website/
 
@@ -105,17 +106,22 @@ Our four pillars
 Four pillars, one question: can people understand, control and live with their AI?
 L1
 Model Anatomy & Control
+Read the inside of a model
 What is inside a model, and which parts can be changed safely? We read architectures from model files and release the maps as open data.
 L2
 On-device AI
+Make it small and sturdy
 How small can a model get and still do its job? We build new versions from the inside that hold up inside apps and on phones, with a certificate of what was lost.
 L3
 Human–AI Interaction
+Make it work for people
 How do people use, trust, correct and stop AI that runs on their own device, through text, voice or images?
 L4
 Multilingual Equity
+Make it fair for every language
 What does each language pay in cost and quality? We measure it, Southeast Asian languages first.
 L1 reads the model, L2 makes it small, L3 puts it in people's hands, L4 makes it fair for every language.
+Each pillar in full →
 L1 · Model Anatomy & Control
 Every model grows like a tree you can read.
 This is Qwen3-0.6B, drawn from its real config. The roots are its vocabulary. The trunk carries 28 rings, one per decoder block. The crown is the output head, which shares the roots' rows. The light climbing the trunk is a token passing through.
@@ -409,17 +415,22 @@ AI ที่ดีคือ AI ที่เราเข้าใจและค�
 สี่เสาหลัก หนึ่งคำถาม: คนเราเข้าใจ ควบคุม และอยู่ร่วมกับ AI ของตัวเองได้จริงไหม
 L1
 กายวิภาคและการควบคุมโมเดล
+อ่านข้างในโมเดล
 ข้างในโมเดลมีอะไร และส่วนไหนแก้ได้อย่างปลอดภัย เราอ่านโครงสร้างจากไฟล์ของโมเดล แล้วเปิดแผนที่เหล่านี้เป็นข้อมูลสาธารณะ
 L2
 AI บนอุปกรณ์
+ทำให้เล็กและทนทาน
 โมเดลเล็กได้แค่ไหนโดยยังทำงานได้ดี เราสร้างเวอร์ชันใหม่จากความเข้าใจภายใน ให้ทนทานเมื่อรันในแอปและบนมือถือ พร้อมใบรับรองว่าเสียอะไรไปบ้าง
 L3
 ปฏิสัมพันธ์ระหว่างคนกับ AI
+ทำให้ใช้ได้จริงกับคน
 คนใช้ ไว้ใจ แก้ไข และสั่งหยุด AI ที่รันบนเครื่องของตัวเองอย่างไร ทั้งผ่านข้อความ เสียง และภาพ
 L4
 ความเท่าเทียมทางภาษา
+ทำให้ยุติธรรมกับทุกภาษา
 แต่ละภาษาต้องจ่ายเท่าไรทั้งต้นทุนและคุณภาพ เราวัดให้เห็น โดยเริ่มจากภาษาในเอเชียตะวันออกเฉียงใต้
 L1 อ่านโมเดล L2 ทำให้เล็ก L3 ส่งถึงมือคน L4 ทำให้ยุติธรรมกับทุกภาษา
+ดูแต่ละเสาหลักแบบเต็ม →
 L1 · กายวิภาคและการควบคุมโมเดล
 โมเดลทุกตัวเติบโตเหมือนต้นไม้ที่อ่านได้
 นี่คือ Qwen3-0.6B วาดจาก config จริงของมัน รากคือ vocabulary ลำต้นมี 28 วง วงละหนึ่ง decoder block ยอดคือ output head ซึ่งใช้แถวชุดเดียวกับราก แสงที่ไต่ขึ้นตามลำต้นคือ token ที่กำลังวิ่งผ่าน
@@ -658,6 +669,308 @@ WebGL, data visualization และ Model Explorer: ทำให้กายว�
 ที่ปรึกษา
 มีประสบการณ์ด้านปฏิสัมพันธ์คนกับ AI หรือฮาร์ดแวร์บนอุปกรณ์ ใช้เวลาไม่กี่ชั่วโมงต่อไตรมาส
 ติดต่อเรา →
+AI Model Explorer Lab
+AI ที่ดีคือ AI ที่เราเข้าใจ ควบคุมได้ และอยู่ร่วมกันได้ทุกวัน
+โปรเจกต์วิจัยแบบเปิดที่ไม่แสวงกำไร · กรุงเทพฯ ประเทศไทย ·
+sattaya.singk@gmail.com
+แล็บ
+เกี่ยวกับเรา
+เสาหลักการวิจัย
+งานและทอล์ก
+ร่วมกับเรา
+วิจัย
+ผลงานตีพิมพ์
+โปรเจกต์
+เครื่องมือและข้อมูล
+แผนงาน
+ช่องทางอื่น
+GitHub
+Hugging Face
+PyPI
+Model Explorer
+© 2026 AI Model Explorer Lab
+โค้ด MIT · สัญญาอนุญาตข้อมูลระบุไว้ในแต่ละชุด
+
+---
+
+## About page (English)
+
+Source: https://joessattes.github.io/amelab/about/
+
+About the lab
+Understand AI from the inside, before we use it.
+An open, non-commercial AI research lab in Bangkok. We study how models work inside, then build versions that run on small hardware, that people can control, and that every language can afford.
+Founded 2026
+Bangkok, Thailand
+Open and non-commercial
+2 papers · 3 datasets · 1 tool
+Why we started
+Vision and goal
+Four pillars
+How we work
+Founder
+Who we work with
+Why we started
+Thailand uses a lot of AI. Few of us study what is inside it.
+Most AI work here starts from the use case. We start one step earlier, with how the model itself is built. Understanding comes first; shrinking, control and running it ourselves follow.
+Understanding
+AI is used everywhere, but few people study what is inside the models.
+Data leaves the country
+Most AI runs on servers abroad, so Thai data travels every time we use it.
+Thai pays more
+The same text costs more tokens in Thai than in English, and Thai gets less testing.
+No place to work together
+Deep AI research here is scattered across people and teams that rarely meet.
+The lab is a place for people who do this research in Thailand to work together, and to take the best results to journals and conference stages.
+Vision and goal
+Good AI is AI we understand, can control, and can live with every day.
+VISION
+AI people understand
+Before a model is shrunk or trusted, someone can say what it is made of.
+GOAL
+AI Thailand can run itself
+Models on our own phones, laptops and servers. Data stays in the country.
+OUR PLACE
+One layer of sovereign AI
+National programmes build compute and big Thai models. We make open models run on the hardware people already have.
+Four pillars
+One tree, four questions.
+The bonsai is drawn from a real model. As you scroll, it lights the part each pillar works on.
+roots = vocabulary · trunk = 28 blocks · crown = output
+L1
+Model Anatomy & Control
+Read the inside of a model
+What is inside a model, and which parts can be changed safely?
+You cannot shrink or control what you cannot see.
+12,974
+models read, no weights downloaded
+DONE
+Manifest-only anatomy, the Hub census and AI Model Explorer.
+NEXT
+More model families and a yearly census report.
+L2
+On-device AI
+Make it small and sturdy
+How small can a model get and still do its job?
+Phones have little memory, and data should not have to leave.
+89.7%
+median vocabulary rows removed, quality certified
+DONE
+The Vocabulary Tax and its trim certificate.
+NEXT
+A multimodal model that runs inside an app, tested under low memory and offline use.
+L3
+Human–AI Interaction
+Make it work for people
+How do people use, trust, correct and stop AI that runs on their own device?
+AI that people misread or cannot stop is not good AI.
+2027
+first study, with Thai users
+DONE
+Nothing published yet.
+NEXT
+A first study through text, voice and images.
+L4
+Multilingual Equity
+Make it fair for every language
+What does each language pay in cost and quality?
+Thai needs more tokens for the same text, so it pays more.
+41
+languages in the open tax table
+DONE
+The vocabulary tax table, as open data.
+NEXT
+A Southeast Asian table that updates with every new open model.
+How we work
+Four rules every output follows
+Open by default
+Code, data and the numbers behind every claim.
+Runs on a laptop
+Core methods repeat on ordinary hardware.
+Proved before claimed
+Each change ships with a measured cost bound.
+Built from Southeast Asia
+Non-English is the first test, never an appendix.
+Everyone who makes a substantial contribution is an author, and author order is agreed when a project starts.
+How to join as a researcher →
+Founder
+Who started the lab
+FOUNDER · LEAD RESEARCHER
+Sattaya Singkul
+Jo · Bangkok, Thailand
+Jo works on speech AI and on-device deployment. He wrote the Manifest census of 12,974 Hugging Face repositories and The Vocabulary Tax, and built AI Model Explorer for Thai developers. He started the lab so that this work keeps growing in the open.
+Portfolio →
+GitHub →
+Hugging Face →
+Papers →
+Who we work with
+The lab grows through the people and teams who join it.
+Researchers and students
+People in Thailand who want to do deep AI research and publish it.
+Universities and institutes
+Co-supervised studies, shared data and joint papers.
+Thai model teams
+Read, test and rebuild your models with us, for the devices people use.
+Hardware makers
+Phones, boards and laptops for testing models on the device.
+Funders and supporters
+Compute, publication and travel. Everything we make stays open.
+Language communities
+Native speakers who build test sets the big benchmarks skip.
+We name partners here once we have agreed to work together.
+Join as a researcher
+Write to the lab
+AI Model Explorer Lab
+Good AI is AI we understand, can control, and can live with every day.
+An open, non-commercial research project · Bangkok, Thailand ·
+sattaya.singk@gmail.com
+LAB
+About
+Research pillars
+Events
+Get involved
+RESEARCH
+Publications
+Projects
+Tools & data
+Roadmap
+ELSEWHERE
+GitHub
+Hugging Face
+PyPI
+Model Explorer
+© 2026 AI Model Explorer Lab
+Code MIT · data licenses on each dataset
+
+---
+
+## About page (Thai)
+
+Source: https://joessattes.github.io/amelab/th/about/
+
+เกี่ยวกับแล็บ
+เข้าใจ AI จากข้างใน ก่อนนำไปใช้
+แล็บวิจัย AI แบบเปิดที่ไม่แสวงกำไรในกรุงเทพฯ เราศึกษาว่าโมเดลทำงานอย่างไรจากข้างใน แล้วสร้างเวอร์ชันที่รันบนฮาร์ดแวร์เล็กได้ คนควบคุมได้ และทุกภาษาจ่ายไหว
+ก่อตั้งปี 2026
+กรุงเทพฯ ประเทศไทย
+เปิดและไม่แสวงกำไร
+2 เปเปอร์ · 3 ชุดข้อมูล · 1 เครื่องมือ
+ทำไมเราตั้งแล็บ
+วิสัยทัศน์และเป้าหมาย
+สี่เสาหลัก
+วิธีทำงานของเรา
+ผู้ก่อตั้ง
+เราทำงานกับใคร
+ทำไมเราตั้งแล็บ
+ไทยใช้ AI เยอะ แต่มีน้อยคนที่ศึกษาว่าข้างในมันมีอะไร
+งาน AI ในไทยส่วนใหญ่เริ่มจาก use case เราเริ่มก่อนหน้านั้นหนึ่งก้าว คือดูว่าตัวโมเดลถูกสร้างมาอย่างไร ความเข้าใจมาก่อน การย่อ การควบคุม และการรันเองตามมาทีหลัง
+ความเข้าใจ
+AI ถูกใช้ทุกที่ แต่มีน้อยคนที่ศึกษาว่าข้างในโมเดลมีอะไร
+ข้อมูลออกนอกประเทศ
+AI ส่วนใหญ่รันบนเซิร์ฟเวอร์ต่างประเทศ ข้อมูลของคนไทยจึงเดินทางออกไปทุกครั้งที่ใช้
+ภาษาไทยจ่ายแพงกว่า
+ข้อความเดียวกันใช้ token ในภาษาไทยมากกว่าภาษาอังกฤษ และภาษาไทยถูกทดสอบน้อยกว่า
+ไม่มีที่ให้ทำงานด้วยกัน
+งานวิจัย AI เชิงลึกในไทยกระจายอยู่ตามคนและทีมที่แทบไม่ได้เจอกัน
+แล็บนี้คือที่ที่คนทำวิจัยแนวนี้ในไทยมาทำงานด้วยกัน แล้วพางานที่ดีที่สุดไปตีพิมพ์และขึ้นเวที conference
+วิสัยทัศน์และเป้าหมาย
+AI ที่ดีคือ AI ที่เราเข้าใจ ควบคุมได้ และอยู่ร่วมกันได้ทุกวัน
+วิสัยทัศน์
+AI ที่คนเข้าใจ
+ก่อนจะย่อหรือไว้ใจโมเดลตัวไหน ต้องมีคนบอกได้ว่ามันประกอบด้วยอะไร
+เป้าหมาย
+AI ที่ไทยรันเองได้
+โมเดลที่รันบนมือถือ แล็ปท็อป และเซิร์ฟเวอร์ของเราเอง ข้อมูลอยู่ในประเทศ
+บทบาทของเรา
+ชั้นหนึ่งของ sovereign AI
+โครงการระดับประเทศสร้าง compute และโมเดลไทยขนาดใหญ่ ส่วนเราทำให้โมเดลเปิดรันบนฮาร์ดแวร์ที่คนมีอยู่แล้ว
+สี่เสาหลัก
+ต้นไม้หนึ่งต้น สี่คำถาม
+บอนไซนี้วาดจากโมเดลจริง เมื่อเลื่อนลง ส่วนที่แต่ละเสาหลักศึกษาจะสว่างขึ้น
+ราก = คำศัพท์ · ลำต้น = 28 บล็อก · เรือนยอด = เอาต์พุต
+L1
+กายวิภาคและการควบคุมโมเดล
+อ่านข้างในโมเดล
+ข้างในโมเดลมีอะไร และส่วนไหนแก้ได้อย่างปลอดภัย
+สิ่งที่มองไม่เห็น ย่อหรือควบคุมไม่ได้
+12,974
+โมเดลที่อ่านแล้ว โดยไม่ดาวน์โหลด weight เลย
+ทำแล้ว
+Manifest-only anatomy, สำมะโน Hub และ AI Model Explorer
+ต่อไป
+ตระกูลโมเดลเพิ่มเติม และรายงานสำมะโนรายปี
+L2
+AI บนอุปกรณ์
+ทำให้เล็กและทนทาน
+โมเดลเล็กได้แค่ไหนโดยยังทำงานได้ดี
+มือถือมีหน่วยความจำน้อย และข้อมูลไม่ควรต้องออกไปข้างนอก
+89.7%
+ค่ากลางของแถว vocabulary ที่ตัดออก พร้อมรับรองคุณภาพ
+ทำแล้ว
+The Vocabulary Tax และใบรับรองการตัด
+ต่อไป
+โมเดลมัลติโมดัลที่รันในแอป ทดสอบเมื่อหน่วยความจำน้อยและใช้งานออฟไลน์
+L3
+ปฏิสัมพันธ์ระหว่างคนกับ AI
+ทำให้ใช้ได้จริงกับคน
+คนใช้ ไว้ใจ แก้ไข และสั่งหยุด AI ที่รันบนเครื่องของตัวเองอย่างไร
+AI ที่คนเข้าใจผิดหรือสั่งหยุดไม่ได้ ไม่ใช่ AI ที่ดี
+2027
+งานศึกษาแรก กับผู้ใช้คนไทย
+ทำแล้ว
+ยังไม่มีผลงานตีพิมพ์
+ต่อไป
+งานศึกษาแรก ผ่านข้อความ เสียง และภาพ
+L4
+ความเท่าเทียมทางภาษา
+ทำให้ยุติธรรมกับทุกภาษา
+แต่ละภาษาต้องจ่ายเท่าไรทั้งต้นทุนและคุณภาพ
+ภาษาไทยใช้ token มากกว่าสำหรับข้อความเดียวกัน จึงจ่ายแพงกว่า
+41
+ภาษาในตารางภาษีแบบเปิด
+ทำแล้ว
+ตารางภาษี vocabulary เปิดเป็นข้อมูลสาธารณะ
+ต่อไป
+ตารางของเอเชียตะวันออกเฉียงใต้ที่อัปเดตทุกครั้งที่มีโมเดลเปิดตัวใหม่
+วิธีทำงานของเรา
+สี่กฎที่ทุกผลงานต้องทำตาม
+เปิดเป็นค่าเริ่มต้น
+โค้ด ข้อมูล และตัวเลขเบื้องหลังทุกข้อสรุป
+รันบนแล็ปท็อปได้
+วิธีหลักทำซ้ำได้บนฮาร์ดแวร์ทั่วไป
+พิสูจน์ก่อนอ้าง
+ทุกการเปลี่ยนแปลงมาพร้อมขอบเขตต้นทุนที่วัดแล้ว
+สร้างจากเอเชียตะวันออกเฉียงใต้
+ภาษาที่ไม่ใช่อังกฤษคือบททดสอบแรก ไม่ใช่ภาคผนวก
+ทุกคนที่มีส่วนสำคัญในงานได้เป็นผู้เขียน และลำดับชื่อตกลงกันตั้งแต่เริ่มโปรเจกต์
+วิธีร่วมเป็นนักวิจัย →
+ผู้ก่อตั้ง
+ใครเป็นคนตั้งแล็บ
+ผู้ก่อตั้ง · หัวหน้านักวิจัย
+สัตยา สิงห์กุล
+โจ · กรุงเทพฯ ประเทศไทย
+โจทำงานด้าน speech AI และการนำโมเดลไปรันบนอุปกรณ์ เขาเขียนสำมะโน Manifest ของ 12,974 repository บน Hugging Face และ The Vocabulary Tax และสร้าง AI Model Explorer ให้นักพัฒนาไทย เขาตั้งแล็บนี้ขึ้นเพื่อให้งานเหล่านี้เติบโตต่อไปอย่างเปิดเผย
+พอร์ตโฟลิโอ →
+GitHub →
+Hugging Face →
+เปเปอร์ →
+เราทำงานกับใคร
+แล็บเติบโตจากคนและทีมที่เข้ามาร่วม
+นักวิจัยและนักศึกษา
+คนในไทยที่อยากทำวิจัย AI เชิงลึกและตีพิมพ์ผลงาน
+มหาวิทยาลัยและสถาบันวิจัย
+ร่วมดูแลงานศึกษา แบ่งปันข้อมูล และเขียนเปเปอร์ร่วมกัน
+ทีมสร้างโมเดลไทย
+อ่าน ทดสอบ และสร้างโมเดลของคุณใหม่ร่วมกับเรา ให้รันบนอุปกรณ์ที่คนใช้จริง
+ผู้ผลิตฮาร์ดแวร์
+มือถือ บอร์ด และแล็ปท็อปสำหรับทดสอบโมเดลบนอุปกรณ์
+ผู้ให้ทุนและผู้สนับสนุน
+compute ค่าตีพิมพ์ และค่าเดินทาง ทุกอย่างที่เราทำยังเปิดเหมือนเดิม
+ชุมชนภาษา
+เจ้าของภาษาที่ช่วยสร้างชุดทดสอบที่ benchmark ใหญ่ ๆ มองข้าม
+เราจะใส่ชื่อพาร์ทเนอร์ที่นี่เมื่อตกลงร่วมงานกันแล้ว
+ร่วมเป็นนักวิจัย
+เขียนถึงแล็บ
 AI Model Explorer Lab
 AI ที่ดีคือ AI ที่เราเข้าใจ ควบคุมได้ และอยู่ร่วมกันได้ทุกวัน
 โปรเจกต์วิจัยแบบเปิดที่ไม่แสวงกำไร · กรุงเทพฯ ประเทศไทย ·

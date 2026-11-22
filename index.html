@@ -167,6 +167,7 @@ html[lang="th"] .hero-card .th{display:none}
 .pill-list li{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:baseline;border-top:1px solid var(--line);padding-top:10px}
 .pill-list span{font-family:var(--mono);font-size:12px;color:var(--tq)}
 .pill-list b{font-family:var(--display);font-weight:600;font-size:17px}
+.pill-list .plain{display:block;font-family:var(--body);font-size:13px;color:var(--mist);margin-top:1px}
 .pill-list p{margin:2px 0 0;font-size:14px;color:var(--soft)}
 .card .note{margin-top:16px;font-family:var(--mono);font-size:12.5px;color:var(--mist)}
 
@@ -326,7 +327,7 @@ footer{position:relative;z-index:3;border-top:1px solid var(--line);background:#
 <a href="#tools">Tools &amp; Data</a>
 <a href="#events">Events</a>
 <a href="#team" id="nav-team">Team</a>
-<a href="#about">About</a>
+<a href="about/">About</a>
 <a class="btn btn-primary" href="#involve">Join the lab</a>
 </nav>
 <a aria-label="อ่านภาษาไทย" class="lang-btn" data-i18n-skip="" href="th/" hreflang="th" id="langBtn" lang="th">TH</a>
@@ -382,12 +383,13 @@ footer{position:relative;z-index:3;border-top:1px solid var(--line);background:#
 <p class="eyebrow">Our four pillars</p>
 <h2>Four pillars, one question: can people understand, control and live with their AI?</h2>
 <ul class="pill-list">
-<li><span>L1</span><div><b>Model Anatomy &amp; Control</b><p>What is inside a model, and which parts can be changed safely? We read architectures from model files and release the maps as open data.</p></div></li>
-<li><span>L2</span><div><b>On-device AI</b><p>How small can a model get and still do its job? We build new versions from the inside that hold up inside apps and on phones, with a certificate of what was lost.</p></div></li>
-<li><span>L3</span><div><b>Human–AI Interaction</b><p>How do people use, trust, correct and stop AI that runs on their own device, through text, voice or images?</p></div></li>
-<li><span>L4</span><div><b>Multilingual Equity</b><p>What does each language pay in cost and quality? We measure it, Southeast Asian languages first.</p></div></li>
+<li><span>L1</span><div><b>Model Anatomy &amp; Control</b><span class="plain">Read the inside of a model</span><p>What is inside a model, and which parts can be changed safely? We read architectures from model files and release the maps as open data.</p></div></li>
+<li><span>L2</span><div><b>On-device AI</b><span class="plain">Make it small and sturdy</span><p>How small can a model get and still do its job? We build new versions from the inside that hold up inside apps and on phones, with a certificate of what was lost.</p></div></li>
+<li><span>L3</span><div><b>Human–AI Interaction</b><span class="plain">Make it work for people</span><p>How do people use, trust, correct and stop AI that runs on their own device, through text, voice or images?</p></div></li>
+<li><span>L4</span><div><b>Multilingual Equity</b><span class="plain">Make it fair for every language</span><p>What does each language pay in cost and quality? We measure it, Southeast Asian languages first.</p></div></li>
 </ul>
 <p class="note">L1 reads the model, L2 makes it small, L3 puts it in people's hands, L4 makes it fair for every language.</p>
+<p class="note"><a href="about/#pillars">Each pillar in full →</a></p>
 </div>
 </article>
 <article class="step right" data-name="L1 · Anatomy" data-name-th="L1 · กายวิภาค">
@@ -616,7 +618,7 @@ footer{position:relative;z-index:3;border-top:1px solid var(--line);background:#
 <footer>
 <div class="wrap foot-grid">
 <div class="brand"><b>AI Model Explorer Lab</b><span style="color:var(--mist);max-width:360px">Good AI is AI we understand, can control, and can live with every day.</span><span style="color:#7891A8">An open, non-commercial research project · Bangkok, Thailand · <a href="mailto:sattaya.singk@gmail.com">sattaya.singk@gmail.com</a></span></div>
-<div class="col"><span>LAB</span><a href="#about">About</a><a href="#pillars">Research pillars</a><a href="#events">Events</a><a href="#involve">Get involved</a></div>
+<div class="col"><span>LAB</span><a href="about/">About</a><a href="#pillars">Research pillars</a><a href="#events">Events</a><a href="#involve">Get involved</a></div>
 <div class="col"><span>RESEARCH</span><a href="#outputs">Publications</a><a href="#projects">Projects</a><a href="#tools">Tools &amp; data</a><a href="#roadmap">Roadmap</a></div>
 <div class="col"><span>ELSEWHERE</span><a href="https://github.com/JoesSattes">GitHub</a><a href="https://huggingface.co/JoesSattes">Hugging Face</a><a href="https://pypi.org/project/ai-model-explorer/">PyPI</a><a href="https://joessattes.github.io/ai-model-explorer/">Model Explorer</a></div>
 </div>

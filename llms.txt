@@ -7,6 +7,7 @@ Goal: AI that Thailand can run on its own machines, with data that never has to 
 Motto: Smaller · Smarter · Closer to you.
 Website (English): https://joessattes.github.io/amelab/
 Website (Thai): https://joessattes.github.io/amelab/th/
+About (why the lab exists, vision, the four pillars in full, who we work with): https://joessattes.github.io/amelab/about/ (Thai: https://joessattes.github.io/amelab/th/about/)
 Contact: sattaya.singk@gmail.com
 Founder: Sattaya Singkul, https://joessattes.github.io/Sattaya-AI-Website/
 
