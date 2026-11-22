@@ -1,8 +1,9 @@
 # AI Model Explorer Lab (AME Lab)
 
-> Open, non-commercial research lab in Bangkok, Thailand, founded in 2026 by Sattaya Singkul (สัตยา สิงห์กุล). It studies how open AI models are built (model anatomy), makes them small enough to run on phones and in apps (on-device AI), studies how people use and control AI day to day (human-AI interaction), and measures what each language pays inside a model (language equity), starting with Thai and other Southeast Asian languages.
+> Open, non-commercial research lab in Bangkok, Thailand, founded in 2026 by Sattaya Singkul (สัตยา สิงห์กุล). It studies how open AI models are built (model anatomy), builds new versions that hold up on limited hardware such as phones and apps (on-device AI), studies how people use and control AI day to day (human-AI interaction), and measures what each language pays inside a model (language equity), starting with Thai and other Southeast Asian languages.
 
 Mission: Good AI is AI we understand, can control, and can live with every day.
+Goal: AI that Thailand can run on its own machines, with data that never has to leave the country.
 Motto: Smaller · Smarter · Closer to you.
 Website (English): https://joessattes.github.io/amelab/
 Website (Thai): https://joessattes.github.io/amelab/th/
@@ -12,7 +13,7 @@ Founder: Sattaya Singkul, https://joessattes.github.io/Sattaya-AI-Website/
 ## Research pillars
 
 - L1 Model anatomy and control: what is inside a model, and which parts can be changed safely. Method: manifest-only anatomy, which recovers the architecture from config and safetensors headers without downloading weights.
-- L2 On-device AI: make models small enough to carry, with a certificate that bounds the quality cost. Main result: vocabulary trimming for a user's languages, certified before release.
+- L2 On-device AI: build model versions from the inside that hold up on phones and in apps, with a certificate that bounds the quality cost. Main result: vocabulary trimming for a user's languages, certified before release.
 - L3 Human-AI interaction: how people use, trust, correct and stop AI that runs on their own device, through text, voice and images. First study planned for 2027, starting with Thai users.
 - L4 Language equity: what each language pays in tokens and parameters. A tax table of 41 languages is public; a Southeast Asian tax table is planned.
 
@@ -41,6 +42,18 @@ Founder: Sattaya Singkul, https://joessattes.github.io/Sattaya-AI-Website/
 - AI Expo Thailand 2026, workshop "Squeeze Until It Breaks: A Hands-On Edge Inference Contest". Saturday 7 November 2026, 14:00-15:00, Day 3, Builder Stage, IMPACT Challenger Hall 1, Muang Thong Thani. A Kaggle contest: open a Thai speech model part by part in AI Model Explorer, then compress it for the device until it breaks. First of a series for Thai developers. https://aiexpothailand.com/agenda/?day=3&stage=builder
 - Upcoming talk: "Pass the Pointer, Not the Payload: Serving Any-to-Any Models at Scale" (vLLM-Omni stage graphs and OmniConnector).
 
+## Join as a researcher
+
+The lab gathers researchers in Thailand who want to do deep AI research together. Pick an open problem or bring your own, form a small team, work in the open on GitHub, and submit to a peer-reviewed venue or conference when the result is new and meets the bar.
+- Credit: everyone who makes a substantial contribution is an author; author order follows the work and is agreed at the start; contributions are recorded with CRediT roles.
+- Costs: the lab applies to funding agencies for compute, publication and travel. Funding is not guaranteed.
+- Open problems: readers for new architectures in AI Model Explorer (L1); robustness of models under low memory, low-bit weights and offline use (L2); a first study of how Thai users use, trust and correct an on-phone assistant (L3); the Southeast Asian language tax table (L4).
+- Contact: sattaya.singk@gmail.com
+
+## How this differs from Thai model teams
+
+Teams such as Typhoon and OpenThaiGPT train large Thai models. AI Model Explorer Lab starts from the inside of models, theirs included, and builds new versions that hold up on limited hardware: phones, laptops and servers inside the country. The work is complementary.
+
 ## How we work
 
 Open by default (code, data and the numbers behind every claim); runs on a laptop; proof before claims; built from Southeast Asia, with non-English languages as the first test.
@@ -64,7 +77,7 @@ Open research lab · Bangkok · est. 2026
 Good AI is AI we
 understand
 .
-Like a bonsai, a model can only be shaped well by someone who knows how it grows. We are an open, non-commercial lab that studies how AI models are built, so they can be made smaller, fairer and safe to live with.
+Like a bonsai, a model can only be shaped well by someone who knows how it grows. We are an open, non-commercial lab that studies how AI models are built from the inside, then builds new versions that hold up on limited hardware. The goal: AI that Thailand can run on its own machines, with data that never has to leave the country.
 AI ที่ดีคือ AI ที่เราเข้าใจและควบคุมได้อย่างถ่องแท้ และอยู่กับเราได้ในชีวิตประจำวัน
 SMALLER
 ·
@@ -91,7 +104,7 @@ Model Anatomy & Control
 What is inside a model, and which parts can be changed safely? We read architectures from model files and release the maps as open data.
 L2
 On-device AI
-How small can a model get and still do its job? We compress models to run inside apps and on phones, with a certificate of what was lost.
+How small can a model get and still do its job? We build new versions from the inside that hold up inside apps and on phones, with a certificate of what was lost.
 L3
 Human–AI Interaction
 How do people use, trust, correct and stop AI that runs on their own device, through text, voice or images?
@@ -207,7 +220,7 @@ Dec 2026 – Mar 2027
 Open the lab
 Lab site live with all outputs
 Trimmed TH+EN models on Hugging Face
-Compute grant applications
+Grant applications for compute, publication and travel
 ◆ Gate: one peer-reviewed paper
 PHASE 2
 2027
@@ -224,7 +237,7 @@ An international workshop
 A yearly report others cite
 Events & talks
 Where to meet the lab
-[date] · [venue]
+Date and venue to be announced
 Pass the Pointer, Not the Payload: Serving Any-to-Any Models at Scale
 vLLM-Omni stage graphs and OmniConnector, with a live Model Explorer demo.
 AI EXPO THAILAND 2026 · WORKSHOP
@@ -252,11 +265,32 @@ Compute, devices for on-phone testing, or a grant. Everything stays open.
 Talk to us →
 Or write to us:
 sattaya.singk@gmail.com
-Collaborators & supporters
-[ hardware partner ]
-[ research partner ]
-[ language partner ]
-[ compute supporter ]
+Join as a researcher
+Do deep AI research from Thailand, with others who want the same.
+Many questions about how models work can be answered by researchers here, working together. When a result is new and good enough, it goes to a peer-reviewed venue or a conference stage.
+How it works
+Pick an open problem below, or bring your own.
+Form a small team with the lab.
+Work in the open on GitHub.
+When the result is new and meets the bar, we submit it together.
+Credit and costs
+Everyone who makes a substantial contribution is an author. Author order follows the work and is agreed when the project starts.
+Contributions are recorded with CRediT roles, so each person's part is visible.
+We apply to funding agencies for compute, publication and travel. Funding is not guaranteed, and we say so up front.
+Open problems
+L1
+Readers for new architectures
+Teach AI Model Explorer to read model families it cannot read yet.
+L2
+Robust on small hardware
+Measure how models hold up under low memory, low-bit weights and offline use, then build versions that do.
+L3
+A first study of on-device AI use
+Design a study of how Thai users use, trust and correct an assistant that runs on their own phone.
+L4
+The Southeast Asian language tax
+Keep a public table of what Thai, Vietnamese, Khmer and others pay in every new open model.
+Tell us what you want to work on
 How we work
 Four rules every output follows
 Open by default
@@ -272,6 +306,8 @@ Is the lab a company?
 No. It is an open, non-commercial research project. Nothing we publish is sold.
 Can I use the data in my product?
 Yes. The census and vocabulary-tax tables are MIT and the text corpus is Apache-2.0; each dataset states its license on Hugging Face. Please cite the paper you use.
+How is this different from Thai model teams such as Typhoon or OpenThaiGPT?
+They train large Thai models. We start from the inside of models, theirs included, and build new versions that hold up on limited hardware: phones, laptops and servers inside the country. The work is complementary, and we would like to work with them.
 Why Southeast Asia first?
 Its languages pay some of the highest token costs and get the least testing. A method that holds here holds widely.
 How do I cite the lab?
@@ -343,7 +379,7 @@ Source: https://joessattes.github.io/amelab/th/
 แล็บวิจัยแบบเปิด · กรุงเทพฯ · ก่อตั้ง 2026
 AI ที่ดีคือ AI ที่เรา
 เข้าใจ
-เหมือนบอนไซ โมเดลจะถูกดัดได้ดีก็ต่อเมื่อคนดัดรู้ว่ามันเติบโตอย่างไร เราเป็นแล็บแบบเปิดที่ไม่แสวงกำไร ศึกษาว่าโมเดล AI ถูกสร้างขึ้นมาอย่างไร เพื่อทำให้มันเล็กลง เป็นธรรมขึ้น และอยู่กับเราได้อย่างปลอดภัย
+เหมือนบอนไซ โมเดลจะถูกดัดได้ดีก็ต่อเมื่อคนดัดรู้ว่ามันเติบโตอย่างไร เราเป็นแล็บแบบเปิดที่ไม่แสวงกำไร ศึกษาว่าโมเดล AI ถูกสร้างขึ้นมาอย่างไรจากข้างใน แล้วสร้างเวอร์ชันใหม่ที่ทนทานบนทรัพยากรจำกัด เป้าหมายคือ AI ที่ไทยรันเองได้บนเครื่องของเราเอง โดยข้อมูลไม่ต้องออกนอกประเทศ
 AI ที่ดีคือ AI ที่เราเข้าใจและควบคุมได้อย่างถ่องแท้ และอยู่กับเราได้ในชีวิตประจำวัน
 เล็กลง
 ·
@@ -370,7 +406,7 @@ L1
 ข้างในโมเดลมีอะไร และส่วนไหนแก้ได้อย่างปลอดภัย เราอ่านโครงสร้างจากไฟล์ของโมเดล แล้วเปิดแผนที่เหล่านี้เป็นข้อมูลสาธารณะ
 L2
 AI บนอุปกรณ์
-โมเดลเล็กได้แค่ไหนโดยยังทำงานได้ดี เราย่อโมเดลให้รันในแอปและบนมือถือได้ พร้อมใบรับรองว่าเสียอะไรไปบ้าง
+โมเดลเล็กได้แค่ไหนโดยยังทำงานได้ดี เราสร้างเวอร์ชันใหม่จากความเข้าใจภายใน ให้ทนทานเมื่อรันในแอปและบนมือถือ พร้อมใบรับรองว่าเสียอะไรไปบ้าง
 L3
 ปฏิสัมพันธ์ระหว่างคนกับ AI
 คนใช้ ไว้ใจ แก้ไข และสั่งหยุด AI ที่รันบนเครื่องของตัวเองอย่างไร ทั้งผ่านข้อความ เสียง และภาพ
@@ -486,7 +522,7 @@ $ pip install ai-model-explorer
 เปิดแล็บ
 เว็บแล็บพร้อมผลงานทั้งหมด
 โมเดล TH+EN ที่ตัดแล้วบน Hugging Face
-ยื่นขอทุน compute
+ยื่นขอทุนสำหรับ compute ค่าตีพิมพ์ และค่าเดินทาง
 ◆ ด่าน: เปเปอร์ผ่าน peer review หนึ่งฉบับ
 ระยะที่ 2
 2027
@@ -503,7 +539,7 @@ $ pip install ai-model-explorer
 รายงานประจำปีที่คนอื่นอ้างอิง
 งานและทอล์ก
 พบแล็บได้ที่ไหน
-[วันที่] · [สถานที่]
+ประกาศวันและสถานที่เร็ว ๆ นี้
 Pass the Pointer, Not the Payload: Serving Any-to-Any Models at Scale
 stage graph และ OmniConnector ของ vLLM-Omni พร้อมเดโม Model Explorer สด
 AI EXPO THAILAND 2026 · เวิร์กช็อป
@@ -531,11 +567,32 @@ compute อุปกรณ์สำหรับทดสอบบนมือถ
 คุยกับเรา →
 หรือเขียนถึงเราได้ที่
 sattaya.singk@gmail.com
-ผู้ร่วมงานและผู้สนับสนุน
-[ พาร์ทเนอร์ฮาร์ดแวร์ ]
-[ พาร์ทเนอร์วิจัย ]
-[ พาร์ทเนอร์ภาษา ]
-[ ผู้สนับสนุน compute ]
+ร่วมเป็นนักวิจัย
+ทำวิจัย AI เชิงลึกจากเมืองไทย กับคนที่อยากทำแบบเดียวกัน
+หลายคำถามเรื่องการทำงานของโมเดล นักวิจัยคนไทยร่วมกันหาคำตอบเองได้ งานไหนใหม่และคุณภาพถึง ก็ส่งตีพิมพ์ในเวทีที่มี peer review หรือขึ้นพูดในงาน conference
+ทำงานกันอย่างไร
+เลือกโจทย์เปิดด้านล่าง หรือเสนอโจทย์ของตัวเอง
+ตั้งทีมเล็ก ๆ ร่วมกับแล็บ
+ทำงานแบบเปิดบน GitHub
+เมื่อผลใหม่และถึงเกณฑ์ เราส่งตีพิมพ์ด้วยกัน
+เครดิตและค่าใช้จ่าย
+ทุกคนที่มีส่วนสำคัญในงานได้เป็นผู้เขียน ลำดับชื่อเรียงตามงานที่ทำ และตกลงกันตั้งแต่เริ่มโปรเจกต์
+บันทึกการมีส่วนร่วมตามบทบาท CRediT ให้เห็นว่าใครทำส่วนไหน
+เรายื่นขอทุนจากหน่วยงานต่าง ๆ สำหรับ compute ค่าตีพิมพ์ และค่าเดินทาง ทุนไม่ได้การันตี และเราบอกตรง ๆ ตั้งแต่ต้น
+โจทย์เปิด
+L1
+ตัวอ่านสถาปัตยกรรมใหม่
+สอน AI Model Explorer ให้อ่านตระกูลโมเดลที่ยังอ่านไม่ได้
+L2
+ทนทานบนฮาร์ดแวร์เล็ก
+วัดว่าโมเดลทนแค่ไหนเมื่อหน่วยความจำน้อย weight บิตต่ำ และใช้งานแบบออฟไลน์ แล้วสร้างเวอร์ชันที่ทนได้
+L3
+งานศึกษาแรกเรื่องการใช้ AI บนอุปกรณ์
+ออกแบบงานศึกษาว่าคนไทยใช้ ไว้ใจ และแก้ไขผู้ช่วยที่รันบนมือถือของตัวเองอย่างไร
+L4
+ภาษีภาษาของเอเชียตะวันออกเฉียงใต้
+ดูแลตารางสาธารณะว่าภาษาไทย เวียดนาม เขมร และภาษาอื่นต้องจ่ายเท่าไรในโมเดลเปิดใหม่ทุกตัว
+บอกเราว่าอยากทำเรื่องอะไร
 วิธีทำงานของเรา
 สี่กฎที่ทุกผลงานต้องทำตาม
 เปิดเป็นค่าเริ่มต้น
@@ -551,6 +608,8 @@ sattaya.singk@gmail.com
 ไม่ใช่ เราเป็นโปรเจกต์วิจัยแบบเปิดที่ไม่แสวงกำไร ไม่มีผลงานชิ้นไหนที่เอาไปขาย
 เอาข้อมูลไปใช้ในผลิตภัณฑ์ได้ไหม
 ได้ ตารางสำมะโนและภาษีคำศัพท์ใช้สัญญาอนุญาต MIT ส่วนคลังข้อความใช้ Apache-2.0 แต่ละชุดระบุสัญญาอนุญาตไว้บน Hugging Face ฝากอ้างอิงเปเปอร์ที่คุณใช้ด้วย
+ต่างจากทีมสร้างโมเดลไทยอย่าง Typhoon หรือ OpenThaiGPT อย่างไร
+ทีมเหล่านั้นเทรนโมเดลภาษาไทยขนาดใหญ่ ส่วนเราเริ่มจากข้างในของโมเดล รวมถึงของพวกเขา แล้วสร้างเวอร์ชันใหม่ที่ทนทานบนทรัพยากรจำกัด ทั้งมือถือ แล็ปท็อป และเซิร์ฟเวอร์ในประเทศ งานสองแบบเสริมกัน และเราอยากร่วมงานกับพวกเขา
 ทำไมเริ่มที่เอเชียตะวันออกเฉียงใต้
 ภาษาในภูมิภาคนี้จ่ายค่า token สูงที่สุดกลุ่มหนึ่ง แต่ถูกทดสอบน้อยที่สุด วิธีที่ใช้ได้ที่นี่ก็มักใช้ได้ในที่อื่นด้วย
 จะอ้างอิงแล็บอย่างไร

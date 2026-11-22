@@ -1,8 +1,9 @@
 # AI Model Explorer Lab (AME Lab)
 
-> Open, non-commercial research lab in Bangkok, Thailand, founded in 2026 by Sattaya Singkul (สัตยา สิงห์กุล). It studies how open AI models are built (model anatomy), makes them small enough to run on phones and in apps (on-device AI), studies how people use and control AI day to day (human-AI interaction), and measures what each language pays inside a model (language equity), starting with Thai and other Southeast Asian languages.
+> Open, non-commercial research lab in Bangkok, Thailand, founded in 2026 by Sattaya Singkul (สัตยา สิงห์กุล). It studies how open AI models are built (model anatomy), builds new versions that hold up on limited hardware such as phones and apps (on-device AI), studies how people use and control AI day to day (human-AI interaction), and measures what each language pays inside a model (language equity), starting with Thai and other Southeast Asian languages.
 
 Mission: Good AI is AI we understand, can control, and can live with every day.
+Goal: AI that Thailand can run on its own machines, with data that never has to leave the country.
 Motto: Smaller · Smarter · Closer to you.
 Website (English): https://joessattes.github.io/amelab/
 Website (Thai): https://joessattes.github.io/amelab/th/
@@ -12,7 +13,7 @@ Founder: Sattaya Singkul, https://joessattes.github.io/Sattaya-AI-Website/
 ## Research pillars
 
 - L1 Model anatomy and control: what is inside a model, and which parts can be changed safely. Method: manifest-only anatomy, which recovers the architecture from config and safetensors headers without downloading weights.
-- L2 On-device AI: make models small enough to carry, with a certificate that bounds the quality cost. Main result: vocabulary trimming for a user's languages, certified before release.
+- L2 On-device AI: build model versions from the inside that hold up on phones and in apps, with a certificate that bounds the quality cost. Main result: vocabulary trimming for a user's languages, certified before release.
 - L3 Human-AI interaction: how people use, trust, correct and stop AI that runs on their own device, through text, voice and images. First study planned for 2027, starting with Thai users.
 - L4 Language equity: what each language pays in tokens and parameters. A tax table of 41 languages is public; a Southeast Asian tax table is planned.
 
@@ -40,6 +41,18 @@ Founder: Sattaya Singkul, https://joessattes.github.io/Sattaya-AI-Website/
 
 - AI Expo Thailand 2026, workshop "Squeeze Until It Breaks: A Hands-On Edge Inference Contest". Saturday 7 November 2026, 14:00-15:00, Day 3, Builder Stage, IMPACT Challenger Hall 1, Muang Thong Thani. A Kaggle contest: open a Thai speech model part by part in AI Model Explorer, then compress it for the device until it breaks. First of a series for Thai developers. https://aiexpothailand.com/agenda/?day=3&stage=builder
 - Upcoming talk: "Pass the Pointer, Not the Payload: Serving Any-to-Any Models at Scale" (vLLM-Omni stage graphs and OmniConnector).
+
+## Join as a researcher
+
+The lab gathers researchers in Thailand who want to do deep AI research together. Pick an open problem or bring your own, form a small team, work in the open on GitHub, and submit to a peer-reviewed venue or conference when the result is new and meets the bar.
+- Credit: everyone who makes a substantial contribution is an author; author order follows the work and is agreed at the start; contributions are recorded with CRediT roles.
+- Costs: the lab applies to funding agencies for compute, publication and travel. Funding is not guaranteed.
+- Open problems: readers for new architectures in AI Model Explorer (L1); robustness of models under low memory, low-bit weights and offline use (L2); a first study of how Thai users use, trust and correct an on-phone assistant (L3); the Southeast Asian language tax table (L4).
+- Contact: sattaya.singk@gmail.com
+
+## How this differs from Thai model teams
+
+Teams such as Typhoon and OpenThaiGPT train large Thai models. AI Model Explorer Lab starts from the inside of models, theirs included, and builds new versions that hold up on limited hardware: phones, laptops and servers inside the country. The work is complementary.
 
 ## How we work
 
