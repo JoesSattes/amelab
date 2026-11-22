@@ -54,6 +54,10 @@ The lab gathers researchers in Thailand who want to do deep AI research together
 
 Teams such as Typhoon and OpenThaiGPT train large Thai models. AI Model Explorer Lab starts from the inside of models, theirs included, and builds new versions that hold up on limited hardware: phones, laptops and servers inside the country. The work is complementary.
 
+## Sovereign AI
+
+We are one layer of it. Sovereign AI usually means a country building AI on its own compute, data and people. We do not run national compute. Our part is the layer that reaches people: understanding open models and building versions that run on phones, laptops and servers in Thailand. Data stays in the country, and on a phone it never leaves the device at all.
+
 ## How we work
 
 Open by default (code, data and the numbers behind every claim); runs on a laptop; proof before claims; built from Southeast Asia, with non-English languages as the first test.

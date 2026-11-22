@@ -54,6 +54,10 @@ The lab gathers researchers in Thailand who want to do deep AI research together
 
 Teams such as Typhoon and OpenThaiGPT train large Thai models. AI Model Explorer Lab starts from the inside of models, theirs included, and builds new versions that hold up on limited hardware: phones, laptops and servers inside the country. The work is complementary.
 
+## Sovereign AI
+
+We are one layer of it. Sovereign AI usually means a country building AI on its own compute, data and people. We do not run national compute. Our part is the layer that reaches people: understanding open models and building versions that run on phones, laptops and servers in Thailand. Data stays in the country, and on a phone it never leaves the device at all.
+
 ## How we work
 
 Open by default (code, data and the numbers behind every claim); runs on a laptop; proof before claims; built from Southeast Asia, with non-English languages as the first test.
@@ -308,6 +312,8 @@ Can I use the data in my product?
 Yes. The census and vocabulary-tax tables are MIT and the text corpus is Apache-2.0; each dataset states its license on Hugging Face. Please cite the paper you use.
 How is this different from Thai model teams such as Typhoon or OpenThaiGPT?
 They train large Thai models. We start from the inside of models, theirs included, and build new versions that hold up on limited hardware: phones, laptops and servers inside the country. The work is complementary, and we would like to work with them.
+Is this sovereign AI?
+We are one layer of it. Sovereign AI usually means a country building AI on its own compute, data and people. We do not run national compute. Our part is the layer that reaches people: understanding open models and building versions that run on phones, laptops and servers in Thailand. Data stays in the country, and on a phone it never leaves the device at all.
 Why Southeast Asia first?
 Its languages pay some of the highest token costs and get the least testing. A method that holds here holds widely.
 How do I cite the lab?
@@ -610,6 +616,8 @@ L4
 ได้ ตารางสำมะโนและภาษีคำศัพท์ใช้สัญญาอนุญาต MIT ส่วนคลังข้อความใช้ Apache-2.0 แต่ละชุดระบุสัญญาอนุญาตไว้บน Hugging Face ฝากอ้างอิงเปเปอร์ที่คุณใช้ด้วย
 ต่างจากทีมสร้างโมเดลไทยอย่าง Typhoon หรือ OpenThaiGPT อย่างไร
 ทีมเหล่านั้นเทรนโมเดลภาษาไทยขนาดใหญ่ ส่วนเราเริ่มจากข้างในของโมเดล รวมถึงของพวกเขา แล้วสร้างเวอร์ชันใหม่ที่ทนทานบนทรัพยากรจำกัด ทั้งมือถือ แล็ปท็อป และเซิร์ฟเวอร์ในประเทศ งานสองแบบเสริมกัน และเราอยากร่วมงานกับพวกเขา
+นี่คือ sovereign AI ไหม
+เราเป็นชั้นหนึ่งของมัน sovereign AI มักหมายถึงประเทศที่สร้าง AI ด้วย compute ข้อมูล และคนของตัวเอง เราไม่ได้ทำ compute ระดับประเทศ ส่วนของเราคือชั้นที่ไปถึงมือคน คือเข้าใจโมเดลเปิด แล้วสร้างเวอร์ชันที่รันบนมือถือ แล็ปท็อป และเซิร์ฟเวอร์ในไทยได้ ข้อมูลจึงอยู่ในประเทศ และถ้ารันบนมือถือ ข้อมูลไม่ออกจากเครื่องเลย
 ทำไมเริ่มที่เอเชียตะวันออกเฉียงใต้
 ภาษาในภูมิภาคนี้จ่ายค่า token สูงที่สุดกลุ่มหนึ่ง แต่ถูกทดสอบน้อยที่สุด วิธีที่ใช้ได้ที่นี่ก็มักใช้ได้ในที่อื่นด้วย
 จะอ้างอิงแล็บอย่างไร
