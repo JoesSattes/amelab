@@ -344,8 +344,8 @@ Nine people today: a founder, two academic advisors, operations, and five AI eng
 Founding members
 Founder, AI Model Explorer Lab (AME) · Co-Founder, vLLM Bangkok
 Sattaya Singkul
-Jo · Bangkok, Thailand
-Jo builds speech and on-device AI at a large corporation, and has always been curious about what happens inside the models he ships. That curiosity grew into research of his own: the Manifest census, The Vocabulary Tax and AI Model Explorer. He also serves on AI committees for projects in Thailand and abroad. He started the lab hoping to meet others who share that curiosity, to explore it, share what they learn and grow together in the open.
+Bangkok, Thailand
+Sattaya builds speech and on-device AI at a large corporation, and has always been curious about what happens inside the models he ships. That curiosity grew into research of his own: the Manifest census, The Vocabulary Tax and AI Model Explorer. He also serves on AI committees for projects in Thailand and abroad. He started the lab hoping to meet others who share that curiosity, to explore it, share what they learn and grow together in the open.
 PEER REVIEW
 Program committee:
 ICONIP 2025 (Springer LNCS & CCIS), ACM ICMR 2024
@@ -674,8 +674,8 @@ L4
 สมาชิกผู้ร่วมก่อตั้ง
 ผู้ก่อตั้ง AI Model Explorer Lab (AME) · ผู้ร่วมก่อตั้ง vLLM Bangkok
 สัตยา สิงห์กุล
-โจ · กรุงเทพฯ ประเทศไทย
-โจสร้าง speech AI และ AI บนอุปกรณ์ในองค์กรขนาดใหญ่ และสงสัยมาตลอดว่าข้างในโมเดลที่ตัวเองใช้งานอยู่ทำงานอย่างไร ความสงสัยนั้นกลายเป็นงานวิจัยของเขาเอง ทั้งสำมะโน Manifest, The Vocabulary Tax และ AI Model Explorer นอกจากนี้ยังเป็นกรรมการด้าน AI ในโครงการทั้งในและต่างประเทศ เขาตั้งแล็บนี้ขึ้นด้วยหวังว่าจะได้เจอคนที่สงสัยเรื่องเดียวกัน ค้นหาคำตอบ แบ่งปันความรู้ และเติบโตไปด้วยกันอย่างเปิดเผย
+กรุงเทพฯ ประเทศไทย
+สัตยาสร้าง speech AI และ AI บนอุปกรณ์ในองค์กรขนาดใหญ่ และสงสัยมาตลอดว่าข้างในโมเดลที่ตัวเองใช้งานอยู่ทำงานอย่างไร ความสงสัยนั้นกลายเป็นงานวิจัยของเขาเอง ทั้งสำมะโน Manifest, The Vocabulary Tax และ AI Model Explorer นอกจากนี้ยังเป็นกรรมการด้าน AI ในโครงการทั้งในและต่างประเทศ เขาตั้งแล็บนี้ขึ้นด้วยหวังว่าจะได้เจอคนที่สงสัยเรื่องเดียวกัน ค้นหาคำตอบ แบ่งปันความรู้ และเติบโตไปด้วยกันอย่างเปิดเผย
 งานรีวิวผลงานวิชาการ
 กรรมการโปรแกรม (Program committee):
 ICONIP 2025 (Springer LNCS & CCIS), ACM ICMR 2024
@@ -888,8 +888,8 @@ The people behind the lab
 Founding members
 Founder, AI Model Explorer Lab (AME) · Co-Founder, vLLM Bangkok
 Sattaya Singkul
-Jo · Bangkok, Thailand
-Jo builds speech and on-device AI at a large corporation, and has always been curious about what happens inside the models he ships. That curiosity grew into research of his own: the Manifest census, The Vocabulary Tax and AI Model Explorer. He also serves on AI committees for projects in Thailand and abroad. He started the lab hoping to meet others who share that curiosity, to explore it, share what they learn and grow together in the open.
+Bangkok, Thailand
+Sattaya builds speech and on-device AI at a large corporation, and has always been curious about what happens inside the models he ships. That curiosity grew into research of his own: the Manifest census, The Vocabulary Tax and AI Model Explorer. He also serves on AI committees for projects in Thailand and abroad. He started the lab hoping to meet others who share that curiosity, to explore it, share what they learn and grow together in the open.
 PEER REVIEW
 Program committee:
 ICONIP 2025 (Springer LNCS & CCIS), ACM ICMR 2024
@@ -1103,8 +1103,8 @@ L4 · ทำให้ยุติธรรมกับทุกภาษา
 สมาชิกผู้ร่วมก่อตั้ง
 ผู้ก่อตั้ง AI Model Explorer Lab (AME) · ผู้ร่วมก่อตั้ง vLLM Bangkok
 สัตยา สิงห์กุล
-โจ · กรุงเทพฯ ประเทศไทย
-โจสร้าง speech AI และ AI บนอุปกรณ์ในองค์กรขนาดใหญ่ และสงสัยมาตลอดว่าข้างในโมเดลที่ตัวเองใช้งานอยู่ทำงานอย่างไร ความสงสัยนั้นกลายเป็นงานวิจัยของเขาเอง ทั้งสำมะโน Manifest, The Vocabulary Tax และ AI Model Explorer นอกจากนี้ยังเป็นกรรมการด้าน AI ในโครงการทั้งในและต่างประเทศ เขาตั้งแล็บนี้ขึ้นด้วยหวังว่าจะได้เจอคนที่สงสัยเรื่องเดียวกัน ค้นหาคำตอบ แบ่งปันความรู้ และเติบโตไปด้วยกันอย่างเปิดเผย
+กรุงเทพฯ ประเทศไทย
+สัตยาสร้าง speech AI และ AI บนอุปกรณ์ในองค์กรขนาดใหญ่ และสงสัยมาตลอดว่าข้างในโมเดลที่ตัวเองใช้งานอยู่ทำงานอย่างไร ความสงสัยนั้นกลายเป็นงานวิจัยของเขาเอง ทั้งสำมะโน Manifest, The Vocabulary Tax และ AI Model Explorer นอกจากนี้ยังเป็นกรรมการด้าน AI ในโครงการทั้งในและต่างประเทศ เขาตั้งแล็บนี้ขึ้นด้วยหวังว่าจะได้เจอคนที่สงสัยเรื่องเดียวกัน ค้นหาคำตอบ แบ่งปันความรู้ และเติบโตไปด้วยกันอย่างเปิดเผย
 งานรีวิวผลงานวิชาการ
 กรรมการโปรแกรม (Program committee):
 ICONIP 2025 (Springer LNCS & CCIS), ACM ICMR 2024
