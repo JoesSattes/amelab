@@ -10,6 +10,7 @@ Website (Thai): https://joessattes.github.io/amelab/th/
 About (why the lab exists, vision, the four pillars in full, who we work with): https://joessattes.github.io/amelab/about/ (Thai: https://joessattes.github.io/amelab/th/about/)
 Contact: sattaya.singk@gmail.com
 Founder: Sattaya Singkul, https://joessattes.github.io/Sattaya-AI-Website/
+Founder's peer review service: program committee for ICONIP 2025 (Springer LNCS and CCIS) and ACM ICMR 2024; reviewer for IEEE Access, ACM TALLIP, IJEECS and IEEE ICITEE 2025.
 Members: Piyawat Chuangkrud (AIOps and Research Engineer); Kontawat Wisetpaitoon (AI and Research Engineer); Nattapong Laohawanich (AI and Research Engineer); Narongpon Samathi (Community & Documentation Secretary); Josh Kimball (AI Engineer); Hongjie Chen (AI Researcher)
 
 ## Research pillars

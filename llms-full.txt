@@ -10,6 +10,7 @@ Website (Thai): https://joessattes.github.io/amelab/th/
 About (why the lab exists, vision, the four pillars in full, who we work with): https://joessattes.github.io/amelab/about/ (Thai: https://joessattes.github.io/amelab/th/about/)
 Contact: sattaya.singk@gmail.com
 Founder: Sattaya Singkul, https://joessattes.github.io/Sattaya-AI-Website/
+Founder's peer review service: program committee for ICONIP 2025 (Springer LNCS and CCIS) and ACM ICMR 2024; reviewer for IEEE Access, ACM TALLIP, IJEECS and IEEE ICITEE 2025.
 Members: Piyawat Chuangkrud (AIOps and Research Engineer); Kontawat Wisetpaitoon (AI and Research Engineer); Nattapong Laohawanich (AI and Research Engineer); Narongpon Samathi (Community & Documentation Secretary); Josh Kimball (AI Engineer); Hongjie Chen (AI Researcher)
 
 ## Research pillars
@@ -346,6 +347,11 @@ Speech & voice AI
 On-device inference
 Model anatomy
 Thai & SEA languages
+PEER REVIEW
+Program committee:
+ICONIP 2025 (Springer LNCS & CCIS), ACM ICMR 2024
+Reviewer:
+IEEE Access, ACM TALLIP, IJEECS, IEEE ICITEE 2025
 Portfolio →
 GitHub →
 Hugging Face →
@@ -668,6 +674,11 @@ Speech และ voice AI
 Inference บนอุปกรณ์
 กายวิภาคโมเดล
 ภาษาไทยและ SEA
+งานรีวิวผลงานวิชาการ
+กรรมการโปรแกรม (Program committee):
+ICONIP 2025 (Springer LNCS & CCIS), ACM ICMR 2024
+ผู้ทรงคุณวุฒิพิจารณาบทความ (Reviewer):
+IEEE Access, ACM TALLIP, IJEECS, IEEE ICITEE 2025
 พอร์ตโฟลิโอ →
 GitHub →
 Hugging Face →
@@ -870,6 +881,11 @@ FOUNDER · LEAD RESEARCHER
 Sattaya Singkul
 Jo · Bangkok, Thailand
 Jo works on speech AI and on-device deployment. He wrote the Manifest census of 12,974 Hugging Face repositories and The Vocabulary Tax, and built AI Model Explorer for Thai developers. He started the lab so that this work keeps growing in the open.
+PEER REVIEW
+Program committee:
+ICONIP 2025 (Springer LNCS & CCIS), ACM ICMR 2024
+Reviewer:
+IEEE Access, ACM TALLIP, IJEECS, IEEE ICITEE 2025
 Portfolio →
 GitHub →
 Hugging Face →
@@ -1073,6 +1089,11 @@ L4 · ทำให้ยุติธรรมกับทุกภาษา
 สัตยา สิงห์กุล
 โจ · กรุงเทพฯ ประเทศไทย
 โจทำงานด้าน speech AI และการนำโมเดลไปรันบนอุปกรณ์ เขาเขียนสำมะโน Manifest ของ 12,974 repository บน Hugging Face และ The Vocabulary Tax และสร้าง AI Model Explorer ให้นักพัฒนาไทย เขาตั้งแล็บนี้ขึ้นเพื่อให้งานเหล่านี้เติบโตต่อไปอย่างเปิดเผย
+งานรีวิวผลงานวิชาการ
+กรรมการโปรแกรม (Program committee):
+ICONIP 2025 (Springer LNCS & CCIS), ACM ICMR 2024
+ผู้ทรงคุณวุฒิพิจารณาบทความ (Reviewer):
+IEEE Access, ACM TALLIP, IJEECS, IEEE ICITEE 2025
 พอร์ตโฟลิโอ →
 GitHub →
 Hugging Face →
