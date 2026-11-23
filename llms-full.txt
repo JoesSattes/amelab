@@ -11,7 +11,7 @@ About (why the lab exists, vision, the four pillars in full, who we work with): 
 Contact: sattaya.singk@gmail.com
 Founder: Sattaya Singkul, https://joessattes.github.io/Sattaya-AI-Website/
 Founder's peer review service: program committee for ICONIP 2025 (Springer LNCS and CCIS) and ACM ICMR 2024; reviewer for IEEE Access, ACM TALLIP, IJEECS and IEEE ICITEE 2025.
-Academic advisor: Dr. Worawit Tepsan
+Academic advisors: Dr. Worawit Tepsan; Nathaphorn Nanthajirapong
 Members: Piyawat Chuangkrud (AIOps and Research Engineer); Kontawat Wisetpaitoon (AI and Research Engineer); Nattapong Laohawanich (AI and Research Engineer); Narongpon Samathi (Community & Documentation Secretary); Josh Kimball (AI Engineer); Hongjie Chen (AI Researcher)
 
 ## Research pillars
@@ -339,7 +339,7 @@ New papers, tools and datasets. No more than once a month.
 Email address
 Team
 A small team, growing in the open.
-A founder, an academic advisor and six members today, with room for researchers, language leads and builders who want what we learn about open models to stay open.
+A founder, two academic advisors and six members today, with room for researchers, language leads and builders who want what we learn about open models to stay open.
 FOUNDER · LEAD RESEARCHER
 Sattaya Singkul
 Jo · Bangkok, Thailand
@@ -357,8 +357,10 @@ Portfolio →
 GitHub →
 Hugging Face →
 Papers →
-Academic advisor
+Academic advisors
 Dr. Worawit Tepsan
+Academic Advisor
+Nathaphorn Nanthajirapong
 Academic Advisor
 Members
 Piyawat Chuangkrud
@@ -669,7 +671,7 @@ L4
 อีเมล
 ทีม
 ทีมเล็ก ๆ ที่เติบโตแบบเปิด
-ตอนนี้มีผู้ก่อตั้ง ที่ปรึกษาด้านวิชาการ และสมาชิกอีก 6 คน และยังมีที่ว่างสำหรับนักวิจัย ผู้ดูแลภาษา และนักพัฒนาที่อยากให้ความรู้เรื่องโมเดลเปิดยังเปิดต่อไป
+ตอนนี้มีผู้ก่อตั้ง ที่ปรึกษาด้านวิชาการ 2 ท่าน และสมาชิกอีก 6 คน และยังมีที่ว่างสำหรับนักวิจัย ผู้ดูแลภาษา และนักพัฒนาที่อยากให้ความรู้เรื่องโมเดลเปิดยังเปิดต่อไป
 ผู้ก่อตั้ง · หัวหน้านักวิจัย
 สัตยา สิงห์กุล
 โจ · กรุงเทพฯ ประเทศไทย
@@ -689,6 +691,8 @@ Hugging Face →
 เปเปอร์ →
 ที่ปรึกษาด้านวิชาการ
 Dr. Worawit Tepsan
+Academic Advisor
+Nathaphorn Nanthajirapong
 Academic Advisor
 สมาชิก
 Piyawat Chuangkrud
@@ -755,7 +759,7 @@ AI Model Explorer Lab is an open, non-commercial research lab in Bangkok. We stu
 Founded 2026
 Bangkok, Thailand
 Open and non-commercial
-Team of 8
+Team of 9
 2 papers · 3 datasets · 1 tool
 Why we started
 Thailand uses a lot of AI. Few of us study what is inside it.
@@ -897,8 +901,10 @@ Portfolio →
 GitHub →
 Hugging Face →
 Papers →
-Academic advisor
+Academic advisors
 Dr. Worawit Tepsan
+Academic Advisor
+Nathaphorn Nanthajirapong
 Academic Advisor
 Members
 Piyawat Chuangkrud
@@ -963,11 +969,11 @@ Source: https://joessattes.github.io/amelab/th/about/
 จากข้างใน
 ก่อนนำไปใช้
 AI Model Explorer Lab เป็นแล็บวิจัยแบบเปิดที่ไม่แสวงกำไรในกรุงเทพฯ เราศึกษาว่าโมเดล AI ทำงานอย่างไรจากข้างใน แล้วใช้ความเข้าใจนั้นสร้างเวอร์ชันที่รันได้บนทรัพยากรจำกัด คนควบคุมได้ และภาษาไทยกับภาษาอื่นในเอเชียตะวันออกเฉียงใต้จ่ายไหว
-Founded 2026
-Bangkok, Thailand
-Open and non-commercial
-Team of 8
-2 papers · 3 datasets · 1 tool
+ก่อตั้งปี 2026
+กรุงเทพฯ ประเทศไทย
+เปิดและไม่แสวงกำไร
+ทีม 9 คน
+2 เปเปอร์ · 3 ชุดข้อมูล · 1 เครื่องมือ
 ทำไมเราตั้งแล็บ
 ไทยใช้ AI เยอะ แต่มีน้อยคนที่ศึกษาว่าข้างในมันมีอะไร
 งาน AI ในไทยส่วนใหญ่เริ่มจาก use case คือเลือกโมเดล ต่อเข้าระบบ แล้วปล่อยใช้งาน ซึ่งมีประโยชน์ แต่ทิ้งช่องว่างไว้ เพราะมีน้อยคนที่ศึกษาว่าตัวโมเดลถูกสร้างมาอย่างไร เราจึงตอบได้ยากว่าโมเดลต้องใช้อะไร เปลืองตรงไหน และข้อมูลของเราไปอยู่ที่ไหนตอนใช้งาน
@@ -1110,6 +1116,8 @@ Hugging Face →
 เปเปอร์ →
 ที่ปรึกษาด้านวิชาการ
 Dr. Worawit Tepsan
+Academic Advisor
+Nathaphorn Nanthajirapong
 Academic Advisor
 สมาชิก
 Piyawat Chuangkrud
