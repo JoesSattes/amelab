@@ -9,7 +9,7 @@ Website (English): https://joessattes.github.io/amelab/
 Website (Thai): https://joessattes.github.io/amelab/th/
 About (why the lab exists, vision, the four pillars in full, who we work with): https://joessattes.github.io/amelab/about/ (Thai: https://joessattes.github.io/amelab/th/about/)
 Contact: sattaya.singk@gmail.com
-Founder: Sattaya Singkul (Founder, AI Model Explorer Lab; Co-Founder, vLLM Bangkok), https://joessattes.github.io/Sattaya-AI-Website/
+Founder: Sattaya Singkul (Founder, AI Model Explorer Lab; Co-Founder, vLLM Bangkok https://vllmbangkok.com/en/), https://joessattes.github.io/Sattaya-AI-Website/
 Founder's peer review service: program committee for ICONIP 2025 (Springer LNCS and CCIS) and ACM ICMR 2024; reviewer for IEEE Access, ACM TALLIP, IJEECS and IEEE ICITEE 2025.
 Academic advisors: Dr. Worawit Tepsan (AI Advisor); Nathaphorn Nanthajirapong (CS Advisor)
 Operations: Narongpon Samathi (Community & Documentation Secretary)
@@ -51,8 +51,8 @@ Main theme: understand AI models from the inside, so they can be made smaller, c
 
 ## Events
 
-- AI Expo Thailand 2026, workshop "Squeeze Until It Breaks: A Hands-On Edge Inference Contest". Saturday 7 November 2026, 14:00-15:00, Day 3, Builder Stage, IMPACT Challenger Hall 1, Muang Thong Thani. A Kaggle contest: open a Thai speech model part by part in AI Model Explorer, then compress it for the device until it breaks. First of a series for Thai developers. https://aiexpothailand.com/agenda/?day=3&stage=builder
-- Upcoming talk: "Pass the Pointer, Not the Payload: Serving Any-to-Any Models at Scale" (vLLM-Omni stage graphs and OmniConnector).
+- AI Expo Thailand 2026, workshop "Squeeze Until It Breaks: A Hands-On Edge Inference Contest". Saturday 7 November 2026, 14:00-15:00, Day 3, Builder Stage, IMPACT Challenger Hall 1, Muang Thong Thani. A Kaggle contest: open a Thai speech model part by part in AI Model Explorer, then compress it for the device until it breaks. First of a series for Thai developers. https://aiexpothailand.com/agenda/?day=3&stage=builder Invited by Natdhanai Praneenatthavee (Founder, Siam Inference).
+- Siam Inference Thailand, talk "Pass the Pointer, Not the Payload: Serving Any-to-Any Models at Scale" (vLLM-Omni stage graphs and OmniConnector). Thursday 3 December 2026, 17:00-21:00, Cleverse, Rama 9, Bangkok, and online. https://vllmbangkok.com/en/events/siam-inference-thailand-2026-12/ Invited by Natdhanai Praneenatthavee (Founder, Siam Inference).
 
 ## Join as a researcher
 
@@ -258,13 +258,17 @@ An international workshop
 A yearly report others cite
 Events & talks
 Where to meet the lab
-Date and venue to be announced
+SIAM INFERENCE THAILAND · TALK
+Thu 3 Dec 2026 · 17:00–21:00 · Cleverse, Rama 9 and online
 Pass the Pointer, Not the Payload: Serving Any-to-Any Models at Scale
-vLLM-Omni stage graphs and OmniConnector, with a live Model Explorer demo.
+vLLM-Omni stage graphs and OmniConnector, with a live Model Explorer demo. Free to attend, onsite or online.
+Invited by Natdhanai Praneenatthavee (Founder, Siam Inference)
+Event page ↗
 AI EXPO THAILAND 2026 · WORKSHOP
 Sat 7 Nov 2026 · 14:00–15:00 · Day 3, Builder Stage
 Squeeze Until It Breaks: A Hands-On Edge Inference Contest
 IMPACT Challenger Hall 1, Muang Thong Thani. A Kaggle contest: open a Thai speech model part by part in AI Model Explorer, then compress it for the device until it breaks. First of a series for Thai developers.
+Invited by Natdhanai Praneenatthavee (Founder, Siam Inference)
 Event page ↗
 Get involved
 Four ways to work with us
@@ -342,7 +346,8 @@ Team
 A small team, growing in the open.
 Nine people today: a founder, two academic advisors, operations, and five AI engineers and researchers. There is room for more researchers, language leads and builders who want what we learn about open models to stay open.
 Founding members
-Founder, AI Model Explorer Lab (AME) · Co-Founder, vLLM Bangkok
+Founder, AI Model Explorer Lab (AME) · Co-Founder,
+vLLM Bangkok
 Sattaya Singkul
 Bangkok, Thailand
 Sattaya builds speech and on-device AI at a large corporation, and has always been curious about what happens inside the models he ships. That curiosity grew into research of his own: the Manifest census, The Vocabulary Tax and AI Model Explorer. He also serves on AI committees for projects in Thailand and abroad. He started the lab hoping to meet others who share that curiosity, to explore it, share what they learn and grow together in the open.
@@ -588,13 +593,17 @@ $ pip install ai-model-explorer
 รายงานประจำปีที่คนอื่นอ้างอิง
 งานและทอล์ก
 พบแล็บได้ที่ไหน
-ประกาศวันและสถานที่เร็ว ๆ นี้
+SIAM INFERENCE THAILAND · ทอล์ก
+พฤ. 3 ธ.ค. 2026 · 17:00–21:00 · Cleverse พระราม 9 และออนไลน์
 Pass the Pointer, Not the Payload: Serving Any-to-Any Models at Scale
-stage graph และ OmniConnector ของ vLLM-Omni พร้อมเดโม Model Explorer สด
+stage graph และ OmniConnector ของ vLLM-Omni พร้อมเดโม Model Explorer สด เข้าร่วมฟรี ทั้งที่งานและออนไลน์
+ได้รับเชิญโดยคุณ Natdhanai Praneenatthavee (Founder, Siam Inference)
+หน้างาน ↗
 AI EXPO THAILAND 2026 · เวิร์กช็อป
 ส. 7 พ.ย. 2026 · 14:00–15:00 · วันที่ 3, Builder Stage
 Squeeze Until It Breaks: A Hands-On Edge Inference Contest
 อิมแพ็ค ชาเลนเจอร์ ฮอลล์ 1 เมืองทองธานี แข่งบน Kaggle: เปิดดูโมเดลเสียงพูดภาษาไทยทีละส่วนใน AI Model Explorer แล้วบีบให้เล็กพอจะรันบนอุปกรณ์จนกว่าจะพัง ครั้งแรกของซีรีส์สำหรับนักพัฒนาไทย
+ได้รับเชิญโดยคุณ Natdhanai Praneenatthavee (Founder, Siam Inference)
 หน้างาน ↗
 ร่วมกับเรา
 สี่ทางที่ทำงานกับเราได้
@@ -672,7 +681,8 @@ L4
 ทีมเล็ก ๆ ที่เติบโตแบบเปิด
 ตอนนี้เรามีกัน 9 คน ได้แก่ ผู้ก่อตั้ง ที่ปรึกษาด้านวิชาการ 2 ท่าน ฝ่ายปฏิบัติการ และวิศวกรกับนักวิจัย AI อีก 5 คน และยังมีที่ว่างสำหรับนักวิจัย ผู้ดูแลภาษา และนักพัฒนาที่อยากให้ความรู้เรื่องโมเดลเปิดยังเปิดต่อไป
 สมาชิกผู้ร่วมก่อตั้ง
-ผู้ก่อตั้ง AI Model Explorer Lab (AME) · ผู้ร่วมก่อตั้ง vLLM Bangkok
+ผู้ก่อตั้ง AI Model Explorer Lab (AME) · ผู้ร่วมก่อตั้ง
+vLLM Bangkok
 สัตยา สิงห์กุล
 กรุงเทพฯ ประเทศไทย
 สัตยาสร้าง speech AI และ AI บนอุปกรณ์ในองค์กรขนาดใหญ่ และสงสัยมาตลอดว่าข้างในโมเดลที่ตัวเองใช้งานอยู่ทำงานอย่างไร ความสงสัยนั้นกลายเป็นงานวิจัยของเขาเอง ทั้งสำมะโน Manifest, The Vocabulary Tax และ AI Model Explorer นอกจากนี้ยังเป็นกรรมการด้าน AI ในโครงการทั้งในและต่างประเทศ เขาตั้งแล็บนี้ขึ้นด้วยหวังว่าจะได้เจอคนที่สงสัยเรื่องเดียวกัน ค้นหาคำตอบ แบ่งปันความรู้ และเติบโตไปด้วยกันอย่างเปิดเผย
@@ -886,7 +896,8 @@ How to join as a researcher →
 Team
 The people behind the lab
 Founding members
-Founder, AI Model Explorer Lab (AME) · Co-Founder, vLLM Bangkok
+Founder, AI Model Explorer Lab (AME) · Co-Founder,
+vLLM Bangkok
 Sattaya Singkul
 Bangkok, Thailand
 Sattaya builds speech and on-device AI at a large corporation, and has always been curious about what happens inside the models he ships. That curiosity grew into research of his own: the Manifest census, The Vocabulary Tax and AI Model Explorer. He also serves on AI committees for projects in Thailand and abroad. He started the lab hoping to meet others who share that curiosity, to explore it, share what they learn and grow together in the open.
@@ -1101,7 +1112,8 @@ L4 · ทำให้ยุติธรรมกับทุกภาษา
 ทีม
 คนที่อยู่เบื้องหลังแล็บ
 สมาชิกผู้ร่วมก่อตั้ง
-ผู้ก่อตั้ง AI Model Explorer Lab (AME) · ผู้ร่วมก่อตั้ง vLLM Bangkok
+ผู้ก่อตั้ง AI Model Explorer Lab (AME) · ผู้ร่วมก่อตั้ง
+vLLM Bangkok
 สัตยา สิงห์กุล
 กรุงเทพฯ ประเทศไทย
 สัตยาสร้าง speech AI และ AI บนอุปกรณ์ในองค์กรขนาดใหญ่ และสงสัยมาตลอดว่าข้างในโมเดลที่ตัวเองใช้งานอยู่ทำงานอย่างไร ความสงสัยนั้นกลายเป็นงานวิจัยของเขาเอง ทั้งสำมะโน Manifest, The Vocabulary Tax และ AI Model Explorer นอกจากนี้ยังเป็นกรรมการด้าน AI ในโครงการทั้งในและต่างประเทศ เขาตั้งแล็บนี้ขึ้นด้วยหวังว่าจะได้เจอคนที่สงสัยเรื่องเดียวกัน ค้นหาคำตอบ แบ่งปันความรู้ และเติบโตไปด้วยกันอย่างเปิดเผย

@@ -9,7 +9,7 @@ Website (English): https://joessattes.github.io/amelab/
 Website (Thai): https://joessattes.github.io/amelab/th/
 About (why the lab exists, vision, the four pillars in full, who we work with): https://joessattes.github.io/amelab/about/ (Thai: https://joessattes.github.io/amelab/th/about/)
 Contact: sattaya.singk@gmail.com
-Founder: Sattaya Singkul (Founder, AI Model Explorer Lab; Co-Founder, vLLM Bangkok), https://joessattes.github.io/Sattaya-AI-Website/
+Founder: Sattaya Singkul (Founder, AI Model Explorer Lab; Co-Founder, vLLM Bangkok https://vllmbangkok.com/en/), https://joessattes.github.io/Sattaya-AI-Website/
 Founder's peer review service: program committee for ICONIP 2025 (Springer LNCS and CCIS) and ACM ICMR 2024; reviewer for IEEE Access, ACM TALLIP, IJEECS and IEEE ICITEE 2025.
 Academic advisors: Dr. Worawit Tepsan (AI Advisor); Nathaphorn Nanthajirapong (CS Advisor)
 Operations: Narongpon Samathi (Community & Documentation Secretary)
@@ -51,8 +51,8 @@ Main theme: understand AI models from the inside, so they can be made smaller, c
 
 ## Events
 
-- AI Expo Thailand 2026, workshop "Squeeze Until It Breaks: A Hands-On Edge Inference Contest". Saturday 7 November 2026, 14:00-15:00, Day 3, Builder Stage, IMPACT Challenger Hall 1, Muang Thong Thani. A Kaggle contest: open a Thai speech model part by part in AI Model Explorer, then compress it for the device until it breaks. First of a series for Thai developers. https://aiexpothailand.com/agenda/?day=3&stage=builder
-- Upcoming talk: "Pass the Pointer, Not the Payload: Serving Any-to-Any Models at Scale" (vLLM-Omni stage graphs and OmniConnector).
+- AI Expo Thailand 2026, workshop "Squeeze Until It Breaks: A Hands-On Edge Inference Contest". Saturday 7 November 2026, 14:00-15:00, Day 3, Builder Stage, IMPACT Challenger Hall 1, Muang Thong Thani. A Kaggle contest: open a Thai speech model part by part in AI Model Explorer, then compress it for the device until it breaks. First of a series for Thai developers. https://aiexpothailand.com/agenda/?day=3&stage=builder Invited by Natdhanai Praneenatthavee (Founder, Siam Inference).
+- Siam Inference Thailand, talk "Pass the Pointer, Not the Payload: Serving Any-to-Any Models at Scale" (vLLM-Omni stage graphs and OmniConnector). Thursday 3 December 2026, 17:00-21:00, Cleverse, Rama 9, Bangkok, and online. https://vllmbangkok.com/en/events/siam-inference-thailand-2026-12/ Invited by Natdhanai Praneenatthavee (Founder, Siam Inference).
 
 ## Join as a researcher
 
