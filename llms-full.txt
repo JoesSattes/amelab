@@ -10,6 +10,7 @@ Website (Thai): https://joessattes.github.io/amelab/th/
 About (why the lab exists, vision, the four pillars in full, who we work with): https://joessattes.github.io/amelab/about/ (Thai: https://joessattes.github.io/amelab/th/about/)
 Contact: sattaya.singk@gmail.com
 Founder: Sattaya Singkul, https://joessattes.github.io/Sattaya-AI-Website/
+Members: Piyawat Chuangkrud (AIOps and Research Engineer); Kontawat Wisetpaitoon (AI and Research Engineer); Nattapong Laohawanich (AI and Research Engineer); Narongpon Samathi (Community & Documentation Secretary); Josh Kimball (AI Engineer); Hongjie Chen (AI Researcher)
 
 ## Research pillars
 
@@ -335,8 +336,8 @@ One email when we publish
 New papers, tools and datasets. No more than once a month.
 Email address
 Team
-A small lab with open seats.
-One founder today, and room for researchers, language leads and builders who want what we learn about open models to stay open.
+A small team, growing in the open.
+A founder and six members today, with room for researchers, language leads and builders who want what we learn about open models to stay open.
 FOUNDER · LEAD RESEARCHER
 Sattaya Singkul
 Jo · Bangkok, Thailand
@@ -349,6 +350,19 @@ Portfolio →
 GitHub →
 Hugging Face →
 Papers →
+Members
+Piyawat Chuangkrud
+AIOps and Research Engineer
+Kontawat Wisetpaitoon
+AI and Research Engineer
+Nattapong Laohawanich
+AI and Research Engineer
+Narongpon Samathi
+Community & Documentation Secretary
+Josh Kimball
+AI Engineer
+Hongjie Chen
+AI Researcher
 Open seats
 Who we want to work with next
 OPEN SEAT · L1 · L2
@@ -644,8 +658,8 @@ L4
 เปเปอร์ เครื่องมือ และชุดข้อมูลใหม่ ไม่เกินเดือนละครั้ง
 อีเมล
 ทีม
-แล็บเล็ก ๆ ที่ยังมีที่นั่งว่าง
-ตอนนี้มีผู้ก่อตั้งหนึ่งคน และยังมีที่สำหรับนักวิจัย ผู้ดูแลภาษา และนักสร้าง ที่อยากให้ความรู้เรื่องโมเดลแบบเปิดยังเปิดต่อไป
+ทีมเล็ก ๆ ที่เติบโตแบบเปิด
+ตอนนี้มีผู้ก่อตั้งและสมาชิกอีก 6 คน และยังมีที่ว่างสำหรับนักวิจัย ผู้ดูแลภาษา และนักพัฒนาที่อยากให้ความรู้เรื่องโมเดลเปิดยังเปิดต่อไป
 ผู้ก่อตั้ง · หัวหน้านักวิจัย
 สัตยา สิงห์กุล
 โจ · กรุงเทพฯ ประเทศไทย
@@ -658,6 +672,19 @@ Inference บนอุปกรณ์
 GitHub →
 Hugging Face →
 เปเปอร์ →
+สมาชิก
+Piyawat Chuangkrud
+AIOps and Research Engineer
+Kontawat Wisetpaitoon
+AI and Research Engineer
+Nattapong Laohawanich
+AI and Research Engineer
+Narongpon Samathi
+Community & Documentation Secretary
+Josh Kimball
+AI Engineer
+Hongjie Chen
+AI Researcher
 ที่นั่งว่าง
 คนที่เราอยากทำงานด้วยต่อไป
 ที่นั่งว่าง · L1 · L2
@@ -710,6 +737,7 @@ AI Model Explorer Lab is an open, non-commercial research lab in Bangkok. We stu
 Founded 2026
 Bangkok, Thailand
 Open and non-commercial
+Team of 7
 2 papers · 3 datasets · 1 tool
 Why we started
 Thailand uses a lot of AI. Few of us study what is inside it.
@@ -836,8 +864,8 @@ Built from Southeast Asia
 Non-English is the first test, never an appendix.
 Everyone who makes a substantial contribution is an author, and author order is agreed when a project starts.
 How to join as a researcher →
-Founder
-Who started the lab
+Team
+The people behind the lab
 FOUNDER · LEAD RESEARCHER
 Sattaya Singkul
 Jo · Bangkok, Thailand
@@ -846,6 +874,19 @@ Portfolio →
 GitHub →
 Hugging Face →
 Papers →
+Members
+Piyawat Chuangkrud
+AIOps and Research Engineer
+Kontawat Wisetpaitoon
+AI and Research Engineer
+Nattapong Laohawanich
+AI and Research Engineer
+Narongpon Samathi
+Community & Documentation Secretary
+Josh Kimball
+AI Engineer
+Hongjie Chen
+AI Researcher
 Who we work with
 The lab grows through the people and teams who join it.
 Researchers and students
@@ -899,6 +940,7 @@ AI Model Explorer Lab เป็นแล็บวิจัยแบบเปิ�
 ก่อตั้งปี 2026
 กรุงเทพฯ ประเทศไทย
 เปิดและไม่แสวงกำไร
+ทีม 7 คน
 2 เปเปอร์ · 3 ชุดข้อมูล · 1 เครื่องมือ
 ทำไมเราตั้งแล็บ
 ไทยใช้ AI เยอะ แต่มีน้อยคนที่ศึกษาว่าข้างในมันมีอะไร
@@ -1025,8 +1067,8 @@ L4 · ทำให้ยุติธรรมกับทุกภาษา
 ภาษาที่ไม่ใช่อังกฤษคือบททดสอบแรก ไม่ใช่ภาคผนวก
 ทุกคนที่มีส่วนสำคัญในงานได้เป็นผู้เขียน และลำดับชื่อตกลงกันตั้งแต่เริ่มโปรเจกต์
 วิธีร่วมเป็นนักวิจัย →
-ผู้ก่อตั้ง
-ใครเป็นคนตั้งแล็บ
+ทีม
+คนที่อยู่เบื้องหลังแล็บ
 ผู้ก่อตั้ง · หัวหน้านักวิจัย
 สัตยา สิงห์กุล
 โจ · กรุงเทพฯ ประเทศไทย
@@ -1035,6 +1077,19 @@ L4 · ทำให้ยุติธรรมกับทุกภาษา
 GitHub →
 Hugging Face →
 เปเปอร์ →
+สมาชิก
+Piyawat Chuangkrud
+AIOps and Research Engineer
+Kontawat Wisetpaitoon
+AI and Research Engineer
+Nattapong Laohawanich
+AI and Research Engineer
+Narongpon Samathi
+Community & Documentation Secretary
+Josh Kimball
+AI Engineer
+Hongjie Chen
+AI Researcher
 เราทำงานกับใคร
 แล็บเติบโตจากคนและทีมที่เข้ามาร่วม
 นักวิจัยและนักศึกษา
