@@ -9,10 +9,11 @@ Website (English): https://joessattes.github.io/amelab/
 Website (Thai): https://joessattes.github.io/amelab/th/
 About (why the lab exists, vision, the four pillars in full, who we work with): https://joessattes.github.io/amelab/about/ (Thai: https://joessattes.github.io/amelab/th/about/)
 Contact: sattaya.singk@gmail.com
-Founder: Sattaya Singkul, https://joessattes.github.io/Sattaya-AI-Website/
+Founder: Sattaya Singkul (Founder, AI Model Explorer Lab; Co-Founder, vLLM Bangkok), https://joessattes.github.io/Sattaya-AI-Website/
 Founder's peer review service: program committee for ICONIP 2025 (Springer LNCS and CCIS) and ACM ICMR 2024; reviewer for IEEE Access, ACM TALLIP, IJEECS and IEEE ICITEE 2025.
-Academic advisors: Dr. Worawit Tepsan; Nathaphorn Nanthajirapong
-Members: Piyawat Chuangkrud (AIOps and Research Engineer); Kontawat Wisetpaitoon (AI and Research Engineer); Nattapong Laohawanich (AI and Research Engineer); Narongpon Samathi (Community & Documentation Secretary); Josh Kimball (AI Engineer); Hongjie Chen (AI Researcher)
+Academic advisors: Dr. Worawit Tepsan (AI Advisor); Nathaphorn Nanthajirapong (CS Advisor)
+Operations: Narongpon Samathi (Community & Documentation Secretary)
+AI technical members: Piyawat Chuangkrud (AIOps and Research Engineer); Kontawat Wisetpaitoon (AI and Research Engineer); Nattapong Laohawanich (AI and Research Engineer); Josh Kimball (Senior AI Engineer); Hongjie Chen (Senior AI Researcher)
 
 ## Research pillars
 
@@ -339,11 +340,12 @@ New papers, tools and datasets. No more than once a month.
 Email address
 Team
 A small team, growing in the open.
-A founder, two academic advisors and six members today, with room for researchers, language leads and builders who want what we learn about open models to stay open.
-FOUNDER · LEAD RESEARCHER
+Nine people today: a founder, two academic advisors, operations, and five AI engineers and researchers. There is room for more researchers, language leads and builders who want what we learn about open models to stay open.
+Founding members
+Founder, AI Model Explorer Lab (AME) · Co-Founder, vLLM Bangkok
 Sattaya Singkul
 Jo · Bangkok, Thailand
-Jo works on speech AI and on-device deployment. He wrote the Manifest census of 12,974 Hugging Face repositories and The Vocabulary Tax, and built AI Model Explorer for Thai developers. He started the lab so that this work keeps growing in the open.
+Jo wants Thailand to understand the AI it runs, not only use it. He has built speech and on-device AI inside a large corporation, and does research of his own on how models are made: the Manifest census of 12,974 Hugging Face repositories, The Vocabulary Tax, and AI Model Explorer for Thai developers. He also serves on AI committees for projects in Thailand and abroad. He started the lab so that people who want to go deep into AI have a place to do it together, in the open.
 Speech & voice AI
 On-device inference
 Model anatomy
@@ -359,22 +361,23 @@ Hugging Face →
 Papers →
 Academic advisors
 Dr. Worawit Tepsan
-Academic Advisor
+AI Advisor
 Nathaphorn Nanthajirapong
-Academic Advisor
-Members
+CS Advisor
+Operations
+Narongpon Samathi
+Community & Documentation Secretary
+AI technical members
 Piyawat Chuangkrud
 AIOps and Research Engineer
 Kontawat Wisetpaitoon
 AI and Research Engineer
 Nattapong Laohawanich
 AI and Research Engineer
-Narongpon Samathi
-Community & Documentation Secretary
 Josh Kimball
-AI Engineer
+Senior AI Engineer
 Hongjie Chen
-AI Researcher
+Senior AI Researcher
 Open seats
 Who we want to work with next
 OPEN SEAT · L1 · L2
@@ -671,11 +674,12 @@ L4
 อีเมล
 ทีม
 ทีมเล็ก ๆ ที่เติบโตแบบเปิด
-ตอนนี้มีผู้ก่อตั้ง ที่ปรึกษาด้านวิชาการ 2 ท่าน และสมาชิกอีก 6 คน และยังมีที่ว่างสำหรับนักวิจัย ผู้ดูแลภาษา และนักพัฒนาที่อยากให้ความรู้เรื่องโมเดลเปิดยังเปิดต่อไป
-ผู้ก่อตั้ง · หัวหน้านักวิจัย
+ตอนนี้เรามีกัน 9 คน ได้แก่ ผู้ก่อตั้ง ที่ปรึกษาด้านวิชาการ 2 ท่าน ฝ่ายปฏิบัติการ และวิศวกรกับนักวิจัย AI อีก 5 คน และยังมีที่ว่างสำหรับนักวิจัย ผู้ดูแลภาษา และนักพัฒนาที่อยากให้ความรู้เรื่องโมเดลเปิดยังเปิดต่อไป
+สมาชิกผู้ร่วมก่อตั้ง
+ผู้ก่อตั้ง AI Model Explorer Lab (AME) · ผู้ร่วมก่อตั้ง vLLM Bangkok
 สัตยา สิงห์กุล
 โจ · กรุงเทพฯ ประเทศไทย
-โจทำงานด้าน speech AI และการนำโมเดลไปรันบนอุปกรณ์ เขาเขียนสำมะโน Manifest ของ 12,974 repository บน Hugging Face และ The Vocabulary Tax และสร้าง AI Model Explorer ให้นักพัฒนาไทย เขาตั้งแล็บนี้ขึ้นเพื่อให้งานเหล่านี้เติบโตต่อไปอย่างเปิดเผย
+โจอยากเห็นคนไทยเข้าใจ AI ที่เราใช้ ไม่ใช่แค่ใช้เป็น เขาสร้าง speech AI และ AI บนอุปกรณ์ในองค์กรขนาดใหญ่ และทำวิจัยของตัวเองว่าโมเดลถูกสร้างขึ้นมาอย่างไร ทั้งสำมะโน Manifest ของ 12,974 repository บน Hugging Face, The Vocabulary Tax และ AI Model Explorer สำหรับนักพัฒนาไทย อีกทั้งยังเป็นกรรมการด้าน AI ในโครงการทั้งในและต่างประเทศ เขาตั้งแล็บนี้ขึ้นเพื่อให้คนที่อยากลงลึกเรื่อง AI มีที่ทำงานด้วยกันอย่างเปิดเผย
 Speech และ voice AI
 Inference บนอุปกรณ์
 กายวิภาคโมเดล
@@ -691,22 +695,23 @@ Hugging Face →
 เปเปอร์ →
 ที่ปรึกษาด้านวิชาการ
 Dr. Worawit Tepsan
-Academic Advisor
+AI Advisor
 Nathaphorn Nanthajirapong
-Academic Advisor
-สมาชิก
+CS Advisor
+ฝ่ายปฏิบัติการ
+Narongpon Samathi
+Community & Documentation Secretary
+สมาชิกฝ่ายเทคนิค AI
 Piyawat Chuangkrud
 AIOps and Research Engineer
 Kontawat Wisetpaitoon
 AI and Research Engineer
 Nattapong Laohawanich
 AI and Research Engineer
-Narongpon Samathi
-Community & Documentation Secretary
 Josh Kimball
-AI Engineer
+Senior AI Engineer
 Hongjie Chen
-AI Researcher
+Senior AI Researcher
 ที่นั่งว่าง
 คนที่เราอยากทำงานด้วยต่อไป
 ที่นั่งว่าง · L1 · L2
@@ -888,10 +893,11 @@ Everyone who makes a substantial contribution is an author, and author order is 
 How to join as a researcher →
 Team
 The people behind the lab
-FOUNDER · LEAD RESEARCHER
+Founding members
+Founder, AI Model Explorer Lab (AME) · Co-Founder, vLLM Bangkok
 Sattaya Singkul
 Jo · Bangkok, Thailand
-Jo works on speech AI and on-device deployment. He wrote the Manifest census of 12,974 Hugging Face repositories and The Vocabulary Tax, and built AI Model Explorer for Thai developers. He started the lab so that this work keeps growing in the open.
+Jo wants Thailand to understand the AI it runs, not only use it. He has built speech and on-device AI inside a large corporation, and does research of his own on how models are made: the Manifest census of 12,974 Hugging Face repositories, The Vocabulary Tax, and AI Model Explorer for Thai developers. He also serves on AI committees for projects in Thailand and abroad. He started the lab so that people who want to go deep into AI have a place to do it together, in the open.
 PEER REVIEW
 Program committee:
 ICONIP 2025 (Springer LNCS & CCIS), ACM ICMR 2024
@@ -903,22 +909,23 @@ Hugging Face →
 Papers →
 Academic advisors
 Dr. Worawit Tepsan
-Academic Advisor
+AI Advisor
 Nathaphorn Nanthajirapong
-Academic Advisor
-Members
+CS Advisor
+Operations
+Narongpon Samathi
+Community & Documentation Secretary
+AI technical members
 Piyawat Chuangkrud
 AIOps and Research Engineer
 Kontawat Wisetpaitoon
 AI and Research Engineer
 Nattapong Laohawanich
 AI and Research Engineer
-Narongpon Samathi
-Community & Documentation Secretary
 Josh Kimball
-AI Engineer
+Senior AI Engineer
 Hongjie Chen
-AI Researcher
+Senior AI Researcher
 Who we work with
 The lab grows through the people and teams who join it.
 Researchers and students
@@ -1101,10 +1108,11 @@ L4 · ทำให้ยุติธรรมกับทุกภาษา
 วิธีร่วมเป็นนักวิจัย →
 ทีม
 คนที่อยู่เบื้องหลังแล็บ
-ผู้ก่อตั้ง · หัวหน้านักวิจัย
+สมาชิกผู้ร่วมก่อตั้ง
+ผู้ก่อตั้ง AI Model Explorer Lab (AME) · ผู้ร่วมก่อตั้ง vLLM Bangkok
 สัตยา สิงห์กุล
 โจ · กรุงเทพฯ ประเทศไทย
-โจทำงานด้าน speech AI และการนำโมเดลไปรันบนอุปกรณ์ เขาเขียนสำมะโน Manifest ของ 12,974 repository บน Hugging Face และ The Vocabulary Tax และสร้าง AI Model Explorer ให้นักพัฒนาไทย เขาตั้งแล็บนี้ขึ้นเพื่อให้งานเหล่านี้เติบโตต่อไปอย่างเปิดเผย
+โจอยากเห็นคนไทยเข้าใจ AI ที่เราใช้ ไม่ใช่แค่ใช้เป็น เขาสร้าง speech AI และ AI บนอุปกรณ์ในองค์กรขนาดใหญ่ และทำวิจัยของตัวเองว่าโมเดลถูกสร้างขึ้นมาอย่างไร ทั้งสำมะโน Manifest ของ 12,974 repository บน Hugging Face, The Vocabulary Tax และ AI Model Explorer สำหรับนักพัฒนาไทย อีกทั้งยังเป็นกรรมการด้าน AI ในโครงการทั้งในและต่างประเทศ เขาตั้งแล็บนี้ขึ้นเพื่อให้คนที่อยากลงลึกเรื่อง AI มีที่ทำงานด้วยกันอย่างเปิดเผย
 งานรีวิวผลงานวิชาการ
 กรรมการโปรแกรม (Program committee):
 ICONIP 2025 (Springer LNCS & CCIS), ACM ICMR 2024
@@ -1116,22 +1124,23 @@ Hugging Face →
 เปเปอร์ →
 ที่ปรึกษาด้านวิชาการ
 Dr. Worawit Tepsan
-Academic Advisor
+AI Advisor
 Nathaphorn Nanthajirapong
-Academic Advisor
-สมาชิก
+CS Advisor
+ฝ่ายปฏิบัติการ
+Narongpon Samathi
+Community & Documentation Secretary
+สมาชิกฝ่ายเทคนิค AI
 Piyawat Chuangkrud
 AIOps and Research Engineer
 Kontawat Wisetpaitoon
 AI and Research Engineer
 Nattapong Laohawanich
 AI and Research Engineer
-Narongpon Samathi
-Community & Documentation Secretary
 Josh Kimball
-AI Engineer
+Senior AI Engineer
 Hongjie Chen
-AI Researcher
+Senior AI Researcher
 เราทำงานกับใคร
 แล็บเติบโตจากคนและทีมที่เข้ามาร่วม
 นักวิจัยและนักศึกษา
