@@ -51,8 +51,8 @@ Main theme: understand AI models from the inside, so they can be made smaller, c
 
 ## Events
 
-- AI Expo Thailand 2026, workshop "Squeeze Until It Breaks: A Hands-On Edge Inference Contest". Saturday 7 November 2026, 14:00-15:00, Day 3, Builder Stage, IMPACT Challenger Hall 1, Muang Thong Thani. A Kaggle contest: open a Thai speech model part by part in AI Model Explorer, then compress it for the device until it breaks. First of a series for Thai developers. https://aiexpothailand.com/agenda/?day=3&stage=builder Invited by Natdhanai Praneenatthavee (Founder, Siam Inference).
-- Siam Inference Thailand, talk "Pass the Pointer, Not the Payload: Serving Any-to-Any Models at Scale" (vLLM-Omni stage graphs and OmniConnector). Thursday 3 December 2026, 17:00-21:00, Cleverse, Rama 9, Bangkok, and online. https://vllmbangkok.com/en/events/siam-inference-thailand-2026-12/ Invited by Natdhanai Praneenatthavee (Founder, Siam Inference).
+- AI Expo Thailand 2026, workshop "Squeeze Until It Breaks: A Hands-On Edge Inference Contest". Saturday 7 November 2026, 14:00-15:00, Day 3, Builder Stage, IMPACT Challenger Hall 1, Muang Thong Thani. A Kaggle contest: open a Thai speech model part by part in AI Model Explorer, then compress it for the device until it breaks. First of a series for Thai developers. https://aiexpothailand.com/agenda/?day=3&stage=builder Thank you, K. Natdhanai Praneenatthavee (Founder, Siam Inference), for the invitation and the opportunity.
+- Siam Inference Thailand, talk "Pass the Pointer, Not the Payload: Serving Any-to-Any Models at Scale" (vLLM-Omni stage graphs and OmniConnector). Thursday 3 December 2026, 17:00-21:00, Cleverse, Rama 9, Bangkok, and online. https://vllmbangkok.com/en/events/siam-inference-thailand-2026-12/ Thank you, K. Natdhanai Praneenatthavee (Founder, Siam Inference), for the invitation and the opportunity.
 
 ## Join as a researcher
 
@@ -262,13 +262,13 @@ SIAM INFERENCE THAILAND · TALK
 Thu 3 Dec 2026 · 17:00–21:00 · Cleverse, Rama 9 and online
 Pass the Pointer, Not the Payload: Serving Any-to-Any Models at Scale
 vLLM-Omni stage graphs and OmniConnector, with a live Model Explorer demo. Free to attend, onsite or online.
-Invited by Natdhanai Praneenatthavee (Founder, Siam Inference)
+Thank you, K. Natdhanai Praneenatthavee (Founder, Siam Inference), for the invitation and the opportunity.
 Event page ↗
 AI EXPO THAILAND 2026 · WORKSHOP
 Sat 7 Nov 2026 · 14:00–15:00 · Day 3, Builder Stage
 Squeeze Until It Breaks: A Hands-On Edge Inference Contest
 IMPACT Challenger Hall 1, Muang Thong Thani. A Kaggle contest: open a Thai speech model part by part in AI Model Explorer, then compress it for the device until it breaks. First of a series for Thai developers.
-Invited by Natdhanai Praneenatthavee (Founder, Siam Inference)
+Thank you, K. Natdhanai Praneenatthavee (Founder, Siam Inference), for the invitation and the opportunity.
 Event page ↗
 Get involved
 Four ways to work with us
@@ -597,13 +597,13 @@ SIAM INFERENCE THAILAND · ทอล์ก
 พฤ. 3 ธ.ค. 2026 · 17:00–21:00 · Cleverse พระราม 9 และออนไลน์
 Pass the Pointer, Not the Payload: Serving Any-to-Any Models at Scale
 stage graph และ OmniConnector ของ vLLM-Omni พร้อมเดโม Model Explorer สด เข้าร่วมฟรี ทั้งที่งานและออนไลน์
-ได้รับเชิญโดยคุณ Natdhanai Praneenatthavee (Founder, Siam Inference)
+ขอบคุณคุณ Natdhanai Praneenatthavee (Founder, Siam Inference) สำหรับคำเชิญและโอกาสครั้งนี้
 หน้างาน ↗
 AI EXPO THAILAND 2026 · เวิร์กช็อป
 ส. 7 พ.ย. 2026 · 14:00–15:00 · วันที่ 3, Builder Stage
 Squeeze Until It Breaks: A Hands-On Edge Inference Contest
 อิมแพ็ค ชาเลนเจอร์ ฮอลล์ 1 เมืองทองธานี แข่งบน Kaggle: เปิดดูโมเดลเสียงพูดภาษาไทยทีละส่วนใน AI Model Explorer แล้วบีบให้เล็กพอจะรันบนอุปกรณ์จนกว่าจะพัง ครั้งแรกของซีรีส์สำหรับนักพัฒนาไทย
-ได้รับเชิญโดยคุณ Natdhanai Praneenatthavee (Founder, Siam Inference)
+ขอบคุณคุณ Natdhanai Praneenatthavee (Founder, Siam Inference) สำหรับคำเชิญและโอกาสครั้งนี้
 หน้างาน ↗
 ร่วมกับเรา
 สี่ทางที่ทำงานกับเราได้
