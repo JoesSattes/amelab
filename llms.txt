@@ -12,6 +12,7 @@ Contact: sattaya.singk@gmail.com
 Founder: Sattaya Singkul (Founder, AI Model Explorer Lab; Co-Founder, vLLM Bangkok https://vllmbangkok.com/en/), https://joessattes.github.io/Sattaya-AI-Website/
 Founder's peer review service: program committee for ICONIP 2025 (Springer LNCS and CCIS) and ACM ICMR 2024; reviewer for IEEE Access, ACM TALLIP, IJEECS and IEEE ICITEE 2025.
 Academic advisors: Dr. Worawit Tepsan (AI Advisor); Nathaphorn Nanthajirapong (CS Advisor)
+Business advisors: Jutathip Tunmee (AI and Business Advisor)
 Operations: Narongpon Samathi (Community & Documentation Secretary)
 AI technical members: Piyawat Chuangkrud (AIOps and Research Engineer); Kontawat Wisetpaitoon (AI and Research Engineer); Nattapong Laohawanich (AI and Research Engineer); Josh Kimball (Senior AI Engineer); Hongjie Chen (Senior AI Researcher)
 
