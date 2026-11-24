@@ -11,10 +11,11 @@ About (why the lab exists, vision, the four pillars in full, who we work with): 
 Contact: sattaya.singk@gmail.com
 Founder: Sattaya Singkul (Founder, AI Model Explorer Lab; Co-Founder, vLLM Bangkok https://vllmbangkok.com/en/), https://joessattes.github.io/Sattaya-AI-Website/
 Founder's peer review service: program committee for ICONIP 2025 (Springer LNCS and CCIS) and ACM ICMR 2024; reviewer for IEEE Access, ACM TALLIP, IJEECS and IEEE ICITEE 2025.
-Academic advisors: Dr. Worawit Tepsan (AI Advisor); Nathaphorn Nanthajirapong (CS Advisor)
+Academic advisors: Dr. Worawit Tepsan (Senior AI and Mathematics Advisor; Chiang Mai University); Nathaphorn Nanthajirapong (CS Advisor; Huachiew Chalermprakiet University); Pongpon Lapsatid (AI and Industrial Advisor; University of Tokyo)
 Business advisors: Jutathip Tunmee (AI and Business Advisor)
 Operations: Narongpon Samathi (Community & Documentation Secretary)
 AI technical members: Piyawat Chuangkrud (AIOps and Research Engineer); Kontawat Wisetpaitoon (AI and Research Engineer); Nattapong Laohawanich (AI and Research Engineer); Josh Kimball (Senior AI Engineer); Hongjie Chen (Senior AI Researcher)
+Members are based in Bangkok, Chiang Mai, Samut Prakan, Tokyo and Europe, and contribute in a personal capacity, outside their day jobs.
 
 ## Research pillars
 
@@ -345,7 +346,7 @@ New papers, tools and datasets. No more than once a month.
 Email address
 Team
 A small team, growing in the open.
-Ten people today: a founder, three advisors, operations, and five AI engineers and researchers. There is room for more researchers, language leads and builders who want what we learn about open models to stay open.
+Eleven people today: a founder, four advisors, operations, and five AI engineers and researchers. There is room for more researchers, language leads and builders who want what we learn about open models to stay open.
 Founding members
 Founder, AI Model Explorer Lab (AME) · Co-Founder,
 vLLM Bangkok
@@ -363,26 +364,39 @@ Hugging Face →
 Papers →
 Academic advisors
 Dr. Worawit Tepsan
-AI Advisor
+Senior AI and Mathematics Advisor
+Chiang Mai University · Chiang Mai
 Nathaphorn Nanthajirapong
 CS Advisor
+Huachiew Chalermprakiet University · Samut Prakan
+Pongpon Lapsatid
+AI and Industrial Advisor
+University of Tokyo · Tokyo
 Business advisors
 Jutathip Tunmee
 AI and Business Advisor
+Bangkok
 Operations
 Narongpon Samathi
 Community & Documentation Secretary
+Retail · Bangkok
 AI technical members
 Piyawat Chuangkrud
 AIOps and Research Engineer
+Bangkok
 Kontawat Wisetpaitoon
 AI and Research Engineer
+Banking · Bangkok
 Nattapong Laohawanich
 AI and Research Engineer
+Stock trading · Bangkok
 Josh Kimball
 Senior AI Engineer
+Europe
 Hongjie Chen
 Senior AI Researcher
+Europe
+Everyone here contributes in a personal capacity, outside their day jobs.
 Open seats
 Who we want to work with next
 OPEN SEAT · L1 · L2
@@ -683,7 +697,7 @@ L4
 อีเมล
 ทีม
 ทีมเล็ก ๆ ที่เติบโตแบบเปิด
-ตอนนี้เรามีกัน 10 คน ได้แก่ ผู้ก่อตั้ง ที่ปรึกษา 3 ท่าน ฝ่ายปฏิบัติการ และวิศวกรกับนักวิจัย AI อีก 5 คน และยังมีที่ว่างสำหรับนักวิจัย ผู้ดูแลภาษา และนักพัฒนาที่อยากให้ความรู้เรื่องโมเดลเปิดยังเปิดต่อไป
+ตอนนี้เรามีกัน 11 คน ได้แก่ ผู้ก่อตั้ง ที่ปรึกษา 4 ท่าน ฝ่ายปฏิบัติการ และวิศวกรกับนักวิจัย AI อีก 5 คน และยังมีที่ว่างสำหรับนักวิจัย ผู้ดูแลภาษา และนักพัฒนาที่อยากให้ความรู้เรื่องโมเดลเปิดยังเปิดต่อไป
 สมาชิกผู้ร่วมก่อตั้ง
 ผู้ก่อตั้ง AI Model Explorer Lab (AME) · ผู้ร่วมก่อตั้ง
 vLLM Bangkok
@@ -701,26 +715,39 @@ Hugging Face →
 เปเปอร์ →
 ที่ปรึกษาด้านวิชาการ
 Dr. Worawit Tepsan
-AI Advisor
+Senior AI and Mathematics Advisor
+มหาวิทยาลัยเชียงใหม่ · เชียงใหม่
 Nathaphorn Nanthajirapong
 CS Advisor
+มหาวิทยาลัยหัวเฉียวเฉลิมพระเกียรติ · สมุทรปราการ
+Pongpon Lapsatid
+AI and Industrial Advisor
+มหาวิทยาลัยโตเกียว · โตเกียว
 ที่ปรึกษาด้านธุรกิจ
 Jutathip Tunmee
 AI and Business Advisor
+กรุงเทพฯ
 ฝ่ายปฏิบัติการ
 Narongpon Samathi
 Community & Documentation Secretary
+ค้าปลีก · กรุงเทพฯ
 สมาชิกฝ่ายเทคนิค AI
 Piyawat Chuangkrud
 AIOps and Research Engineer
+กรุงเทพฯ
 Kontawat Wisetpaitoon
 AI and Research Engineer
+ธนาคาร · กรุงเทพฯ
 Nattapong Laohawanich
 AI and Research Engineer
+ซื้อขายหลักทรัพย์ · กรุงเทพฯ
 Josh Kimball
 Senior AI Engineer
+ยุโรป
 Hongjie Chen
 Senior AI Researcher
+ยุโรป
+ทุกคนร่วมงานกับแล็บในนามส่วนตัว นอกเวลางานประจำ
 ที่นั่งว่าง
 คนที่เราอยากทำงานด้วยต่อไป
 ที่นั่งว่าง · L1 · L2
@@ -773,7 +800,7 @@ AI Model Explorer Lab is an open, non-commercial research lab in Bangkok. We stu
 Founded 2026
 Bangkok, Thailand
 Open and non-commercial
-Team of 10
+Team of 11
 2 papers · 3 datasets · 1 tool
 Why we started
 Thailand uses a lot of AI. Few of us study what is inside it.
@@ -919,26 +946,39 @@ Hugging Face →
 Papers →
 Academic advisors
 Dr. Worawit Tepsan
-AI Advisor
+Senior AI and Mathematics Advisor
+Chiang Mai University · Chiang Mai
 Nathaphorn Nanthajirapong
 CS Advisor
+Huachiew Chalermprakiet University · Samut Prakan
+Pongpon Lapsatid
+AI and Industrial Advisor
+University of Tokyo · Tokyo
 Business advisors
 Jutathip Tunmee
 AI and Business Advisor
+Bangkok
 Operations
 Narongpon Samathi
 Community & Documentation Secretary
+Retail · Bangkok
 AI technical members
 Piyawat Chuangkrud
 AIOps and Research Engineer
+Bangkok
 Kontawat Wisetpaitoon
 AI and Research Engineer
+Banking · Bangkok
 Nattapong Laohawanich
 AI and Research Engineer
+Stock trading · Bangkok
 Josh Kimball
 Senior AI Engineer
+Europe
 Hongjie Chen
 Senior AI Researcher
+Europe
+Everyone here contributes in a personal capacity, outside their day jobs.
 Who we work with
 The lab grows through the people and teams who join it.
 Researchers and students
@@ -992,7 +1032,7 @@ AI Model Explorer Lab เป็นแล็บวิจัยแบบเปิ�
 ก่อตั้งปี 2026
 กรุงเทพฯ ประเทศไทย
 เปิดและไม่แสวงกำไร
-ทีม 10 คน
+ทีม 11 คน
 2 เปเปอร์ · 3 ชุดข้อมูล · 1 เครื่องมือ
 ทำไมเราตั้งแล็บ
 ไทยใช้ AI เยอะ แต่มีน้อยคนที่ศึกษาว่าข้างในมันมีอะไร
@@ -1138,26 +1178,39 @@ Hugging Face →
 เปเปอร์ →
 ที่ปรึกษาด้านวิชาการ
 Dr. Worawit Tepsan
-AI Advisor
+Senior AI and Mathematics Advisor
+มหาวิทยาลัยเชียงใหม่ · เชียงใหม่
 Nathaphorn Nanthajirapong
 CS Advisor
+มหาวิทยาลัยหัวเฉียวเฉลิมพระเกียรติ · สมุทรปราการ
+Pongpon Lapsatid
+AI and Industrial Advisor
+มหาวิทยาลัยโตเกียว · โตเกียว
 ที่ปรึกษาด้านธุรกิจ
 Jutathip Tunmee
 AI and Business Advisor
+กรุงเทพฯ
 ฝ่ายปฏิบัติการ
 Narongpon Samathi
 Community & Documentation Secretary
+ค้าปลีก · กรุงเทพฯ
 สมาชิกฝ่ายเทคนิค AI
 Piyawat Chuangkrud
 AIOps and Research Engineer
+กรุงเทพฯ
 Kontawat Wisetpaitoon
 AI and Research Engineer
+ธนาคาร · กรุงเทพฯ
 Nattapong Laohawanich
 AI and Research Engineer
+ซื้อขายหลักทรัพย์ · กรุงเทพฯ
 Josh Kimball
 Senior AI Engineer
+ยุโรป
 Hongjie Chen
 Senior AI Researcher
+ยุโรป
+ทุกคนร่วมงานกับแล็บในนามส่วนตัว นอกเวลางานประจำ
 เราทำงานกับใคร
 แล็บเติบโตจากคนและทีมที่เข้ามาร่วม
 นักวิจัยและนักศึกษา
