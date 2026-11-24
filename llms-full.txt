@@ -386,7 +386,7 @@ Retail · Bangkok
 AI technical members
 Piyawat Chuangkrud
 AIOps and Research Engineer
-Bangkok
+Digital services · Bangkok
 Kontawat Wisetpaitoon
 AI and Research Engineer
 Banking · Bangkok
@@ -740,7 +740,7 @@ Community & Documentation Secretary
 สมาชิกฝ่ายเทคนิค AI
 Piyawat Chuangkrud
 AIOps and Research Engineer
-กรุงเทพฯ
+บริการดิจิทัล · กรุงเทพฯ
 Kontawat Wisetpaitoon
 AI and Research Engineer
 ธนาคาร · กรุงเทพฯ
@@ -974,7 +974,7 @@ Retail · Bangkok
 AI technical members
 Piyawat Chuangkrud
 AIOps and Research Engineer
-Bangkok
+Digital services · Bangkok
 Kontawat Wisetpaitoon
 AI and Research Engineer
 Banking · Bangkok
@@ -1209,7 +1209,7 @@ Community & Documentation Secretary
 สมาชิกฝ่ายเทคนิค AI
 Piyawat Chuangkrud
 AIOps and Research Engineer
-กรุงเทพฯ
+บริการดิจิทัล · กรุงเทพฯ
 Kontawat Wisetpaitoon
 AI and Research Engineer
 ธนาคาร · กรุงเทพฯ
